@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "서정윤 (Seojungyoun)", 
   title: "AI Engineer & Media Technologist",
-  description: "XAI 연구 및 생성형 AI 워크플로우 설계를 통해 기술과 인간을 연결하는 IT 미디어 공학도입니다.",
+  description: "XAI 연구 및 생성형 AI 워크플로우 설계를 통해 기술과 인간을 연결하는 IT미디어공학도입니다.",
   accentColor: "#3b82f6",
   social: {
     email: "bellita@naver.com",
@@ -84,9 +84,9 @@ export const siteConfig = {
     {
       school: "덕성여자대학교 (Duksung Women's University)",
       degree: "IT미디어공학전공 (GPA: 4.2 / 4.5)",
-      dateRange: "2022 - 현재",
+      dateRange: "2022 - 2026.08 졸업예정",
       achievements: [
-        "한국지능정보사회진흥원 원장상 (KT디지털인재장학생 활동)",
+        "한국지능정보사회진흥원 원장상",
         "경기XR아카데미 경기콘텐츠진흥원장상 수상",
         "덕성여자대학교 연합해커톤 학생투표상 수상",
         "독일 University of Marburg 방문학생 수료 (Computer Science)",
