@@ -1,16 +1,18 @@
 @import "tailwindcss";
 
-body {
-  font-family: 'IBM Plex Mono', monospace;
+
+/* Pretendard 폰트 계층 적용 */
+* {
+/* font-family: 'IBM Plex Mono', monospace; */
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
 
-  /* 제목은 더 굵게 */
-  h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
-  }
+/* 제목은 더 굵게 */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
 
-  /* 코드/터미널은 모노스페이스 유지 */
-  code, pre, .token {
-    font-family: "IBM Plex Mono", "JetBrains Mono", ui-monospace, monospace;
-  }
+/* 코드/터미널은 모노스페이스 유지 */
+code, pre, .token {
+  font-family: "IBM Plex Mono", "JetBrains Mono", ui-monospace, monospace;
 }
