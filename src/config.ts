@@ -1,11 +1,11 @@
 export const siteConfig = {
-  name: "서정윤 (Seojungyoun)", 
+  name: "서정윤 (Seo Jungyoun)", 
   title: "AI Engineer & Media Technologist",
   description: "XAI 연구 및 생성형 AI 워크플로우 설계를 통해 기술과 인간을 연결하는 IT미디어공학도입니다.",
   accentColor: "#3b82f6",
   social: {
     email: "bellita@naver.com",
-    linkedin: "https://linkedin.com/in/yourprofile",
+    linkedin: "https://www.linkedin.com/in/%EC%A0%95%EC%9C%A4-%EC%84%9C-71b989274/",
     github: "https://github.com/seojungyoun"
   },
   aboutMe:
