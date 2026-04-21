@@ -20,6 +20,7 @@ export type HighlightProject = {
   stack: string[];
   video?: string;
   diagrams?: string[];
+  diagramCaptions?: string[];
 };
 
 export type ArchiveItem = {
@@ -97,6 +98,10 @@ export const siteConfig = {
       stack: ["LangChain", "LangGraph", "Stable Diffusion", "Veo3", "Python"],
       video: "https://youtu.be/d4_xoC0egl4?si=L6qyA6FicPgzHf5J",
       diagrams: ["/media/flimflow-diagram-1.png", "/media/flimflow-diagram-2.png"],
+      diagramCaptions: [
+        "도1 — 장면 일관성 평가 흐름도: 스토리보드 파싱 → 6축 충분성 평가 → 재생성/승인 분기",
+        "도2 — 전체 파이프라인 아키텍처: PDF 입력 → 프롬프트 생성 → 이미지·영상 출력까지의 시스템 흐름",
+      ],
     },
     {
       id: "dorememe",
