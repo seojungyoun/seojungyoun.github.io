@@ -1,0 +1,37 @@
+---
+import { siteConfig } from "../config";
+import "../styles/global.css";
+---
+
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="SM AI virtual artist operations proposal" />
+    <title>SM Proposal - {siteConfig.name}</title>
+  </head>
+
+  <body class="bg-[var(--cream)] text-[var(--navy)]">
+    <main class="proposal-shell">
+      <div class="proposal-grid">
+        <section class="proposal-card">
+          <p class="summary-label">Hidden Page</p>
+          <h1>{siteConfig.hiddenProposal.title}</h1>
+          <p class="proposal-scenario">{siteConfig.hiddenProposal.scenario}</p>
+
+          <div class="summary-actions print-hide">
+            <a href="/" class="back-button">메인 페이지로 돌아가기</a>
+            <a href={siteConfig.archive.reviewerSummaryHref} class="print-button">요약본 보기</a>
+          </div>
+        </section>
+
+        <section class="proposal-card">
+          <p class="summary-label">Scenario Design</p>
+          <ul class="summary-list">
+            {siteConfig.hiddenProposal.bullets.map((bullet) => <li>{bullet}</li>)}
+          </ul>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

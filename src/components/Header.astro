@@ -1,78 +1,66 @@
 ---
 import { siteConfig } from "../config";
 
-const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
-const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
-const hasEducation = siteConfig.education && siteConfig.education.length > 0;
+const navItems = [
+  { href: "#workflow", label: "Workflow" },
+  { href: "#logic-layer", label: "Logic Layer" },
+  { href: "#management-layer", label: "Management" },
+  { href: "#foundation", label: "Foundation" },
+  { href: siteConfig.archive.hiddenPageHref, label: "Hidden Page" },
+];
 ---
 
 <header
   id="header"
-  class="fixed top-0 left-0 right-0 z-50 hidden md:block transition-all duration-300"
+  class="fixed inset-x-0 top-0 z-50 transition-all duration-500"
 >
-  <nav class="max-w-7xl mx-auto px-8 py-4">
-    <ul class="flex items-center gap-8 justify-center">
-      <li>
-        <a
-          href="#about"
-          class="text-gray-700 hover:text-black transition-colors font-medium"
-        >
-          About
-        </a>
-      </li>
+  <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
+    <a href="#top" class="flex items-center gap-3 text-[var(--navy)]">
+      <span class="grid h-11 w-11 place-items-center rounded-2xl border border-white/60 bg-white/70 text-sm font-semibold shadow-[0_12px_30px_rgba(31,47,99,0.14)] backdrop-blur">
+        SJ
+      </span>
+      <span class="hidden md:block">
+        <strong class="block text-sm uppercase tracking-[0.28em]">{siteConfig.englishName}</strong>
+        <span class="block text-xs text-[var(--muted)]">AI-Human Pipeline</span>
+      </span>
+    </a>
+
+    <ul class="hidden items-center gap-6 lg:flex">
       {
-        hasProjects && (
+        navItems.map((item) => (
           <li>
             <a
-              href="#projects"
-              class="text-gray-700 hover:text-black transition-colors font-medium"
+              href={item.href}
+              class="text-sm font-medium text-[var(--navy)]/80 transition hover:text-[var(--navy)]"
             >
-              Projects
+              {item.label}
             </a>
           </li>
-        )
-      }
-      {
-        hasExperience && (
-          <li>
-            <a
-              href="#experience"
-              class="text-gray-700 hover:text-black transition-colors font-medium"
-            >
-              Experience
-            </a>
-          </li>
-        )
-      }
-      {
-        hasEducation && (
-          <li>
-            <a
-              href="#education"
-              class="text-gray-700 hover:text-black transition-colors font-medium"
-            >
-              Education
-            </a>
-          </li>
-        )
+        ))
       }
     </ul>
+
+    <a
+      href={siteConfig.archive.reviewerSummaryHref}
+      class="rounded-full border border-[var(--pink-strong)]/40 bg-[var(--pink-soft)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-[var(--navy)] transition hover:-translate-y-0.5 hover:bg-white"
+    >
+      Reviewer PDF
+    </a>
   </nav>
 </header>
 
 <script>
-  window.addEventListener("scroll", () => {
+  const syncHeader = () => {
     const header = document.getElementById("header");
-    if (window.scrollY > 100) {
-      header?.classList.add("bg-white/80", "backdrop-blur-sm");
-    } else {
-      header?.classList.remove("bg-white/80", "backdrop-blur-sm");
-    }
-  });
-</script>
+    if (!header) return;
 
-<style>
-  html {
-    scroll-behavior: smooth;
-  }
-</style>
+    if (window.scrollY > 24) {
+      header.classList.add("bg-white/78", "backdrop-blur-xl", "shadow-[0_18px_45px_rgba(31,47,99,0.12)]");
+    } else {
+      header.classList.remove("bg-white/78", "backdrop-blur-xl", "shadow-[0_18px_45px_rgba(31,47,99,0.12)]");
+    }
+  };
+
+  syncHeader();
+  window.addEventListener("scroll", syncHeader, { passive: true });
+</script>
