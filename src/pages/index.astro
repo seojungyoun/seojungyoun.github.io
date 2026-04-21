@@ -4,6 +4,16 @@ import Footer from "../components/Footer.astro";
 import { siteConfig } from "../config";
 import "../styles/global.css";
 
+function toYoutubeEmbed(url: string | undefined): string | null {
+  if (!url) return null;
+  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([^?&\s]+)/);
+  if (!match) return null;
+  const id = match[1];
+  return `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=1`;
+}
+
+const flimflowEmbed = toYoutubeEmbed(siteConfig.highlightProjects[0].video);
+
 const nodePoints = [
   { x: 12, y: 18, size: "lg" },
   { x: 24, y: 34, size: "sm" },
@@ -48,6 +58,13 @@ FLOW
     <main class="page-shell">
       <section class="hero-section">
         <div class="hero-copy">
+          <div class="hero-profile">
+            <img src="/media/youn.jpg" alt={siteConfig.name} class="hero-avatar" />
+            <div>
+              <span class="hero-profile-name">{siteConfig.name}</span>
+              <span class="hero-profile-name-en">{siteConfig.englishName}</span>
+            </div>
+          </div>
           <p class="eyebrow">{siteConfig.hero.eyebrow}</p>
           <h1>{siteConfig.hero.headline}</h1>
           <p class="hero-summary">{siteConfig.hero.summary}</p>
@@ -150,18 +167,33 @@ FLOW
               <div class="video-card">
                 <div class="video-head">
                   <span>별 재단사 결과 영상</span>
-                  <button type="button" class="sound-toggle" data-video-target="flimflow-video">Sound Off</button>
+                  {flimflowEmbed ? (
+                    <a href={siteConfig.highlightProjects[0].video} target="_blank" rel="noreferrer" class="yt-link">YouTube에서 보기 ↗</a>
+                  ) : (
+                    <button type="button" class="sound-toggle" data-video-target="flimflow-video">Sound Off</button>
+                  )}
                 </div>
-                <video
-                  id="flimflow-video"
-                  class="portfolio-video"
-                  src={siteConfig.highlightProjects[0].video}
-                  autoplay
-                  muted
-                  loop
-                  playsinline
-                  controls
-                ></video>
+                {flimflowEmbed ? (
+                  <iframe
+                    class="portfolio-video"
+                    src={flimflowEmbed}
+                    title="FLIMFLOW 별 재단사 결과 영상"
+                    frameborder="0"
+                    allow="autoplay; encrypted-media; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                ) : (
+                  <video
+                    id="flimflow-video"
+                    class="portfolio-video"
+                    src={siteConfig.highlightProjects[0].video}
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    controls
+                  ></video>
+                )}
               </div>
 
               <div class="diagram-grid">
