@@ -4,58 +4,25 @@ import Footer from "../components/Footer.astro";
 import { siteConfig } from "../config";
 import "../styles/global.css";
 
-const heroNodes = [
-  { x: 10, y: 16, size: "lg" },
-  { x: 21, y: 32, size: "sm" },
-  { x: 31, y: 18, size: "md" },
-  { x: 43, y: 38, size: "sm" },
-  { x: 58, y: 20, size: "lg" },
-  { x: 72, y: 34, size: "sm" },
-  { x: 83, y: 17, size: "md" },
-  { x: 67, y: 58, size: "sm" },
-  { x: 49, y: 62, size: "md" },
-  { x: 27, y: 60, size: "sm" },
+const nodePoints = [
+  { x: 12, y: 18, size: "lg" },
+  { x: 24, y: 34, size: "sm" },
+  { x: 35, y: 18, size: "md" },
+  { x: 50, y: 28, size: "sm" },
+  { x: 66, y: 18, size: "lg" },
+  { x: 82, y: 34, size: "sm" },
+  { x: 72, y: 60, size: "md" },
+  { x: 48, y: 66, size: "sm" },
+  { x: 26, y: 58, size: "sm" },
 ];
 
-const architectureNodes = [
-  { title: "Unity VR Client", body: "Gesture capture\nVisual feedback" },
-  { title: "Realtime Mapper", body: "Color, thickness,\nvelocity to tone" },
-  { title: "Flask API", body: "Signal routing\nrequest orchestration" },
-  { title: "Celery Workers", body: "Async processing\nand scheduling" },
-  { title: "Sound Engine", body: "Tone synthesis\nand layering" },
-];
+const promptSnippet = `SYSTEM
+사용자의 글을 대신 완성하지 않고 사고를 확장하는 질문을 먼저 제안한다.
 
-const promptExample = `SYSTEM: 사용자의 글을 대신 완성하지 말고 사고를 확장하는 질문을 우선한다.
-GOAL: 표현의 핵심을 스스로 찾도록 맥락을 정리한다.
-STEPS:
+FLOW
 1. 목적과 독자를 확인한다.
 2. 문장의 감정과 논리 밀도를 점검한다.
-3. 바로 수정안을 주기보다 질문과 선택지를 제안한다.`;
-
-const coachCards = [
-  {
-    question: "지금 바로 초안을 써줄까?",
-    answer:
-      "아니요. 먼저 사용자가 무엇을 말하고 싶은지, 누구에게 말하는지부터 다시 묻습니다.",
-  },
-  {
-    question: "문장이 약할 때 AI는 무엇을 하나요?",
-    answer:
-      "완성 답안을 주는 대신 논리, 감정, 구조 중 무엇이 비어 있는지 진단하고 선택지를 제안합니다.",
-  },
-  {
-    question: "왜 이 구조가 중요한가요?",
-    answer:
-      "사용자의 문체와 판단을 남겨두면서도 글쓰기 근력을 키우는 AI가 되기 때문입니다.",
-  },
-];
-
-const archiveTabs = [
-  { id: "overview", label: "Overview" },
-  { id: "projects", label: "Projects" },
-  { id: "experience", label: "Experience" },
-  { id: "education", label: "Education" },
-];
+3. 바로 수정안보다 선택지와 질문을 제공한다.`;
 ---
 
 <html lang="ko">
@@ -71,403 +38,266 @@ const archiveTabs = [
     <title>{siteConfig.name} - {siteConfig.title}</title>
   </head>
 
-  <body id="top" class="bg-[var(--cream)] text-[var(--navy)]">
+  <body id="top">
     <Header />
 
-    <a
-      href={siteConfig.archive.reviewerSummaryHref}
-      class="floating-reviewer-button"
-    >
-      <span>심사위원용 요약 PDF 다운로드</span>
+    <a href={siteConfig.archive.reviewerSummaryHref} class="floating-reviewer-button">
+      심사위원용 요약 PDF
     </a>
 
-    <main>
-      <section class="hero-shell">
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <p class="eyebrow">{siteConfig.hero.eyebrow}</p>
-            <h1>{siteConfig.hero.headline}</h1>
-            <p class="hero-subheadline">{siteConfig.hero.subheadline}</p>
+    <main class="page-shell">
+      <section class="hero-section">
+        <div class="hero-copy">
+          <p class="eyebrow">{siteConfig.hero.eyebrow}</p>
+          <h1>{siteConfig.hero.headline}</h1>
+          <p class="hero-summary">{siteConfig.hero.summary}</p>
 
-            <div class="hero-actions">
-              <a href={siteConfig.hero.primaryCta.href} class="primary-chip">
-                {siteConfig.hero.primaryCta.label}
-              </a>
-              <a href={siteConfig.hero.secondaryCta.href} class="secondary-chip">
-                {siteConfig.hero.secondaryCta.label}
-              </a>
-            </div>
-
-            <div class="hero-stats">
-              {
-                siteConfig.hero.stats.map((stat) => (
-                  <div class="stat-card">
-                    <span>{stat.label}</span>
-                    <strong>{stat.value}</strong>
-                  </div>
-                ))
-              }
-            </div>
+          <div class="hero-actions">
+            <a href={siteConfig.hero.primaryCta.href} class="button-primary">{siteConfig.hero.primaryCta.label}</a>
+            <a href={siteConfig.hero.secondaryCta.href} class="button-secondary">{siteConfig.hero.secondaryCta.label}</a>
           </div>
 
-          <div class="hero-visual">
-            <div class="hero-visual-panel">
-              <div class="visual-label">
-                <span>Live Pipeline Signal</span>
-                <strong>AI Logic x Creative Ops</strong>
-              </div>
-
-              <div class="node-network" id="node-network">
-                <svg class="node-network-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
-                  <path id="node-path" d="M 10 16 C 18 22, 25 26, 31 18 S 43 38, 58 20 S 72 34, 83 17" />
-                  <path d="M 21 32 C 28 42, 37 56, 49 62 S 59 66, 67 58" />
-                  <path d="M 27 60 C 37 48, 47 42, 58 20" />
-                </svg>
-
-                {
-                  heroNodes.map((node, index) => (
-                    <button
-                      type="button"
-                      class={`network-node network-node-${node.size}`}
-                      style={`left:${node.x}%; top:${node.y}%; --delay:${index * 0.22}s;`}
-                      aria-label={`Pipeline node ${index + 1}`}
-                    >
-                      <span></span>
-                    </button>
-                  ))
-                }
-
-                <div class="node-callout">
-                  <p>Cursor-responsive network</p>
-                  <strong>Scroll is the workflow.</strong>
+          <div class="hero-stats">
+            {
+              siteConfig.hero.stats.map((stat) => (
+                <div class="mini-stat">
+                  <span>{stat.label}</span>
+                  <strong>{stat.value}</strong>
                 </div>
-              </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="hero-visual-card">
+          <div class="hero-visual-head">
+            <span>SM 제출용 핵심 포인트</span>
+            <strong>특허 검토 · 실시간 인터랙션 · 서비스 기획</strong>
+          </div>
+
+          <div class="hero-network" id="hero-network">
+            <svg class="hero-network-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <path id="hero-network-path" d="M 12 18 C 20 26, 28 32, 35 18 S 50 28, 66 18 S 82 34, 72 60" />
+              <path d="M 24 34 C 30 46, 36 58, 48 66" />
+              <path d="M 26 58 C 36 46, 44 38, 50 28" />
+            </svg>
+
+            {
+              nodePoints.map((node, index) => (
+                <span
+                  class={`hero-node hero-node-${node.size}`}
+                  style={`left:${node.x}%; top:${node.y}%; --delay:${index * 0.16}s;`}
+                ></span>
+              ))
+            }
+
+            <div class="network-note">
+              <p>Workflow signal</p>
+              <strong>AI logic, execution, archive</strong>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="workflow" class="content-section">
-        <div class="section-heading">
-          <p class="section-kicker">Workflow Map</p>
-          <h2>사이트 전체를 하나의 공정처럼 읽히도록 설계했습니다.</h2>
+      <section class="intro-strip">
+        <div>
+          <p class="section-kicker">About</p>
+          <h2>{siteConfig.about.heading}</h2>
+        </div>
+        <p>{siteConfig.about.body}</p>
+      </section>
+
+      <section id="featured-projects" class="content-section">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">Featured Projects</p>
+            <h2>상단에는 지금 가장 보여줘야 할 핵심 사례만 압축했습니다.</h2>
+          </div>
           <p>
-            접속, 이해, 검토, 설득의 흐름을 따라가며 정윤님의 작업 방식을 단계별로 경험할 수 있습니다.
+            FLIMFLOW는 기획자로서의 구조 설계 능력을, Dorememe는 실시간 인터랙션 시스템 구현 경험을, writie는 사용자 중심 AI 서비스 기획 관점을 보여주는 프로젝트입니다.
           </p>
         </div>
 
-        <div class="workflow-rail">
-          {
-            siteConfig.workflow.map((step) => (
-              <article class="workflow-card">
-                <p class="workflow-card-label">{step.label}</p>
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
+        <div class="feature-stack">
+          <article class="feature-card feature-card-wide">
+            <div class="feature-copy">
+              <p class="feature-label">{siteConfig.highlightProjects[0].subtitle}</p>
+              <h3>{siteConfig.highlightProjects[0].title}</h3>
+              <p>{siteConfig.highlightProjects[0].summary}</p>
+              <p class="feature-status">{siteConfig.highlightProjects[0].status}</p>
+
+              <div class="evidence-grid">
+                <div class="compact-list">
+                  <span>수행한 역할</span>
+                  <ul>
+                    {siteConfig.highlightProjects[0].role.map((item) => <li>{item}</li>)}
+                  </ul>
+                </div>
+                <div class="compact-list">
+                  <span>증빙 포인트</span>
+                  <ul>
+                    {siteConfig.highlightProjects[0].proof.map((item) => <li>{item}</li>)}
+                  </ul>
+                </div>
+              </div>
+
+              <div class="tag-row">
+                {siteConfig.highlightProjects[0].stack.map((item) => <span>{item}</span>)}
+              </div>
+            </div>
+
+            <div class="feature-media-column">
+              <div class="video-card">
+                <div class="video-head">
+                  <span>별 재단사 결과 영상</span>
+                  <button type="button" class="sound-toggle" data-video-target="flimflow-video">Sound Off</button>
+                </div>
+                <video
+                  id="flimflow-video"
+                  class="portfolio-video"
+                  src={siteConfig.highlightProjects[0].video}
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  controls
+                ></video>
+              </div>
+
+              <div class="diagram-grid">
+                {
+                  siteConfig.highlightProjects[0].diagrams?.map((diagram, index) => (
+                    <figure class="diagram-card">
+                      <img src={diagram} alt={`FLIMFLOW diagram ${index + 1}`} />
+                    </figure>
+                  ))
+                }
+              </div>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-copy">
+              <p class="feature-label">{siteConfig.highlightProjects[1].subtitle}</p>
+              <h3>{siteConfig.highlightProjects[1].title}</h3>
+              <p>{siteConfig.highlightProjects[1].summary}</p>
+              <p class="feature-status">{siteConfig.highlightProjects[1].status}</p>
+
+              <div class="compact-list">
+                <span>핵심 기여</span>
                 <ul>
-                  {step.metrics?.map((metric) => <li>{metric}</li>)}
+                  {siteConfig.highlightProjects[1].role.map((item) => <li>{item}</li>)}
                 </ul>
-              </article>
-            ))
-          }
-        </div>
-      </section>
-
-      <section id="logic-layer" class="content-section logic-layer">
-        <div class="section-heading">
-          <p class="section-kicker">The Logic Layer</p>
-          <h2>결과물이 아니라 설계 사고가 먼저 보이도록 구성했습니다.</h2>
-          <p>
-            각 프로젝트는 무엇을 만들었는지가 아니라, 어떤 문제를 어떤 로직으로 구조화했는지를 중심으로 소개합니다.
-          </p>
-        </div>
-
-        <div class="project-stack">
-          <article class="feature-project" data-project="video">
-            <div class="feature-copy">
-              <p class="feature-label">{siteConfig.projects[0].subtitle}</p>
-              <h3>{siteConfig.projects[0].title}</h3>
-              <p>{siteConfig.projects[0].summary}</p>
-
-              <div class="challenge-solution">
-                <div>
-                  <span>Problem</span>
-                  <p>{siteConfig.projects[0].challenge}</p>
-                </div>
-                <div>
-                  <span>Logic Applied</span>
-                  <p>{siteConfig.projects[0].solution}</p>
-                </div>
               </div>
 
               <div class="tag-row">
-                {siteConfig.projects[0].tags.map((tag) => <span>{tag}</span>)}
+                {siteConfig.highlightProjects[1].stack.map((item) => <span>{item}</span>)}
               </div>
             </div>
 
-            <div class="feature-visual">
-              <div class="compare-panel">
-                <div class="compare-controls">
-                  <button type="button" class="compare-toggle is-active" data-mode="problem">
-                    문제점: 비일관성
-                  </button>
-                  <button type="button" class="compare-toggle" data-mode="solution">
-                    정윤님의 알고리즘 적용
-                  </button>
-                </div>
-
-                <div class="compare-stage" id="compare-stage" data-mode="problem">
-                  <div class="compare-frame compare-before">
-                    <span>Before</span>
-                    <strong>Noise / Drift / Mismatch</strong>
-                  </div>
-                  <div class="compare-frame compare-after">
-                    <span>After</span>
-                    <strong>Coherent Motion / Controlled Style</strong>
-                  </div>
-                  <div class="compare-slider"></div>
-                </div>
+            <div class="video-card">
+              <div class="video-head">
+                <span>Dorememe 시연 영상</span>
+                <button type="button" class="sound-toggle" data-video-target="dorememe-video">Sound Off</button>
               </div>
-
-              <div class="infographic-rail">
-                {
-                  [
-                    "Storyboard Parse",
-                    "Scene Graph",
-                    "Constraint Layer",
-                    "Prompt Routing",
-                    "6-axis Evaluation",
-                  ].map((item, index) => (
-                    <div class="infographic-step" style={`--step-index:${index};`}>
-                      <span>{String(index + 1).padStart(2, "0")}</span>
-                      <p>{item}</p>
-                    </div>
-                  ))
-                }
-              </div>
+              <video
+                id="dorememe-video"
+                class="portfolio-video"
+                src={siteConfig.highlightProjects[1].video}
+                autoplay
+                muted
+                loop
+                playsinline
+                controls
+              ></video>
             </div>
           </article>
 
-          <article class="feature-project feature-project-alt" data-project="dorememe">
+          <article class="feature-card">
             <div class="feature-copy">
-              <p class="feature-label">{siteConfig.projects[1].subtitle}</p>
-              <h3>{siteConfig.projects[1].title}</h3>
-              <p>{siteConfig.projects[1].summary}</p>
+              <p class="feature-label">{siteConfig.highlightProjects[2].subtitle}</p>
+              <h3>{siteConfig.highlightProjects[2].title}</h3>
+              <p>{siteConfig.highlightProjects[2].summary}</p>
+              <p class="feature-status">{siteConfig.highlightProjects[2].status}</p>
 
-              <div class="challenge-solution">
-                <div>
-                  <span>Challenge</span>
-                  <p>{siteConfig.projects[1].challenge}</p>
-                </div>
-                <div>
-                  <span>System Design</span>
-                  <p>{siteConfig.projects[1].solution}</p>
-                </div>
+              <div class="compact-list">
+                <span>핵심 기여</span>
+                <ul>
+                  {siteConfig.highlightProjects[2].role.map((item) => <li>{item}</li>)}
+                </ul>
               </div>
 
               <div class="tag-row">
-                {siteConfig.projects[1].tags.map((tag) => <span>{tag}</span>)}
+                {siteConfig.highlightProjects[2].stack.map((item) => <span>{item}</span>)}
               </div>
             </div>
 
-            <div class="feature-visual">
-              <div class="draw-sound-card">
-                <div class="draw-toolbar">
-                  <p>Mini Demo</p>
-                  <div class="swatch-row">
-                    <button class="swatch is-active" type="button" data-color="#f5a8c8"></button>
-                    <button class="swatch" type="button" data-color="#ff7eb6"></button>
-                    <button class="swatch" type="button" data-color="#8ec5ff"></button>
-                    <button class="swatch" type="button" data-color="#1f2f63"></button>
-                  </div>
-                </div>
-                <canvas id="draw-sound-canvas" width="620" height="260"></canvas>
-                <div class="draw-meta">
-                  <span>색상 = tone color</span>
-                  <span>굵기 = density</span>
-                  <span>속도 = modulation</span>
-                </div>
+            <div class="prompt-card">
+              <div class="prompt-head">
+                <span>Prompt Structure</span>
+                <strong>Question-led writing support</strong>
               </div>
-
-              <div class="architecture-graph">
-                {
-                  architectureNodes.map((node, index) => (
-                    <div class={`architecture-node architecture-node-${index + 1}`}>
-                      <strong>{node.title}</strong>
-                      <p>{node.body}</p>
-                    </div>
-                  ))
-                }
-                <span class="architecture-link architecture-link-1"></span>
-                <span class="architecture-link architecture-link-2"></span>
-                <span class="architecture-link architecture-link-3"></span>
-                <span class="architecture-link architecture-link-4"></span>
-              </div>
-            </div>
-          </article>
-
-          <article class="feature-project" data-project="writie">
-            <div class="feature-copy">
-              <p class="feature-label">{siteConfig.projects[2].subtitle}</p>
-              <h3>{siteConfig.projects[2].title}</h3>
-              <p>{siteConfig.projects[2].summary}</p>
-
-              <div class="challenge-solution">
-                <div>
-                  <span>Intent</span>
-                  <p>{siteConfig.projects[2].challenge}</p>
-                </div>
-                <div>
-                  <span>Context Strategy</span>
-                  <p>{siteConfig.projects[2].solution}</p>
-                </div>
-              </div>
-
-              <div class="tag-row">
-                {siteConfig.projects[2].tags.map((tag) => <span>{tag}</span>)}
-              </div>
-            </div>
-
-            <div class="feature-visual writie-layout">
-              <div class="prompt-card">
-                <p>Prompt Structure</p>
-                <pre><code>{promptExample}</code></pre>
-              </div>
-
-              <div class="flow-card">
-                <p>Coaching Flow</p>
-                <div class="flow-mini">
-                  <span>Detect intent</span>
-                  <span>Clarify audience</span>
-                  <span>Probe emotion</span>
-                  <span>Offer options</span>
-                </div>
-              </div>
-
-              <div class="qa-shell">
-                <p class="qa-title">"AI가 대신 써주는 것이 아니라, 글쓰기 근력을 길러주는 구조"</p>
-                {
-                  coachCards.map((card, index) => (
-                    <button
-                      type="button"
-                      class={`coach-card ${index === 0 ? "is-open" : ""}`}
-                    >
-                      <span>{card.question}</span>
-                      <strong>{card.answer}</strong>
-                    </button>
-                  ))
-                }
-              </div>
+              <pre><code>{promptSnippet}</code></pre>
             </div>
           </article>
         </div>
       </section>
 
-      <section id="management-layer" class="content-section">
-        <div class="section-heading">
-          <p class="section-kicker">The Management Layer</p>
-          <h2>PMO와 운영 역량도 하나의 시스템으로 보여줍니다.</h2>
+      <section class="content-section">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">Management Layer</p>
+            <h2>{siteConfig.management.title}</h2>
+          </div>
           <p>{siteConfig.management.summary}</p>
         </div>
 
         <div class="management-grid">
-          <div class="dashboard-panel">
-            <div class="dashboard-head">
-              <span>KT Digital Talent Ops Dashboard</span>
-              <strong>Representative Lead View</strong>
-            </div>
-
-            <div class="metric-grid">
-              {
-                siteConfig.management.metrics.map((metric) => (
-                  <article class="metric-card">
-                    <p>{metric.label}</p>
-                    <strong>{metric.value}</strong>
-                    <span>{metric.detail}</span>
-                  </article>
-                ))
-              }
-            </div>
-
-            <div class="dashboard-bar">
-              <div class="dashboard-bar-fill" style="width: 93%"></div>
-            </div>
-          </div>
-
-          <div class="stack-panel">
-            <div>
-              <p class="stack-label">Communication Stack</p>
-              <div class="tool-cloud">
-                {siteConfig.management.tools.map((tool) => <span>{tool}</span>)}
-              </div>
-            </div>
-
-            <div>
-              <p class="stack-label">Operating Guidelines</p>
-              <div class="guideline-list">
-                {siteConfig.management.guidelines.map((line) => <p>{line}</p>)}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="foundation" class="content-section foundation-section">
-        <div class="section-heading">
-          <p class="section-kicker">The Foundation</p>
-          <h2>기술 스택과 아카이브가 검토 동선을 빠르게 만듭니다.</h2>
-          <p>
-            사용 기술 위에 마우스를 올리면 어떤 프로젝트에 연결되는지 바로 확인할 수 있도록 설계했습니다.
-          </p>
-        </div>
-
-        <div class="foundation-grid">
-          <div class="tech-panel">
+          <div class="management-panel">
             {
-              siteConfig.techGroups.map((group) => (
-                <article class="tech-group" data-project-targets={group.projectIds.join(",")}>
-                  <p>{group.name}</p>
-                  <div class="tech-chip-row">
-                    {group.stack.map((item) => <button type="button">{item}</button>)}
-                  </div>
+              siteConfig.management.metrics.map((metric) => (
+                <article class="metric-card">
+                  <p>{metric.label}</p>
+                  <strong>{metric.value}</strong>
+                  <span>{metric.detail}</span>
                 </article>
               ))
             }
           </div>
 
-          <div class="archive-panel">
-            <a href={siteConfig.archive.reviewerSummaryHref} class="archive-card">
-              <span>Reviewer Summary</span>
-              <strong>심사위원용 프린트 페이지</strong>
-              <p>브라우저에서 바로 PDF로 저장할 수 있도록 인쇄 친화적으로 구성했습니다.</p>
-            </a>
+          <div class="management-panel">
+            <p class="panel-label">Communication Stack</p>
+            <div class="tool-cloud">
+              {siteConfig.management.tools.map((tool) => <span>{tool}</span>)}
+            </div>
 
-            <a href={siteConfig.archive.hiddenPageHref} class="archive-card archive-card-secondary">
-              <span>Hidden Page</span>
-              <strong>SM AI 가상 아티스트 운영 제안</strong>
-              <p>지원서에만 넣을 수 있는 비공개형 전략 페이지입니다.</p>
-            </a>
+            <p class="panel-label second-label">Skills</p>
+            <div class="skill-cloud">
+              {siteConfig.skills.map((skill) => <span>{skill}</span>)}
+            </div>
           </div>
         </div>
       </section>
 
       <section id="full-archive" class="content-section">
-        <div class="section-heading">
-          <p class="section-kicker">Full Archive</p>
-          <h2>기존 이력과 활동 내용도 그대로, 탭으로 자세히 확인할 수 있게 남겼습니다.</h2>
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">Full Archive</p>
+            <h2>이전에 있던 이력과 활동 내용은 탭으로 전부 확인할 수 있게 남겼습니다.</h2>
+          </div>
           <p>
-            상단은 SM 맞춤 핵심 메시지에 집중하고, 이 구간에서는 기존 포트폴리오에 있던 정보들을 항목별로 자세히 확인할 수 있습니다.
+            프로젝트, 인턴십, 수상, 대외활동, 학력을 구분해 넣었습니다. 각 탭을 눌러 상세 내용을 바로 읽을 수 있습니다.
           </p>
         </div>
 
-        <div class="archive-browser">
-          <div class="archive-tab-row" role="tablist" aria-label="Full archive tabs">
+        <div class="archive-shell">
+          <div class="archive-tab-row" role="tablist" aria-label="Portfolio archive tabs">
             {
-              archiveTabs.map((tab, index) => (
+              siteConfig.archiveTabs.map((tab, index) => (
                 <button
                   type="button"
                   class={`archive-tab ${index === 0 ? "is-active" : ""}`}
                   data-archive-tab={tab.id}
-                  role="tab"
                   aria-selected={index === 0 ? "true" : "false"}
                 >
                   {tab.label}
@@ -476,82 +306,49 @@ const archiveTabs = [
             }
           </div>
 
-          <div class="archive-panels">
-            <section class="archive-panel-page is-active" data-archive-panel="overview" role="tabpanel">
-              <div class="archive-intro-card">
-                <p class="stack-label">About</p>
-                <h3>{siteConfig.name} / {siteConfig.englishName}</h3>
-                <p>{siteConfig.aboutMe}</p>
-              </div>
-
-              <div class="archive-skill-grid">
-                {siteConfig.skills.map((skill) => <span>{skill}</span>)}
-              </div>
-            </section>
-
-            <section class="archive-panel-page" data-archive-panel="projects" role="tabpanel" hidden>
-              <div class="archive-list-grid">
-                {
-                  siteConfig.legacyProjects.map((project, index) => (
-                    <article class="archive-detail-card">
-                      <p class="archive-detail-index">0{index + 1}</p>
-                      <h3>{project.name}</h3>
-                      <p>{project.description}</p>
-                      <div class="tag-row">
-                        {project.skills?.map((skill) => <span>{skill}</span>)}
-                      </div>
-                      {
-                        project.link && project.link !== "#" && (
-                          <a href={project.link} target="_blank" rel="noreferrer" class="archive-inline-link">
-                            링크 보기
-                          </a>
-                        )
-                      }
-                    </article>
-                  ))
-                }
-              </div>
-            </section>
-
-            <section class="archive-panel-page" data-archive-panel="experience" role="tabpanel" hidden>
-              <div class="timeline-list">
-                {
-                  siteConfig.experience.map((item) => (
-                    <article class="timeline-card">
-                      <div class="timeline-head">
-                        <div>
-                          <p class="archive-detail-index">{item.dateRange}</p>
-                          <h3>{item.company}</h3>
-                        </div>
-                        <strong>{item.title}</strong>
-                      </div>
-                      <ul class="summary-list">
-                        {item.bullets.map((bullet) => <li>{bullet}</li>)}
-                      </ul>
-                    </article>
-                  ))
-                }
-              </div>
-            </section>
-
-            <section class="archive-panel-page" data-archive-panel="education" role="tabpanel" hidden>
-              {
-                siteConfig.education.map((item) => (
-                  <article class="education-card">
-                    <div class="timeline-head">
-                      <div>
-                        <p class="archive-detail-index">{item.dateRange}</p>
-                        <h3>{item.school}</h3>
-                      </div>
-                      <strong>{item.degree}</strong>
-                    </div>
-                    <ul class="summary-list">
-                      {item.achievements.map((achievement) => <li>{achievement}</li>)}
-                    </ul>
-                  </article>
-                ))
-              }
-            </section>
+          <div class="archive-panel-wrap">
+            {
+              siteConfig.archiveTabs.map((tab, index) => (
+                <section
+                  class={`archive-panel ${index === 0 ? "is-active" : ""}`}
+                  data-archive-panel={tab.id}
+                  hidden={index !== 0}
+                >
+                  <div class="archive-grid">
+                    {
+                      tab.items.map((item) => (
+                        <article class="archive-card">
+                          <p class="archive-card-label">{item.subtitle}</p>
+                          <h3>{item.title}</h3>
+                          {item.description && <p>{item.description}</p>}
+                          {
+                            item.bullets && (
+                              <ul>
+                                {item.bullets.map((bullet) => <li>{bullet}</li>)}
+                              </ul>
+                            )
+                          }
+                          {
+                            item.tags && (
+                              <div class="tag-row">
+                                {item.tags.map((tag) => <span>{tag}</span>)}
+                              </div>
+                            )
+                          }
+                          {
+                            item.link && (
+                              <a href={item.link} target="_blank" rel="noreferrer" class="inline-link">
+                                링크 보기
+                              </a>
+                            )
+                          }
+                        </article>
+                      ))
+                    }
+                  </div>
+                </section>
+              ))
+            }
           </div>
         </div>
       </section>
@@ -560,200 +357,28 @@ const archiveTabs = [
     <Footer />
 
     <script>
-      const network = document.getElementById("node-network");
-      const nodes = Array.from(document.querySelectorAll(".network-node"));
-      const path = document.getElementById("node-path");
+      const network = document.getElementById("hero-network");
+      const networkPath = document.getElementById("hero-network-path");
 
-      if (network && path && nodes.length) {
+      if (network && networkPath) {
         network.addEventListener("pointermove", (event) => {
           const rect = network.getBoundingClientRect();
           const x = ((event.clientX - rect.left) / rect.width) * 100;
           const y = ((event.clientY - rect.top) / rect.height) * 100;
           network.style.setProperty("--pointer-x", `${x}%`);
           network.style.setProperty("--pointer-y", `${y}%`);
-          path.setAttribute(
+          networkPath.setAttribute(
             "d",
-            `M 10 16 C ${Math.max(16, x - 14)} ${Math.max(12, y - 18)}, ${Math.min(38, x - 6)} 26, 31 18 S 43 38, 58 20 S ${Math.min(82, x + 8)} 34, 83 17`
+            `M 12 18 C ${Math.max(18, x - 14)} ${Math.max(16, y - 12)}, ${Math.min(42, x - 4)} 30, 35 18 S 50 28, 66 18 S ${Math.min(88, x + 10)} 34, 72 60`
           );
-
-          nodes.forEach((node) => {
-            const nodeRect = node.getBoundingClientRect();
-            const cx = nodeRect.left + nodeRect.width / 2;
-            const cy = nodeRect.top + nodeRect.height / 2;
-            const distance = Math.hypot(event.clientX - cx, event.clientY - cy);
-            const intensity = Math.max(0, 1 - distance / 220);
-            node.style.setProperty("--glow", intensity.toFixed(2));
-          });
         });
 
         network.addEventListener("pointerleave", () => {
           network.style.removeProperty("--pointer-x");
           network.style.removeProperty("--pointer-y");
-          path.setAttribute("d", "M 10 16 C 18 22, 25 26, 31 18 S 43 38, 58 20 S 72 34, 83 17");
-          nodes.forEach((node) => node.style.setProperty("--glow", "0"));
+          networkPath.setAttribute("d", "M 12 18 C 20 26, 28 32, 35 18 S 50 28, 66 18 S 82 34, 72 60");
         });
       }
-
-      const compareStage = document.getElementById("compare-stage");
-      const compareButtons = Array.from(document.querySelectorAll(".compare-toggle"));
-
-      compareButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          const mode = button.dataset.mode;
-          if (!compareStage || !mode) return;
-          compareStage.dataset.mode = mode;
-          compareButtons.forEach((item) => item.classList.remove("is-active"));
-          button.classList.add("is-active");
-        });
-      });
-
-      const canvas = document.getElementById("draw-sound-canvas");
-      const swatches = Array.from(document.querySelectorAll(".swatch"));
-
-      if (canvas instanceof HTMLCanvasElement) {
-        const context = canvas.getContext("2d");
-        let drawing = false;
-        let currentColor = "#f5a8c8";
-        let lastPoint = { x: 0, y: 0 };
-        let audioContext;
-        let oscillator;
-        let gainNode;
-
-        const ensureAudio = async () => {
-          if (!audioContext) {
-            audioContext = new window.AudioContext();
-            oscillator = audioContext.createOscillator();
-            gainNode = audioContext.createGain();
-            oscillator.type = "sine";
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-            gainNode.gain.value = 0.001;
-            oscillator.start();
-          }
-
-          if (audioContext.state === "suspended") {
-            await audioContext.resume();
-          }
-        };
-
-        const resizeCanvas = () => {
-          const ratio = window.devicePixelRatio || 1;
-          const width = canvas.clientWidth || 620;
-          const height = canvas.clientHeight || 260;
-          canvas.width = width * ratio;
-          canvas.height = height * ratio;
-          context?.setTransform(ratio, 0, 0, ratio, 0, 0);
-          if (context) {
-            context.fillStyle = "#fffafc";
-            context.fillRect(0, 0, width, height);
-          }
-        };
-
-        resizeCanvas();
-        window.addEventListener("resize", resizeCanvas);
-
-        const positionFor = (event) => {
-          const rect = canvas.getBoundingClientRect();
-          return {
-            x: event.clientX - rect.left,
-            y: event.clientY - rect.top,
-          };
-        };
-
-        const colorToFrequency = (color, x) => {
-          const palette = {
-            "#f5a8c8": 270,
-            "#ff7eb6": 330,
-            "#8ec5ff": 410,
-            "#1f2f63": 220,
-          };
-          return (palette[color] || 300) + x * 0.55;
-        };
-
-        const drawLine = (from, to) => {
-          if (!context) return;
-          const delta = Math.hypot(to.x - from.x, to.y - from.y);
-          const width = Math.max(2, Math.min(16, delta / 5));
-          context.strokeStyle = currentColor;
-          context.lineWidth = width;
-          context.lineCap = "round";
-          context.lineJoin = "round";
-          context.beginPath();
-          context.moveTo(from.x, from.y);
-          context.lineTo(to.x, to.y);
-          context.stroke();
-
-          if (oscillator && gainNode && audioContext) {
-            const frequency = colorToFrequency(currentColor, to.x);
-            oscillator.frequency.setTargetAtTime(frequency, audioContext.currentTime, 0.02);
-            gainNode.gain.setTargetAtTime(Math.min(0.04, width / 220), audioContext.currentTime, 0.02);
-          }
-        };
-
-        const startDrawing = async (event) => {
-          drawing = true;
-          await ensureAudio();
-          lastPoint = positionFor(event);
-        };
-
-        const stopDrawing = () => {
-          drawing = false;
-          if (gainNode && audioContext) {
-            gainNode.gain.setTargetAtTime(0.001, audioContext.currentTime, 0.08);
-          }
-        };
-
-        canvas.addEventListener("pointerdown", startDrawing);
-        canvas.addEventListener("pointermove", (event) => {
-          if (!drawing) return;
-          const nextPoint = positionFor(event);
-          drawLine(lastPoint, nextPoint);
-          lastPoint = nextPoint;
-        });
-        canvas.addEventListener("pointerup", stopDrawing);
-        canvas.addEventListener("pointerleave", stopDrawing);
-
-        swatches.forEach((swatch) => {
-          swatch.addEventListener("click", () => {
-            currentColor = swatch.dataset.color || currentColor;
-            swatches.forEach((item) => item.classList.remove("is-active"));
-            swatch.classList.add("is-active");
-          });
-        });
-      }
-
-      const coachCards = Array.from(document.querySelectorAll(".coach-card"));
-      coachCards.forEach((card) => {
-        card.addEventListener("click", () => {
-          coachCards.forEach((item) => {
-            if (item !== card) item.classList.remove("is-open");
-          });
-          card.classList.toggle("is-open");
-        });
-      });
-
-      const techGroups = Array.from(document.querySelectorAll(".tech-group"));
-      const projectCards = Array.from(document.querySelectorAll("[data-project]"));
-
-      techGroups.forEach((group) => {
-        const highlight = () => {
-          const targets = (group.getAttribute("data-project-targets") || "").split(",");
-          projectCards.forEach((card) => {
-            const projectId = card.getAttribute("data-project");
-            card.classList.toggle("is-highlighted", targets.includes(projectId || ""));
-            card.classList.toggle("is-dimmed", !targets.includes(projectId || ""));
-          });
-        };
-
-        const reset = () => {
-          projectCards.forEach((card) => {
-            card.classList.remove("is-highlighted", "is-dimmed");
-          });
-        };
-
-        group.addEventListener("mouseenter", highlight);
-        group.addEventListener("mouseleave", reset);
-      });
 
       const archiveTabs = Array.from(document.querySelectorAll("[data-archive-tab]"));
       const archivePanels = Array.from(document.querySelectorAll("[data-archive-panel]"));
@@ -769,10 +394,21 @@ const archiveTabs = [
           tab.setAttribute("aria-selected", "true");
 
           archivePanels.forEach((panel) => {
-            const isMatch = panel.getAttribute("data-archive-panel") === target;
-            panel.classList.toggle("is-active", isMatch);
-            panel.toggleAttribute("hidden", !isMatch);
+            const match = panel.getAttribute("data-archive-panel") === target;
+            panel.classList.toggle("is-active", match);
+            panel.toggleAttribute("hidden", !match);
           });
+        });
+      });
+
+      const soundButtons = Array.from(document.querySelectorAll(".sound-toggle"));
+      soundButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const targetId = button.getAttribute("data-video-target");
+          const video = targetId ? document.getElementById(targetId) : null;
+          if (!(video instanceof HTMLVideoElement)) return;
+          video.muted = !video.muted;
+          button.textContent = video.muted ? "Sound Off" : "Sound On";
         });
       });
     </script>
