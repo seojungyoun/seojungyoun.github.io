@@ -1,5 +1,7 @@
 ---
 import { siteConfig } from "../config";
+
+// 1. config.ts에 정의된 'highlightProjects'를 정확히 가져옵니다.
 const projects = siteConfig.highlightProjects || [];
 const hasProjects = projects.length > 0;
 ---
@@ -20,50 +22,44 @@ const hasProjects = projects.length > 0;
           </div>
 
           <div class="lg:col-span-8">
-            <div class="space-y-12">
+            <div class="space-y-16"> {/* 프로젝트 간 간격을 넓혔습니다 */}
               {projects.map((project, index) => {
-                // 유튜브 URL 자동 변환 및 판별 로직
+                
+                // 2. 유튜브 URL 자동 변환 및 보안 에러 방지 로직
                 let videoSrc = project.video;
                 const isYoutube = videoSrc?.includes('youtube.com') || videoSrc?.includes('youtu.be');
                 
                 if (isYoutube && videoSrc && !videoSrc.includes('embed')) {
+                  // watch?v= 또는 youtu.be/ 형태를 embed/로 변환
                   const videoId = videoSrc.split('v=')[1]?.split('&')[0] || videoSrc.split('/').pop();
                   videoSrc = `https://www.youtube.com/embed/${videoId}`;
                 }
 
                 return (
-                  <div class="group relative bg-gray-50 rounded-2xl border border-gray-200 p-6 md:p-10 transition-all duration-300 hover:bg-white hover:shadow-2xl">
+                  <div class="group relative">
                     <div class="space-y-6">
-                      <div class="flex justify-between items-start">
-                        <div>
-                          <span class="text-sm font-mono" style={{ color: siteConfig.accentColor }}>
-                            0{index + 1}
-                          </span>
-                          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mt-1">
-                            {project.title}
-                          </h3>
-                          <p class="text-sm text-gray-500 font-medium mt-1">{project.subtitle}</p>
-                        </div>
-                        
-                        {project.status && (
-                          <span class="px-3 py-1 bg-pink-50 text-pink-500 text-xs font-bold rounded-full border border-pink-100">
-                            {project.status}
-                          </span>
-                        )}
+                      <div>
+                        <span class="text-sm font-mono" style={{ color: siteConfig.accentColor }}>
+                          0{index + 1}
+                        </span>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">
+                          {project.title} {/* config.ts의 'title' 필드 사용 */}
+                        </h3>
+                        <p class="text-gray-500 font-medium">{project.subtitle}</p>
                       </div>
 
-                      <p class="text-gray-600 leading-relaxed text-lg">
-                        {project.summary}
+                      <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
+                        {project.summary} {/* config.ts의 'summary' 필드 사용 */}
                       </p>
 
-                      {/* 영상 렌더링 섹션 */}
+                      {/* 3. 영상 렌더링 섹션 */}
                       {videoSrc && (
-                        <div class="aspect-video w-full rounded-xl overflow-hidden shadow-inner bg-black border border-gray-200">
+                        <div class="mt-4 aspect-video w-full rounded-2xl overflow-hidden shadow-xl bg-black border border-gray-100">
                           {isYoutube ? (
                             <iframe
-                              src={videoSrc}
+                              src={`${videoSrc}?rel=0&showinfo=0`} 
                               class="w-full h-full"
-                              title={`${project.title} Video`}
+                              title={project.title}
                               frameborder="0"
                               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                               referrerpolicy="strict-origin-when-cross-origin"
@@ -75,12 +71,12 @@ const hasProjects = projects.length > 0;
                         </div>
                       )}
 
-                      {/* 기술 스택 표시 (config.ts의 stack 필드 사용) */}
-                      {project.stack && project.stack.length > 0 && (
-                        <div class="flex flex-wrap gap-2 pt-4">
-                          {project.stack.map((item) => (
+                      {/* 4. 기술 스택 (config.ts의 'stack' 필드 사용) */}
+                      {project.stack && (
+                        <div class="flex flex-wrap gap-2 pt-2">
+                          {project.stack.map((skill) => (
                             <span class="px-3 py-1.5 bg-gray-900 text-white rounded-lg text-xs font-medium">
-                              {item}
+                              {skill}
                             </span>
                           ))}
                         </div>
