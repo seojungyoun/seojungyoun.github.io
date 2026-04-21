@@ -14,18 +14,6 @@ function toYoutubeEmbed(url: string | undefined): string | null {
 
 const flimflowEmbed = toYoutubeEmbed(siteConfig.highlightProjects[0].video);
 
-const nodePoints = [
-  { x: 12, y: 18, size: "lg" },
-  { x: 24, y: 34, size: "sm" },
-  { x: 35, y: 18, size: "md" },
-  { x: 50, y: 28, size: "sm" },
-  { x: 66, y: 18, size: "lg" },
-  { x: 82, y: 34, size: "sm" },
-  { x: 72, y: 60, size: "md" },
-  { x: 48, y: 66, size: "sm" },
-  { x: 26, y: 58, size: "sm" },
-];
-
 const promptSnippet = `SYSTEM
 사용자의 글을 대신 완성하지 않고 사고를 확장하는 질문을 먼저 제안한다.
 
@@ -56,7 +44,7 @@ FLOW
     </a>
 
     <main class="page-shell">
-      <section class="hero-section">
+      <section id="top" class="hero-section">
         <div class="hero-copy">
           <div class="hero-profile">
             <img src="/media/youn.jpg" alt={siteConfig.name} class="hero-avatar" />
@@ -88,38 +76,47 @@ FLOW
 
         <div class="hero-visual-card">
           <div class="hero-visual-head">
-            <span>SM 제출용 핵심 포인트</span>
-            <strong>특허 검토 · 실시간 인터랙션 · 서비스 기획</strong>
+            <span>포트폴리오 핵심 3축</span>
+            <strong>설계 · 구현 · 기획</strong>
           </div>
 
-          <div class="hero-network" id="hero-network">
-            <svg class="hero-network-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
-              <path id="hero-network-path" d="M 12 18 C 20 26, 28 32, 35 18 S 50 28, 66 18 S 82 34, 72 60" />
-              <path d="M 24 34 C 30 46, 36 58, 48 66" />
-              <path d="M 26 58 C 36 46, 44 38, 50 28" />
-            </svg>
-
-            {
-              nodePoints.map((node, index) => (
-                <span
-                  class={`hero-node hero-node-${node.size}`}
-                  style={`left:${node.x}%; top:${node.y}%; --delay:${index * 0.16}s;`}
-                ></span>
-              ))
-            }
-
-            <div class="network-note">
-              <p>Workflow signal</p>
-              <strong>AI logic, execution, archive</strong>
+          <div class="hero-pipeline">
+            <div class="hero-pipeline-item">
+              <span class="hpi-badge">특허 출원 중</span>
+              <strong>FLIMFLOW</strong>
+              <p>생성형 AI 영상 워크플로우 설계 · 파이프라인 구조화</p>
+              <div class="hpi-tags">
+                <span>LangChain</span><span>Stable Diffusion</span><span>Python</span>
+              </div>
             </div>
+            <div class="hero-pipeline-item">
+              <span class="hpi-badge">졸업작품 · 전시 출품</span>
+              <strong>Dorememe</strong>
+              <p>VR + AI 실시간 공감각 미디어아트 · Unity 단독 개발</p>
+              <div class="hpi-tags">
+                <span>Unity</span><span>PyTorch</span><span>Flask</span>
+              </div>
+            </div>
+            <div class="hero-pipeline-item">
+              <span class="hpi-badge">기획 · 개발 진행 중</span>
+              <strong>writie</strong>
+              <p>Claude API 기반 초개인화 글쓰기 플랫폼 서비스 기획</p>
+              <div class="hpi-tags">
+                <span>Claude API</span><span>Figma</span><span>Prompt Design</span>
+              </div>
+            </div>
+            <div class="hpi-footer">SM 엔터테인먼트 지원 포트폴리오</div>
           </div>
         </div>
       </section>
 
-      <section class="intro-strip">
-        <div>
-          <p class="section-kicker">About</p>
-          <h2>{siteConfig.about.heading}</h2>
+      <section id="about" class="intro-strip">
+        <div class="intro-lead">
+          <img src="/media/youn.jpg" alt={siteConfig.name} class="intro-avatar" />
+          <div>
+            <p class="section-kicker">About</p>
+            <h2>{siteConfig.about.heading}</h2>
+          </div>
         </div>
         <p>{siteConfig.about.body}</p>
       </section>
@@ -200,7 +197,12 @@ FLOW
                 {
                   siteConfig.highlightProjects[0].diagrams?.map((diagram, index) => (
                     <figure class="diagram-card">
-                      <img src={diagram} alt={`FLIMFLOW diagram ${index + 1}`} />
+                      <img src={diagram} alt={siteConfig.highlightProjects[0].diagramCaptions?.[index] ?? `FLIMFLOW diagram ${index + 1}`} />
+                      {siteConfig.highlightProjects[0].diagramCaptions?.[index] && (
+                        <figcaption class="diagram-caption">
+                          {siteConfig.highlightProjects[0].diagramCaptions[index]}
+                        </figcaption>
+                      )}
                     </figure>
                   ))
                 }
@@ -275,7 +277,7 @@ FLOW
         </div>
       </section>
 
-      <section class="content-section">
+      <section id="management-layer" class="content-section">
         <div class="section-header">
           <div>
             <p class="section-kicker">Management Layer</p>
@@ -315,7 +317,7 @@ FLOW
         <div class="section-header">
           <div>
             <p class="section-kicker">Full Archive</p>
-            <h2>이전에 있던 이력과 활동 내용은 탭으로 전부 확인할 수 있게 남겼습니다.</h2>
+            <h2>프로젝트 · 경력 · 활동 전체 이력</h2>
           </div>
           <p>
             프로젝트, 인턴십, 수상, 대외활동, 학력을 구분해 넣었습니다. 각 탭을 눌러 상세 내용을 바로 읽을 수 있습니다.
@@ -389,29 +391,6 @@ FLOW
     <Footer />
 
     <script>
-      const network = document.getElementById("hero-network");
-      const networkPath = document.getElementById("hero-network-path");
-
-      if (network && networkPath) {
-        network.addEventListener("pointermove", (event) => {
-          const rect = network.getBoundingClientRect();
-          const x = ((event.clientX - rect.left) / rect.width) * 100;
-          const y = ((event.clientY - rect.top) / rect.height) * 100;
-          network.style.setProperty("--pointer-x", `${x}%`);
-          network.style.setProperty("--pointer-y", `${y}%`);
-          networkPath.setAttribute(
-            "d",
-            `M 12 18 C ${Math.max(18, x - 14)} ${Math.max(16, y - 12)}, ${Math.min(42, x - 4)} 30, 35 18 S 50 28, 66 18 S ${Math.min(88, x + 10)} 34, 72 60`
-          );
-        });
-
-        network.addEventListener("pointerleave", () => {
-          network.style.removeProperty("--pointer-x");
-          network.style.removeProperty("--pointer-y");
-          networkPath.setAttribute("d", "M 12 18 C 20 26, 28 32, 35 18 S 50 28, 66 18 S 82 34, 72 60");
-        });
-      }
-
       const archiveTabs = Array.from(document.querySelectorAll("[data-archive-tab]"));
       const archivePanels = Array.from(document.querySelectorAll("[data-archive-panel]"));
 
