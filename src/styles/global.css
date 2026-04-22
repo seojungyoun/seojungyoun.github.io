@@ -1304,26 +1304,31 @@ button {
   margin-top: 2rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.naevis-yt-wrap {
-  position: relative;
+.naevis-ref .summary-label,
+.naevis-ref .proposal-desc {
+  width: 100%;
+  text-align: center;
+}
+
+.naevis-video-wrap {
+  width: 100%;
+  max-width: 640px;
   border-radius: 1rem;
   overflow: hidden;
-  max-width: 560px;
+  border: 1px solid var(--line);
+  background: #000;
 }
 
-.naevis-yt-thumb {
+.naevis-video {
   width: 100%;
   aspect-ratio: 16 / 9;
-  object-fit: cover;
   display: block;
-  opacity: 0.88;
-}
-
-.naevis-yt-wrap .yt-play-btn {
-  bottom: 1rem;
-  font-size: 0.84rem;
+  border: none;
 }
 
 .proposal-card-accent {
