@@ -10,7 +10,24 @@ function extractYoutubeId(url: string | undefined): string | null {
   return match ? match[1] : null;
 }
 
+function toYoutubeEmbed(url: string | undefined): string | null {
+  const id = extractYoutubeId(url);
+  if (!id) return null;
+  return `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=1`;
+}
+
 const projectVideoIds = siteConfig.highlightProjects.map((p) => extractYoutubeId(p.video));
+const projectEmbeds = siteConfig.highlightProjects.map((p) => toYoutubeEmbed(p.video));
+
+function isYoutubeUrl(url: string | undefined): boolean {
+  if (!url) return false;
+  return /youtu\.be\/|youtube\.com\//.test(url);
+}
+
+function youtubeThumbnail(url: string): string {
+  const id = extractYoutubeId(url);
+  return id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : "";
+}
 
 const promptSnippet = `SYSTEM
 사용자의 글을 대신 완성하지 않고 사고를 확장하는 질문을 먼저 제안한다.
@@ -116,7 +133,7 @@ FLOW
             <p class="section-kicker">Featured Projects</p>
             <h2>핵심 프로젝트 3선</h2>
           </div>
-          <p>FLIMFLOW · Dorememe · writie — 설계, 구현, 기획 세 축으로 압축했습니다.</p>
+          <p>FLIMFLOW · Dorememe · writie</p>
         </div>
 
         <!-- 슬라이더 컨트롤 -->
@@ -162,17 +179,14 @@ FLOW
             </div>
             <div class="feature-media-column">
               <div class="media-slider" data-media-slider>
-                <!-- Slide 0: YouTube 썸네일 -->
+                <!-- Slide 0: YouTube 인라인 플레이어 -->
                 <div class="media-slide is-active">
-                  <div class="yt-thumb-wrap">
-                    <img
-                      src={`https://img.youtube.com/vi/${projectVideoIds[0]}/hqdefault.jpg`}
-                      alt="별 재단사 결과 영상 썸네일"
-                      class="yt-thumb-img"
-                    />
-                    <a href={siteConfig.highlightProjects[0].video} target="_blank" rel="noreferrer" class="yt-play-btn">
-                      ▶ YouTube에서 보기
-                    </a>
+                  <div class="video-card">
+                    <div class="video-head">
+                      <span>별 재단사 결과 영상</span>
+                      <a href={siteConfig.highlightProjects[0].video} target="_blank" rel="noreferrer" class="yt-link">YouTube에서 보기 ↗</a>
+                    </div>
+                    <iframe class="portfolio-video" src={projectEmbeds[0] ?? ""} title="FLIMFLOW 결과 영상" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
                   </div>
                 </div>
                 <!-- Slide 1+: 도식 이미지 -->
@@ -243,6 +257,9 @@ FLOW
                   <strong>Question-led writing support</strong>
                 </div>
                 <pre><code>{promptSnippet}</code></pre>
+                <div class="prompt-logo-wrap">
+                  <img src="/media/logo_blue_rmbg.png" alt="writie 로고" class="prompt-logo" />
+                </div>
               </div>
               {siteConfig.highlightProjects[2].image && (
                 <figure class="diagram-card">
@@ -328,8 +345,8 @@ FLOW
                 >
                   <div class="archive-grid">
                     {
-                      tab.items.map((item, itemIndex) => (
-                        <article class="archive-card" hidden={itemIndex >= 3}>
+                      tab.items.map((item) => (
+                        <article class="archive-card">
                           <p class="archive-card-label">{item.subtitle}</p>
                           <h3>{item.title}</h3>
                           {item.image && <img src={item.image} alt={item.title} class="archive-card-img" />}
@@ -349,7 +366,14 @@ FLOW
                             )
                           }
                           {
-                            item.link && (
+                            item.link && isYoutubeUrl(item.link) ? (
+                              <div class="archive-yt-thumb">
+                                <img src={youtubeThumbnail(item.link)} alt={item.title} class="archive-yt-img" />
+                                <a href={item.link} target="_blank" rel="noreferrer" class="yt-play-btn">
+                                  ▶ {item.linkLabel ?? "영상 보기"}
+                                </a>
+                              </div>
+                            ) : item.link && (
                               <a href={item.link} target="_blank" rel="noreferrer" class="inline-link">
                                 {item.linkLabel ?? "링크 보기"}
                               </a>
@@ -359,19 +383,6 @@ FLOW
                       ))
                     }
                   </div>
-                  {tab.items.length > 3 && (
-                    <div class="archive-pagination">
-                      <button type="button" class="archive-pg-btn archive-pg-prev" aria-label="이전">
-                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2L3 6.5 8 11"/></svg>
-                        이전
-                      </button>
-                      <span class="archive-pg-info">1 / {Math.ceil(tab.items.length / 3)}</span>
-                      <button type="button" class="archive-pg-btn archive-pg-next" aria-label="다음">
-                        다음
-                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2l5 4.5L5 11"/></svg>
-                      </button>
-                    </div>
-                  )}
                 </section>
               ))
             }
@@ -455,27 +466,6 @@ FLOW
         });
       });
 
-      // ── Archive pagination ─────────────────────────────────────────────
-      document.querySelectorAll<HTMLElement>("[data-archive-panel]").forEach((panel) => {
-        const cards = Array.from(panel.querySelectorAll<HTMLElement>(".archive-card"));
-        const total = Math.ceil(cards.length / 3);
-        if (total <= 1) return;
-        let page = 0;
-
-        const prevBtn = panel.querySelector<HTMLButtonElement>(".archive-pg-prev");
-        const nextBtn = panel.querySelector<HTMLButtonElement>(".archive-pg-next");
-        const info = panel.querySelector<HTMLElement>(".archive-pg-info");
-
-        function showPage(p: number) {
-          page = (p + total) % total;
-          cards.forEach((c, i) => { c.hidden = Math.floor(i / 3) !== page; });
-          if (info) info.textContent = `${page + 1} / ${total}`;
-        }
-
-        prevBtn?.addEventListener("click", () => showPage(page - 1));
-        nextBtn?.addEventListener("click", () => showPage(page + 1));
-        showPage(0);
-      });
     </script>
   </body>
 </html>

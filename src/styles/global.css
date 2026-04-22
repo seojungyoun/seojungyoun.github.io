@@ -627,6 +627,26 @@ button {
   border: 1px solid var(--line);
 }
 
+.archive-yt-thumb {
+  position: relative;
+  margin-top: 0.75rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.archive-yt-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  opacity: 0.88;
+}
+
+.archive-yt-thumb .yt-play-btn {
+  bottom: 0.75rem;
+  font-size: 0.78rem;
+}
+
 .feature-copy h3 {
   font-size: 1.55rem;
   margin-bottom: 0.7rem;
@@ -909,6 +929,23 @@ button {
   line-height: 1.45;
   border-top: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.96);
+}
+
+.prompt-logo-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem 1rem 1.4rem;
+  border-top: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.prompt-logo {
+  max-width: 140px;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .prompt-card pre {
