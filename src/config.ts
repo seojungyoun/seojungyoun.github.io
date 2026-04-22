@@ -210,7 +210,7 @@ export const siteConfig = {
         {
           title: "writie",
           subtitle: "AI 페르소나 학습 기반 초개인화 글쓰기 플랫폼",
-          image: "/media/writie-prototype.png",
+          image: "/media/writie.png",
           description:
             "사용자의 문체와 사고를 돕는 방향의 AI 글쓰기 플랫폼으로 서비스 기획과 개발을 진행 중입니다.",
           bullets: [
@@ -230,7 +230,7 @@ export const siteConfig = {
         {
           title: "덕성여자대학교 RISE 사업 AR 영상 제작",
           subtitle: "AI 기반 데이터 분류 및 시각 에셋 최적화",
-          image: "/media/ar-project.png",
+          image: "/media/ar.png",
           description:
             "AI 기반 데이터 분류와 시각 에셋 최적화를 바탕으로 영상 제작 품질 관리를 주도했습니다.",
           tags: ["AI", "AR", "Content Production"],
@@ -238,7 +238,7 @@ export const siteConfig = {
         {
           title: "도봉옛길 메타버스 구현 및 전시",
           subtitle: "지역 문화유산 가상 구현",
-          image: "/media/dobong-zep.png",
+          image: "/media/zep.png",
           description:
             "Zep과 제페토 플랫폼을 활용해 지역 문화유산을 가상 공간으로 구현하고 미디어아트 전시에 참여했습니다.",
           tags: ["Zep", "Zepeto", "Metaverse"],
@@ -264,6 +264,7 @@ export const siteConfig = {
         {
           title: "성동 1+1 프로젝트",
           subtitle: "지역 상생 콘텐츠 기획",
+          image: "/media/1+1.png",
           description:
             "성동구 지역 상생을 위한 콘텐츠 기획 및 제작 프로젝트에 참여했습니다.",
           tags: ["기획", "콘텐츠 제작", "지역협력"],
