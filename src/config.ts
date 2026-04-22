@@ -42,7 +42,7 @@ export type ArchiveTab = {
 };
 
 export const siteConfig = {
-  name: "서정윤",
+  name: "AI 기획 관리 담당자 | 서정윤",
   englishName: "Seo Jungyoun",
   title: "AI Workflow Designer · Creative Technologist",
   description:
