@@ -1300,6 +1300,32 @@ button {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
+.naevis-ref {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.naevis-yt-wrap {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  max-width: 560px;
+}
+
+.naevis-yt-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  opacity: 0.88;
+}
+
+.naevis-yt-wrap .yt-play-btn {
+  bottom: 1rem;
+  font-size: 0.84rem;
+}
+
 .proposal-card-accent {
   background: linear-gradient(135deg, rgba(253, 234, 243, 0.9), rgba(255, 255, 255, 0.98)) !important;
   border-color: rgba(241, 143, 186, 0.35) !important;
