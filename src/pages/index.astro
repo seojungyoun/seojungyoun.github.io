@@ -54,9 +54,9 @@ FLOW
   <body id="top">
     <Header />
 
-    <a href={siteConfig.archive.reviewerSummaryHref} class="floating-reviewer-button">
-      심사위원용 요약 PDF
-    </a>
+    <button type="button" class="floating-reviewer-button" onclick="window.print()">
+      전체 이력서 PDF 다운 받기
+    </button>
 
     <main class="page-shell">
       <section id="top" class="hero-section">
