@@ -10,7 +10,24 @@ function extractYoutubeId(url: string | undefined): string | null {
   return match ? match[1] : null;
 }
 
+function toYoutubeEmbed(url: string | undefined): string | null {
+  const id = extractYoutubeId(url);
+  if (!id) return null;
+  return `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=1`;
+}
+
 const projectVideoIds = siteConfig.highlightProjects.map((p) => extractYoutubeId(p.video));
+const projectEmbeds = siteConfig.highlightProjects.map((p) => toYoutubeEmbed(p.video));
+
+function isYoutubeUrl(url: string | undefined): boolean {
+  if (!url) return false;
+  return /youtu\.be\/|youtube\.com\//.test(url);
+}
+
+function youtubeThumbnail(url: string): string {
+  const id = extractYoutubeId(url);
+  return id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : "";
+}
 
 const promptSnippet = `SYSTEM
 사용자의 글을 대신 완성하지 않고 사고를 확장하는 질문을 먼저 제안한다.
@@ -162,17 +179,14 @@ FLOW
             </div>
             <div class="feature-media-column">
               <div class="media-slider" data-media-slider>
-                <!-- Slide 0: YouTube 썸네일 -->
+                <!-- Slide 0: YouTube 인라인 플레이어 -->
                 <div class="media-slide is-active">
-                  <div class="yt-thumb-wrap">
-                    <img
-                      src={`https://img.youtube.com/vi/${projectVideoIds[0]}/hqdefault.jpg`}
-                      alt="별 재단사 결과 영상 썸네일"
-                      class="yt-thumb-img"
-                    />
-                    <a href={siteConfig.highlightProjects[0].video} target="_blank" rel="noreferrer" class="yt-play-btn">
-                      ▶ YouTube에서 보기
-                    </a>
+                  <div class="video-card">
+                    <div class="video-head">
+                      <span>별 재단사 결과 영상</span>
+                      <a href={siteConfig.highlightProjects[0].video} target="_blank" rel="noreferrer" class="yt-link">YouTube에서 보기 ↗</a>
+                    </div>
+                    <iframe class="portfolio-video" src={projectEmbeds[0] ?? ""} title="FLIMFLOW 결과 영상" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
                   </div>
                 </div>
                 <!-- Slide 1+: 도식 이미지 -->
@@ -349,7 +363,14 @@ FLOW
                             )
                           }
                           {
-                            item.link && (
+                            item.link && isYoutubeUrl(item.link) ? (
+                              <div class="archive-yt-thumb">
+                                <img src={youtubeThumbnail(item.link)} alt={item.title} class="archive-yt-img" />
+                                <a href={item.link} target="_blank" rel="noreferrer" class="yt-play-btn">
+                                  ▶ {item.linkLabel ?? "영상 보기"}
+                                </a>
+                              </div>
+                            ) : item.link && (
                               <a href={item.link} target="_blank" rel="noreferrer" class="inline-link">
                                 {item.linkLabel ?? "링크 보기"}
                               </a>
