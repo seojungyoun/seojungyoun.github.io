@@ -2,11 +2,11 @@
 import { siteConfig } from "../config";
 
 const navItems = [
-  { href: "#workflow", label: "Workflow" },
-  { href: "#logic-layer", label: "Logic Layer" },
+  { href: "#top", label: "Intro" },
+  { href: "#featured-projects", label: "Projects" },
   { href: "#management-layer", label: "Management" },
-  { href: "#foundation", label: "Foundation" },
-  { href: siteConfig.archive.hiddenPageHref, label: "Hidden Page" },
+  { href: "#full-archive", label: "Archive" },
+  { href: siteConfig.archive.hiddenPageHref, label: "SM Proposal" },
 ];
 ---
 
@@ -15,14 +15,9 @@ const navItems = [
   class="fixed inset-x-0 top-0 z-50 transition-all duration-500"
 >
   <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
-    <a href="#top" class="flex items-center gap-3 text-[var(--navy)]">
-      <span class="grid h-11 w-11 place-items-center rounded-2xl border border-white/60 bg-white/70 text-sm font-semibold shadow-[0_12px_30px_rgba(31,47,99,0.14)] backdrop-blur">
-        SJ
-      </span>
-      <span class="hidden md:block">
-        <strong class="block text-sm uppercase tracking-[0.28em]">{siteConfig.englishName}</strong>
-        <span class="block text-xs text-[var(--muted)]">AI-Human Pipeline</span>
-      </span>
+    <a href="#top" class="flex items-center gap-2">
+      <strong class="text-sm uppercase tracking-[0.28em] text-[var(--navy-900)]">{siteConfig.englishName}</strong>
+      <span class="hidden md:inline text-xs text-[var(--muted)]">· AI-Human Pipeline</span>
     </a>
 
     <ul class="hidden items-center gap-6 lg:flex">
