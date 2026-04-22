@@ -21,6 +21,7 @@ export type HighlightProject = {
   video?: string;
   diagrams?: string[];
   diagramCaptions?: string[];
+  image?: string;
 };
 
 export type ArchiveItem = {
@@ -29,6 +30,8 @@ export type ArchiveItem = {
   description?: string;
   bullets?: string[];
   link?: string;
+  linkLabel?: string;
+  image?: string;
   tags?: string[];
 };
 
@@ -96,7 +99,7 @@ export const siteConfig = {
         "도1·도2 다이어그램으로 로직 레이어 시각화",
       ],
       stack: ["LangChain", "LangGraph", "Stable Diffusion", "Veo3", "Python"],
-      video: "https://youtu.be/d4_xoC0egl4?si=L6qyA6FicPgzHf5J",
+      video: "https://youtu.be/d4_xoC0egl4?si=HVRcyg-W-ricGCCU",
       diagrams: ["/media/flimflow-diagram-1.png", "/media/flimflow-diagram-2.png"],
       diagramCaptions: [
         "도1 — 장면 일관성 평가 흐름도: 스토리보드 파싱 → 6축 충분성 평가 → 재생성/승인 분기",
@@ -186,6 +189,8 @@ export const siteConfig = {
             "스토리보드 기반 파이프라인 기획·설계",
             "발명신고서 및 설계 문서 작성",
           ],
+          link: "https://youtu.be/d4_xoC0egl4?si=HVRcyg-W-ricGCCU",
+          linkLabel: "영상 보기",
           tags: ["Python", "LangChain", "LangGraph", "Generative AI"],
         },
         {
@@ -200,10 +205,12 @@ export const siteConfig = {
           ],
           tags: ["Unity", "PyTorch", "Flask", "Celery", "VR"],
           link: "https://github.com/seojungyoun/25_Dorememe.git",
+          linkLabel: "깃허브 보기",
         },
         {
           title: "writie",
           subtitle: "AI 페르소나 학습 기반 초개인화 글쓰기 플랫폼",
+          image: "/media/writie-prototype.png",
           description:
             "사용자의 문체와 사고를 돕는 방향의 AI 글쓰기 플랫폼으로 서비스 기획과 개발을 진행 중입니다.",
           bullets: [
@@ -223,6 +230,7 @@ export const siteConfig = {
         {
           title: "덕성여자대학교 RISE 사업 AR 영상 제작",
           subtitle: "AI 기반 데이터 분류 및 시각 에셋 최적화",
+          image: "/media/ar-project.png",
           description:
             "AI 기반 데이터 분류와 시각 에셋 최적화를 바탕으로 영상 제작 품질 관리를 주도했습니다.",
           tags: ["AI", "AR", "Content Production"],
@@ -230,16 +238,35 @@ export const siteConfig = {
         {
           title: "도봉옛길 메타버스 구현 및 전시",
           subtitle: "지역 문화유산 가상 구현",
+          image: "/media/dobong-zep.png",
           description:
             "Zep과 제페토 플랫폼을 활용해 지역 문화유산을 가상 공간으로 구현하고 미디어아트 전시에 참여했습니다.",
           tags: ["Zep", "Zepeto", "Metaverse"],
         },
         {
-          title: "장미원 시장 AR 디지털 간판 및 미디어파사드 제작",
+          title: "장미원시장 미디어 파사드 영상 제작",
           subtitle: "상권 활성화 콘텐츠",
           description:
-            "Grok AI, Veo3, Gemini 등 최신 AI 모델을 활용해 실감형 상권 활성화 콘텐츠를 구현했습니다.",
-          tags: ["Grok AI", "Veo3", "Gemini", "AR"],
+            "Grok AI, Veo3, Gemini 등 최신 AI 모델을 활용해 실감형 상권 활성화 미디어 파사드 영상 콘텐츠를 기획하고 제작했습니다.",
+          link: "https://www.youtube.com/shorts/YDDte8_xuzQ?si=AsH2JDI-gqdrFdLi",
+          linkLabel: "영상 보기",
+          tags: ["Grok AI", "Veo3", "Gemini", "미디어파사드"],
+        },
+        {
+          title: "KT 2025 ESG 보고서 홍보 영상 제작",
+          subtitle: "KT 디지털인재장학생 콘텐츠",
+          description:
+            "KT 2025 ESG 보고서 홍보 영상을 기획하고 제작했습니다. 스크립트 작성부터 편집·후반 작업까지 전 과정을 담당했습니다.",
+          link: "https://youtu.be/QAWND9Cv4kY?si=FpT3pksDKnzhM8YC",
+          linkLabel: "영상 보기",
+          tags: ["영상 기획", "편집", "KT", "ESG"],
+        },
+        {
+          title: "성동 1+1 프로젝트",
+          subtitle: "지역 상생 콘텐츠 기획",
+          description:
+            "성동구 지역 상생을 위한 콘텐츠 기획 및 제작 프로젝트에 참여했습니다.",
+          tags: ["기획", "콘텐츠 제작", "지역협력"],
         },
         {
           title: "스마트해상물류 X ICT 멘토링 프로젝트",
@@ -303,7 +330,7 @@ export const siteConfig = {
           description: "실버 세대 여행 지원 VR/MR 메타버스 콘텐츠 개발 성과로 수상했습니다.",
         },
         {
-          title: "덕성여자대학교 연합해커톤 학생투표상",
+          title: "덕성여자대학교 연합해커톤 수상",
           subtitle: "2023",
           description: "졸업 정보 아카이빙 웹 서비스 '졸업을 도와조' 프론트엔드 개발로 수상했습니다.",
         },
@@ -319,7 +346,7 @@ export const siteConfig = {
       label: "Activities",
       items: [
         {
-          title: "KT 디지털인재장학생",
+          title: "KT디지털인재장학생",
           description:
             "디지털·AI 역량 강화 교육을 이수하고 운영팀 소속으로 SNS 콘텐츠를 기획·관리했습니다.",
         },
@@ -347,6 +374,12 @@ export const siteConfig = {
           title: "코딩 학습 유튜브 채널 운영",
           description:
             "Java, Python, Django 기반 교육 콘텐츠를 기획하고 영상을 제작했습니다.",
+        },
+        {
+          title: "경기콘텐츠진흥원 경기 XR 캠퍼스 유니티 과정 수료",
+          description:
+            "경기콘텐츠진흥원이 주관하는 경기 XR 캠퍼스에서 Unity 심화 과정을 수료했습니다.",
+          tags: ["Unity", "XR", "수료"],
         },
       ],
     },

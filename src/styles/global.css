@@ -472,7 +472,7 @@ button {
 
 .intro-strip,
 .content-section {
-  padding: 1.2rem 0 2rem;
+  padding: 3rem 0 5rem;
 }
 
 .intro-strip {
@@ -505,6 +505,121 @@ button {
 .feature-card-wide {
   display: grid;
   gap: 1rem;
+}
+
+/* ── Featured project carousel ──────────────────────────────────────── */
+.slider-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.slider-tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.slider-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s, color 0.18s;
+  color: var(--muted);
+}
+
+.slider-tab:hover {
+  background: white;
+  border-color: var(--pink-400);
+  color: var(--navy-800);
+}
+
+.slider-tab.is-active {
+  background: var(--navy-800);
+  border-color: var(--navy-800);
+  color: white;
+}
+
+.slider-tab-num {
+  font-size: 0.72rem;
+  font-weight: 700;
+  opacity: 0.55;
+}
+
+.slider-tab.is-active .slider-tab-num {
+  opacity: 0.7;
+}
+
+.slider-tab-title {
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.slider-arrows {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.slider-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.88);
+  cursor: pointer;
+  color: var(--navy-800);
+  transition: background 0.18s, border-color 0.18s;
+}
+
+.slider-arrow:hover {
+  background: white;
+  border-color: var(--pink-400);
+}
+
+.feature-slider-outer {
+  position: relative;
+}
+
+.feature-slide {
+  display: none;
+  animation: fadeSlide 0.35s ease;
+}
+
+.feature-slide.is-active {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 768px) {
+  .feature-slide.is-active {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.archive-card-img {
+  width: 100%;
+  border-radius: 0.75rem;
+  object-fit: cover;
+  max-height: 200px;
+  margin-bottom: 0.75rem;
+  border: 1px solid var(--line);
 }
 
 .feature-copy h3 {
