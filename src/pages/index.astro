@@ -4,15 +4,13 @@ import Footer from "../components/Footer.astro";
 import { siteConfig } from "../config";
 import "../styles/global.css";
 
-function toYoutubeEmbed(url: string | undefined): string | null {
+function extractYoutubeId(url: string | undefined): string | null {
   if (!url) return null;
   const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([^?&\s]+)/);
-  if (!match) return null;
-  const id = match[1];
-  return `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=1`;
+  return match ? match[1] : null;
 }
 
-const projectEmbeds = siteConfig.highlightProjects.map((p) => toYoutubeEmbed(p.video));
+const projectVideoIds = siteConfig.highlightProjects.map((p) => extractYoutubeId(p.video));
 
 const promptSnippet = `SYSTEM
 사용자의 글을 대신 완성하지 않고 사고를 확장하는 질문을 먼저 제안한다.
@@ -46,13 +44,6 @@ FLOW
     <main class="page-shell">
       <section id="top" class="hero-section">
         <div class="hero-copy">
-          <div class="hero-profile">
-            <img src="/media/youn.jpg" alt={siteConfig.name} class="hero-avatar" />
-            <div>
-              <span class="hero-profile-name">{siteConfig.name}</span>
-              <span class="hero-profile-name-en">{siteConfig.englishName}</span>
-            </div>
-          </div>
           <p class="eyebrow">{siteConfig.hero.eyebrow}</p>
           <h1>{siteConfig.hero.headline}</h1>
           <p class="hero-summary">{siteConfig.hero.summary}</p>
@@ -111,14 +102,12 @@ FLOW
       </section>
 
       <section id="about" class="intro-strip">
-        <div class="intro-lead">
-          <img src="/media/youn.jpg" alt={siteConfig.name} class="intro-avatar" />
-          <div>
-            <p class="section-kicker">About</p>
-            <h2>{siteConfig.about.heading}</h2>
-          </div>
+        <img src="/media/youn.jpg" alt={siteConfig.name} class="intro-avatar" />
+        <div class="intro-text">
+          <p class="section-kicker">About</p>
+          <h2>{siteConfig.about.heading}</h2>
+          <p>{siteConfig.about.body}</p>
         </div>
-        <p>{siteConfig.about.body}</p>
       </section>
 
       <section id="featured-projects" class="content-section">
@@ -172,22 +161,40 @@ FLOW
               <div class="tag-row">{siteConfig.highlightProjects[0].stack.map((s) => <span>{s}</span>)}</div>
             </div>
             <div class="feature-media-column">
-              <div class="video-card">
-                <div class="video-head">
-                  <span>별 재단사 결과 영상</span>
-                  <a href={siteConfig.highlightProjects[0].video} target="_blank" rel="noreferrer" class="yt-link">YouTube에서 보기 ↗</a>
+              <div class="media-slider" data-media-slider>
+                <!-- Slide 0: YouTube 썸네일 -->
+                <div class="media-slide is-active">
+                  <div class="yt-thumb-wrap">
+                    <img
+                      src={`https://img.youtube.com/vi/${projectVideoIds[0]}/hqdefault.jpg`}
+                      alt="별 재단사 결과 영상 썸네일"
+                      class="yt-thumb-img"
+                    />
+                    <a href={siteConfig.highlightProjects[0].video} target="_blank" rel="noreferrer" class="yt-play-btn">
+                      ▶ YouTube에서 보기
+                    </a>
+                  </div>
                 </div>
-                <iframe class="portfolio-video" src={projectEmbeds[0] ?? ""} title="FLIMFLOW 결과 영상" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-              </div>
-              <div class="diagram-grid">
+                <!-- Slide 1+: 도식 이미지 -->
                 {siteConfig.highlightProjects[0].diagrams?.map((diagram, index) => (
-                  <figure class="diagram-card">
-                    <img src={diagram} alt={siteConfig.highlightProjects[0].diagramCaptions?.[index] ?? `diagram ${index + 1}`} />
-                    {siteConfig.highlightProjects[0].diagramCaptions?.[index] && (
-                      <figcaption class="diagram-caption">{siteConfig.highlightProjects[0].diagramCaptions[index]}</figcaption>
-                    )}
-                  </figure>
+                  <div class="media-slide">
+                    <figure class="diagram-card">
+                      <img src={diagram} alt={siteConfig.highlightProjects[0].diagramCaptions?.[index] ?? `diagram ${index + 1}`} />
+                      {siteConfig.highlightProjects[0].diagramCaptions?.[index] && (
+                        <figcaption class="diagram-caption">{siteConfig.highlightProjects[0].diagramCaptions[index]}</figcaption>
+                      )}
+                    </figure>
+                  </div>
                 ))}
+                <div class="media-nav">
+                  <button type="button" class="media-arrow media-prev" aria-label="이전">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>
+                  </button>
+                  <span class="media-dots">1 / {(siteConfig.highlightProjects[0].diagrams?.length ?? 0) + 1}</span>
+                  <button type="button" class="media-arrow media-next" aria-label="다음">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2l5 5-5 5"/></svg>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -321,8 +328,8 @@ FLOW
                 >
                   <div class="archive-grid">
                     {
-                      tab.items.map((item) => (
-                        <article class="archive-card">
+                      tab.items.map((item, itemIndex) => (
+                        <article class="archive-card" hidden={itemIndex >= 3}>
                           <p class="archive-card-label">{item.subtitle}</p>
                           <h3>{item.title}</h3>
                           {item.image && <img src={item.image} alt={item.title} class="archive-card-img" />}
@@ -352,6 +359,19 @@ FLOW
                       ))
                     }
                   </div>
+                  {tab.items.length > 3 && (
+                    <div class="archive-pagination">
+                      <button type="button" class="archive-pg-btn archive-pg-prev" aria-label="이전">
+                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2L3 6.5 8 11"/></svg>
+                        이전
+                      </button>
+                      <span class="archive-pg-info">1 / {Math.ceil(tab.items.length / 3)}</span>
+                      <button type="button" class="archive-pg-btn archive-pg-next" aria-label="다음">
+                        다음
+                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2l5 4.5L5 11"/></svg>
+                      </button>
+                    </div>
+                  )}
                 </section>
               ))
             }
@@ -385,6 +405,23 @@ FLOW
       document.getElementById("slider-prev")?.addEventListener("click", () => goTo(current - 1));
       document.getElementById("slider-next")?.addEventListener("click", () => goTo(current + 1));
 
+      // ── Media sliders (video ↔ diagrams) ───────────────────────────────
+      document.querySelectorAll<HTMLElement>("[data-media-slider]").forEach((slider) => {
+        const mSlides = Array.from(slider.querySelectorAll<HTMLElement>(".media-slide"));
+        const dots = slider.querySelector<HTMLElement>(".media-dots");
+        let mCur = 0;
+
+        function goMedia(i: number) {
+          mSlides[mCur].classList.remove("is-active");
+          mCur = (i + mSlides.length) % mSlides.length;
+          mSlides[mCur].classList.add("is-active");
+          if (dots) dots.textContent = `${mCur + 1} / ${mSlides.length}`;
+        }
+
+        slider.querySelector(".media-prev")?.addEventListener("click", () => goMedia(mCur - 1));
+        slider.querySelector(".media-next")?.addEventListener("click", () => goMedia(mCur + 1));
+      });
+
       // ── Archive tabs ───────────────────────────────────────────────────
       const archiveTabs = Array.from(document.querySelectorAll("[data-archive-tab]"));
       const archivePanels = Array.from(document.querySelectorAll("[data-archive-panel]"));
@@ -416,6 +453,28 @@ FLOW
           video.muted = !video.muted;
           button.textContent = video.muted ? "Sound Off" : "Sound On";
         });
+      });
+
+      // ── Archive pagination ─────────────────────────────────────────────
+      document.querySelectorAll<HTMLElement>("[data-archive-panel]").forEach((panel) => {
+        const cards = Array.from(panel.querySelectorAll<HTMLElement>(".archive-card"));
+        const total = Math.ceil(cards.length / 3);
+        if (total <= 1) return;
+        let page = 0;
+
+        const prevBtn = panel.querySelector<HTMLButtonElement>(".archive-pg-prev");
+        const nextBtn = panel.querySelector<HTMLButtonElement>(".archive-pg-next");
+        const info = panel.querySelector<HTMLElement>(".archive-pg-info");
+
+        function showPage(p: number) {
+          page = (p + total) % total;
+          cards.forEach((c, i) => { c.hidden = Math.floor(i / 3) !== page; });
+          if (info) info.textContent = `${page + 1} / ${total}`;
+        }
+
+        prevBtn?.addEventListener("click", () => showPage(page - 1));
+        nextBtn?.addEventListener("click", () => showPage(page + 1));
+        showPage(0);
       });
     </script>
   </body>
