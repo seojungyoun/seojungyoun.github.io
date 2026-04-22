@@ -931,6 +931,23 @@ button {
   background: rgba(255, 255, 255, 0.96);
 }
 
+.prompt-logo-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem 1rem 1.4rem;
+  border-top: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.prompt-logo {
+  max-width: 140px;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
 .prompt-card pre {
   margin: 0;
   padding: 0.95rem;
