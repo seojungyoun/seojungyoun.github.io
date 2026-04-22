@@ -150,9 +150,9 @@ export const siteConfig = {
   management: {
     title: "운영과 협업도 설계 가능한 기획자",
     summary:
-      "프로젝트를 만들기만 하는 것이 아니라, 운영하고 정렬하고 설명하는 일까지 해왔습니다. KT 디지털인재 활동과 여러 인턴십에서 콘텐츠 발행, 협업 구조, 실행 관리 경험을 쌓았습니다.",
+      "프로젝트를 만들기만 하는 것이 아니라, 운영하고 정렬하고 설명하는 일까지 해왔습니다. KT디지털인재장학생 활동과 여러 인턴십에서 콘텐츠 발행, 협업 구조, 실행 관리 경험을 쌓았습니다.",
     metrics: [
-      { label: "KT 디지털인재", value: "운영진 대표", detail: "KT와 협업하며 장학생 활동 기획·운영" },
+      { label: "KT디지털인재장학생", value: "운영진 대표", detail: "KT와 협업하며 장학생 활동 기획·운영" },
       { label: "SNS 콘텐츠", value: "12건 이상", detail: "콘텐츠 기획·제작과 운영 흐름 관리" },
       { label: "인턴십", value: "3회", detail: "콘텐츠 제작, 자동화, 운영 경험 축적" },
       { label: "협업 툴", value: "Slack · Notion · Figma", detail: "기획 문서와 진행 정렬 경험" },
@@ -254,7 +254,7 @@ export const siteConfig = {
         },
         {
           title: "KT 2025 ESG 보고서 홍보 영상 제작",
-          subtitle: "KT 디지털인재장학생 콘텐츠",
+          subtitle: "KT디지털인재장학생 콘텐츠",
           description:
             "KT 2025 ESG 보고서 홍보 영상을 기획하고 제작했습니다. 스크립트 작성부터 편집·후반 작업까지 전 과정을 담당했습니다.",
           link: "https://youtu.be/QAWND9Cv4kY?si=FpT3pksDKnzhM8YC",
