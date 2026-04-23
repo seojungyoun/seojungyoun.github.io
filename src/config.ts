@@ -338,6 +338,7 @@ export const siteConfig = {
           title: "덕성여자대학교 연합해커톤 수상",
           subtitle: "2023",
           description: "졸업 정보 아카이빙 웹 서비스 '졸업을 도와조' 프론트엔드 개발로 수상했습니다.",
+          image: "/media/duksung.png",
         },
         {
           title: "Microsoft Office Specialist : Excel 2016 Expert",

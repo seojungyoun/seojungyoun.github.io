@@ -627,6 +627,13 @@ button {
   border: 1px solid var(--line);
 }
 
+.archive-card-img[src*="duksung"] {
+  object-fit: contain;
+  background: #f8f4f0;
+  max-height: 120px;
+  padding: 1rem 1.5rem;
+}
+
 .archive-img-link-wrap {
   position: relative;
   margin-bottom: 0.75rem;
