@@ -350,7 +350,18 @@ FLOW
                         <article class="archive-card">
                           <p class="archive-card-label">{item.subtitle}</p>
                           <h3>{item.title}</h3>
-                          {item.image && <img src={item.image} alt={item.title} class="archive-card-img" />}
+                          {
+                            item.image && item.link && !isYoutubeUrl(item.link) ? (
+                              <div class="archive-img-link-wrap">
+                                <img src={item.image} alt={item.title} class="archive-card-img" />
+                                <a href={item.link} target="_blank" rel="noreferrer" class="archive-img-btn">
+                                  {item.linkLabel ?? "링크 보기"}
+                                </a>
+                              </div>
+                            ) : item.image && (
+                              <img src={item.image} alt={item.title} class="archive-card-img" />
+                            )
+                          }
                           {item.description && <p>{item.description}</p>}
                           {
                             item.bullets && (
@@ -374,7 +385,7 @@ FLOW
                                   ▶ {item.linkLabel ?? "영상 보기"}
                                 </a>
                               </div>
-                            ) : item.link && (
+                            ) : item.link && !item.image && (
                               <a href={item.link} target="_blank" rel="noreferrer" class="inline-link">
                                 {item.linkLabel ?? "링크 보기"}
                               </a>

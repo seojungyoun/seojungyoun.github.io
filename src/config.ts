@@ -241,6 +241,8 @@ export const siteConfig = {
           image: "/media/zep.png",
           description:
             "Zep과 제페토 플랫폼을 활용해 지역 문화유산을 가상 공간으로 구현하고 미디어아트 전시에 참여했습니다.",
+          link: "https://zep.us/play/2XdGEJ",
+          linkLabel: "ZEP 보러가기",
           tags: ["Zep", "Zepeto", "Metaverse"],
         },
         {
