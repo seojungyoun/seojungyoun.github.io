@@ -8,21 +8,11 @@ const socialEntries = [
 ].filter((entry) => entry.href);
 ---
 
-<footer class="relative overflow-hidden border-t border-white/70 bg-[var(--navy)] px-6 py-16 text-white">
+<footer class="relative overflow-hidden border-t border-white/70 bg-[var(--navy)] px-6 py-14 text-white">
   <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(245,168,200,0.3),_transparent_30%),radial-gradient(circle_at_bottom_right,_rgba(255,255,255,0.14),_transparent_28%)]"></div>
 
-  <div class="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.4fr_1fr]">
-    <div class="space-y-4">
-      <p class="text-xs font-semibold uppercase tracking-[0.34em] text-white/60">Closing Frame</p>
-      <h2 class="max-w-2xl text-3xl font-semibold tracking-tight md:text-5xl">
-        Human-centered AI systems need both logic and taste.
-      </h2>
-      <p class="max-w-2xl text-sm leading-7 text-white/74 md:text-base">
-        {siteConfig.name}는 기술 설계와 콘텐츠 실행 사이의 간극을 줄이는 방식으로 AI 경험을 기획합니다.
-      </p>
-    </div>
-
-    <div class="grid gap-6 rounded-[2rem] border border-white/15 bg-white/8 p-6 backdrop-blur-sm">
+  <div class="relative mx-auto max-w-7xl flex justify-center">
+    <div class="grid gap-6 rounded-[2rem] border border-white/15 bg-white/8 p-8 backdrop-blur-sm w-full max-w-xl">
       <div>
         <p class="text-sm font-semibold text-[var(--pink-soft)]">{siteConfig.name} / {siteConfig.englishName}</p>
         <p class="mt-2 text-sm text-white/70">{siteConfig.title}</p>

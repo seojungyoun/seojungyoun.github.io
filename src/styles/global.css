@@ -686,6 +686,7 @@ button {
 
 .feature-status {
   margin-top: 0.8rem;
+  margin-bottom: 0.75rem;
   padding: 0.85rem 0.95rem;
   border-left: 3px solid var(--pink-500);
   background: var(--pink-100);
@@ -1169,13 +1170,13 @@ button {
 }
 
 @media (min-width: 768px) {
-  .hero-section,
-  .section-header {
-    align-items: start;
+  .hero-section {
+    align-items: stretch;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
   }
 
-  .hero-section {
-    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  .section-header {
+    align-items: start;
   }
 
   .section-header {
