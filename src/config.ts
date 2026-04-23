@@ -325,7 +325,9 @@ export const siteConfig = {
         {
           title: "한국지능정보사회진흥원 원장상",
           subtitle: "2025",
-          description: "생성형 AI 활용 미래 사회 테마 콘텐츠 제작 성과를 인정받았습니다.",
+          description: "K-AI 공모전에서 AI를 활용한 쇼츠를 제작하여 그 성과를 인정받아 수상하였습니다.",
+          link: "https://youtube.com/shorts/MyBtsOtpXts?si=oPI_F7_O558oe8fZ",
+          linkLabel: "영상 보기",
         },
         {
           title: "경기콘텐츠진흥원장상",
