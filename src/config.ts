@@ -75,9 +75,9 @@ export const siteConfig = {
     ] satisfies HeroStat[],
   },
   about: {
-    heading: "데이터 흐름을 설계하고, 개발 언어로 소통하는 기획자",
+    heading: "데이터 흐름을 설계하고, 소통하는 AI 기획자",
     body:
-      "덕성여자대학교 IT미디어공학과에서 4.2/4.5 학점을 유지하며, 생성형 AI 워크플로우 설계, Unity 기반 실감형 콘텐츠, 프론트엔드와 서비스 기획을 함께 다뤄왔습니다. 기술을 이해한 상태로 문제를 구조화하고, 그 구조를 사용자 경험과 운영 체계로 연결하는 일을 지향합니다.",
+      "덕성여자대학교 IT미디어공학과에서 4.2/4.5 학점을 유지하며, 생성형 AI 워크플로우 설계, Unity 기반 실감형 콘텐츠, 웹/앱 개발과 서비스 기획을 함께 다뤄왔습니다. 다양한 기술을 활용하여 문제를 구조화하고, 더 나은 사용자 경험을 만들어 나갑니다.",
   },
   highlightProjects: [
     {
@@ -85,7 +85,7 @@ export const siteConfig = {
       title: "FILMFLOW",
       subtitle: "생성형 AI 영상 자동화 워크플로우 · 변리사 검토 및 특허 출원 진행 중",
       summary:
-        "장면 간 비일관성, 무한 재생성, 불완전한 프롬프트 입력 문제를 모델 교체가 아니라 워크플로우 설계의 문제로 재정의한 프로젝트입니다.",
+        "장면 간 비일관성, 무한 재생성, 불완전한 프롬프트 입력 문제를 워크플로우 설계의 문제로 재정의한 프로젝트입니다.",
       status:
         "스토리보드 PDF 파싱, 6축 충분성 평가, 제한적 사용자 개입, 프레임 체이닝을 하나의 파이프라인으로 설계했습니다.",
       role: [
@@ -148,14 +148,14 @@ export const siteConfig = {
     },
   ] satisfies HighlightProject[],
   management: {
-    title: "운영과 협업도 설계 가능한 기획자",
+    title: "기획부터 실행까지 설계하는 인재",
     summary:
-      "프로젝트를 만들기만 하는 것이 아니라, 운영하고 정렬하고 설명하는 일까지 해왔습니다. KT 디지털인재 활동과 여러 인턴십에서 콘텐츠 발행, 협업 구조, 실행 관리 경험을 쌓았습니다.",
+      "프로젝트를 기획하는 데서 멈추지 않고, 운영 흐름과 협업 구조를 함께 설계해왔습니다. KT디지털인재장학생 활동과 여러 인턴십에서 콘텐츠 발행, 협업 조율, 실행 관리 경험을 쌓았습니다.",
     metrics: [
-      { label: "KT 디지털인재", value: "운영진 대표", detail: "KT와 협업하며 장학생 활동 기획·운영" },
-      { label: "SNS 콘텐츠", value: "12건 이상", detail: "콘텐츠 기획·제작과 운영 흐름 관리" },
+      { label: "KT디지털인재장학생", value: "운영진 대표", detail: "KT와 협업하며 장학생 활동 기획·운영" },
+      { label: "KT디지털인재장학생 공식 SNS 콘텐츠", value: "20건 이상", detail: "콘텐츠 기획·제작과 운영 기획 및 관리" },
       { label: "인턴십", value: "3회", detail: "콘텐츠 제작, 자동화, 운영 경험 축적" },
-      { label: "협업 툴", value: "Slack · Notion · Figma", detail: "기획 문서와 진행 정렬 경험" },
+      { label: "협업 툴", value: "Slack · Notion · Figma", detail: "기획 문서 작성과 진행 리드 경험" },
     ],
     tools: ["Slack", "Notion", "Figma", "Premiere Pro", "After Effects", "Google Sheets"],
   },
@@ -254,7 +254,7 @@ export const siteConfig = {
         },
         {
           title: "KT 2025 ESG 보고서 홍보 영상 제작",
-          subtitle: "KT 디지털인재장학생 콘텐츠",
+          subtitle: "KT디지털인재장학생 콘텐츠",
           description:
             "KT 2025 ESG 보고서 홍보 영상을 기획하고 제작했습니다. 스크립트 작성부터 편집·후반 작업까지 전 과정을 담당했습니다.",
           link: "https://youtu.be/QAWND9Cv4kY?si=FpT3pksDKnzhM8YC",
