@@ -2,6 +2,7 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { siteConfig } from "../config";
+import type { ArchiveItem } from "../config";
 import "../styles/global.css";
 
 function extractYoutubeId(url: string | undefined): string | null {
@@ -345,7 +346,7 @@ FLOW
                 >
                   <div class="archive-grid">
                     {
-                      tab.items.map((item) => (
+                      tab.items.map((item: ArchiveItem) => (
                         <article class="archive-card">
                           <p class="archive-card-label">{item.subtitle}</p>
                           <h3>{item.title}</h3>
