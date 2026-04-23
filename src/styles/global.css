@@ -828,23 +828,24 @@ button {
 
 .yt-play-btn {
   position: absolute;
-  bottom: 1rem;
+  bottom: 0.75rem;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--pink-soft);
-  color: var(--navy-800);
-  border: 1px solid var(--pink-400);
-  border-radius: 999px;
-  padding: 0.5rem 1.3rem;
-  font-size: 0.84rem;
+  background: var(--pink-strong, #f5a8c8);
+  color: #fff;
+  border-radius: 2rem;
+  padding: 0.42rem 1.1rem;
+  font-size: 0.8rem;
   font-weight: 700;
   white-space: nowrap;
   text-decoration: none;
-  transition: background 0.18s;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+  transition: background 0.18s, transform 0.18s;
 }
 
 .yt-play-btn:hover {
-  background: var(--pink-200);
+  background: #e87fb0;
+  transform: translateX(-50%) translateY(-2px);
 }
 
 /* ── Media slider (video ↔ diagrams) ──────────────────────────────── */
@@ -1076,8 +1077,20 @@ button {
 .inline-link {
   display: inline-flex;
   margin-top: 0.8rem;
-  color: var(--navy-800);
+  background: var(--pink-strong, #f5a8c8);
+  color: #fff;
+  border-radius: 2rem;
+  padding: 0.42rem 1.1rem;
+  font-size: 0.8rem;
   font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+  transition: background 0.18s, transform 0.18s;
+}
+
+.inline-link:hover {
+  background: #e87fb0;
+  transform: translateY(-2px);
 }
 
 .summary-shell,
