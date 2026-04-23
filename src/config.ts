@@ -282,7 +282,7 @@ export const siteConfig = {
           title: "Future Letter 모바일 앱 개발",
           subtitle: "미래 전달 편지 서비스",
           description:
-            "Swift, PHP, MySQL 기반으로 미래 편지 전달 서비스를 설계하고 개발했습니다.",
+            "Swift, PHP, MySQL 기반으로 미래 편지 전달 서비스를 설계하고 개발했습니다. 이 서비스에서는 AI가 편지의 내용을 바탕으로 감정과 목표 달성률을 분석하여 리포트로 제공합니다.",
           tags: ["Swift", "PHP", "MySQL"],
         },
         {
