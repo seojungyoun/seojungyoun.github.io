@@ -1184,10 +1184,7 @@ button {
   }
 
   .section-header {
-    align-items: start;
-  }
-
-  .section-header {
+    align-items: end;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
     gap: 2rem;
   }
