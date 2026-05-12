@@ -47,9 +47,9 @@ export const siteConfig = {
   title: "AI Workflow Designer · Creative Technologist",
   description:
     "AI 로직과 콘텐츠 제작 사이를 연결하는 기획자 서정윤의 인터랙티브 포트폴리오.",
-  accentColor: "#f5a8c8",
-  secondaryColor: "#1f2f63",
-  softColor: "#fff7fb",
+  accentColor: "#ffffff",
+  secondaryColor: "#111111",
+  softColor: "#050505",
   social: {
     email: "bellita@naver.com",
     linkedin: "https://www.linkedin.com/in/%EC%A0%95%EC%9C%A4-%EC%84%9C-71b989274/",
@@ -409,17 +409,6 @@ export const siteConfig = {
     },
   ] satisfies ArchiveTab[],
   archive: {
-    reviewerSummaryHref: "/reviewer-summary",
-    hiddenPageHref: "/sm-proposal",
-  },
-  hiddenProposal: {
-    title: "SM AI Virtual Artist Operations Proposal",
-    scenario:
-      "나이비스(naevis)의 실시간 소통 운영에 제한적 사용자 개입 모델을 적용하면, 팬 참여를 유지하면서도 브랜드 일관성과 운영 안정성을 동시에 확보할 수 있습니다.",
-    bullets: [
-      "입력 즉시 출력이 아니라 moderation, intent classification, response framing 단계를 둡니다.",
-      "실시간 대화의 감정 톤은 유지하되 세계관과 브랜드 가이드는 시스템 레벨에서 제어합니다.",
-      "운영팀이 개입해야 하는 순간과 자동 응답이 가능한 순간을 분리해 안정성을 높입니다.",
-    ],
+    reviewerSummaryHref: "",
   },
 };

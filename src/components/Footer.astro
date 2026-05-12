@@ -8,8 +8,7 @@ const socialEntries = [
 ].filter((entry) => entry.href);
 ---
 
-<footer class="relative overflow-hidden border-t border-white/10 bg-[var(--navy)] px-6 py-12 text-white">
-  <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(245,168,200,0.18),_transparent_40%)]"></div>
+<footer class="relative overflow-hidden border-t border-white/10 bg-black px-6 py-12 text-white">
 
   <div class="relative mx-auto max-w-7xl flex flex-col items-center gap-6 text-center">
 
@@ -24,7 +23,7 @@ const socialEntries = [
             href={entry.href}
             target={entry.label === "Email" ? undefined : "_blank"}
             rel={entry.label === "Email" ? undefined : "noreferrer"}
-            class="rounded-full border border-white/20 px-5 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/80 transition hover:border-[var(--pink-strong)] hover:text-white"
+            class="rounded-full border border-white/20 px-5 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/80 transition hover:border-white hover:text-white"
           >
             {entry.label}
           </a>
@@ -33,7 +32,7 @@ const socialEntries = [
     </div>
 
     <p class="text-xs text-white/30 uppercase tracking-[0.22em]">
-      © {new Date().getFullYear()} Seo Jungyoun. Portfolio crafted for SM Entertainment.
+      © {new Date().getFullYear()} Seo Jungyoun. Portfolio.
     </p>
 
   </div>

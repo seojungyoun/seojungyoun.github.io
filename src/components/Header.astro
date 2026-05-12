@@ -6,7 +6,6 @@ const navItems = [
   { href: "#featured-projects", label: "Projects" },
   { href: "#management-layer", label: "Management" },
   { href: "#full-archive", label: "Archive" },
-  { href: siteConfig.archive.hiddenPageHref, label: "SM Proposal" },
 ];
 ---
 
@@ -16,7 +15,7 @@ const navItems = [
 >
   <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
     <a href="#top" class="flex items-center gap-2">
-      <strong class="text-sm uppercase tracking-[0.28em] text-[var(--navy-900)]">{siteConfig.englishName}</strong>
+      <strong class="text-sm uppercase tracking-[0.28em] text-white">{siteConfig.englishName}</strong>
     </a>
 
     <!-- 데스크탑 메뉴 -->
@@ -26,7 +25,7 @@ const navItems = [
           <li>
             <a
               href={item.href}
-              class="text-sm font-medium text-[var(--navy)]/80 transition hover:text-[var(--navy)]"
+              class="text-sm font-medium text-white/68 transition hover:text-white"
             >
               {item.label}
             </a>
@@ -42,16 +41,16 @@ const navItems = [
       aria-label="메뉴 열기"
       class="flex flex-col gap-1.5 p-2 lg:hidden"
     >
-      <span class="hamburger-line block h-0.5 w-6 bg-[var(--navy-900)] transition-all duration-300"></span>
-      <span class="hamburger-line block h-0.5 w-6 bg-[var(--navy-900)] transition-all duration-300"></span>
-      <span class="hamburger-line block h-0.5 w-6 bg-[var(--navy-900)] transition-all duration-300"></span>
+      <span class="hamburger-line block h-0.5 w-6 bg-white transition-all duration-300"></span>
+      <span class="hamburger-line block h-0.5 w-6 bg-white transition-all duration-300"></span>
+      <span class="hamburger-line block h-0.5 w-6 bg-white transition-all duration-300"></span>
     </button>
   </nav>
 
   <!-- 모바일 드로어 -->
   <div
     id="mobile-drawer"
-    class="hidden border-t border-[var(--line)] bg-white/95 backdrop-blur-xl px-5 pb-6 pt-4 lg:hidden"
+    class="hidden border-t border-white/10 bg-black/95 backdrop-blur-xl px-5 pb-6 pt-4 lg:hidden"
   >
     <ul class="flex flex-col gap-4">
       {
@@ -59,7 +58,7 @@ const navItems = [
           <li>
             <a
               href={item.href}
-              class="mobile-nav-link block text-base font-medium text-[var(--navy)]/80 transition hover:text-[var(--navy)]"
+              class="mobile-nav-link block text-base font-medium text-white/70 transition hover:text-white"
             >
               {item.label}
             </a>
@@ -75,9 +74,9 @@ const navItems = [
     const header = document.getElementById("header");
     if (!header) return;
     if (window.scrollY > 24) {
-      header.classList.add("bg-white/78", "backdrop-blur-xl", "shadow-[0_18px_45px_rgba(31,47,99,0.12)]");
+      header.classList.add("bg-black/72", "backdrop-blur-xl", "shadow-[0_18px_45px_rgba(0,0,0,0.32)]");
     } else {
-      header.classList.remove("bg-white/78", "backdrop-blur-xl", "shadow-[0_18px_45px_rgba(31,47,99,0.12)]");
+      header.classList.remove("bg-black/72", "backdrop-blur-xl", "shadow-[0_18px_45px_rgba(0,0,0,0.32)]");
     }
   };
 
