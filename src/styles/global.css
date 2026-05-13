@@ -5,6 +5,8 @@
   --cream: #f1eee8;
   --paper: #fbfaf7;
   --ink: #12110f;
+  --sk-red: #ea002c;
+  --sk-orange: #ff7a00;
   --muted: rgba(18, 17, 15, 0.58);
   --line: rgba(18, 17, 15, 0.12);
   --panel: rgba(255, 255, 255, 0.58);
@@ -12,16 +14,16 @@
   --pink-50: #f6f2eb;
   --pink-100: #ebe5da;
   --pink-200: #d8cbbb;
-  --pink-400: #6f6a5f;
-  --pink-500: #12110f;
+  --pink-400: var(--sk-orange);
+  --pink-500: var(--sk-red);
   --navy-700: #4a463e;
   --navy-800: #27241f;
   --navy-900: #12110f;
 
   /* aliases used by Header/Footer Tailwind classes */
   --navy: #212a53;
-  --pink-strong: #ffffff;
-  --pink-soft: #ebe5da;
+  --pink-strong: var(--sk-red);
+  --pink-soft: #fff1e5;
 }
 
 * {
@@ -1245,6 +1247,8 @@ button {
   --cream: #f1eee8;
   --paper: #fbfaf7;
   --ink: #12110f;
+  --sk-red: #ea002c;
+  --sk-orange: #ff7a00;
   --muted: rgba(18, 17, 15, 0.58);
   --line: rgba(18, 17, 15, 0.12);
   --panel: rgba(255, 255, 255, 0.58);
@@ -1252,10 +1256,10 @@ button {
   --navy: #12110f;
   --navy-800: #27241f;
   --navy-900: #12110f;
-  --pink-400: #6f6a5f;
-  --pink-500: #12110f;
-  --pink-strong: #12110f;
-  --pink-soft: #ebe5da;
+  --pink-400: var(--sk-orange);
+  --pink-500: var(--sk-red);
+  --pink-strong: var(--sk-red);
+  --pink-soft: #fff1e5;
 }
 
 body {
@@ -1321,7 +1325,7 @@ body {
 .panel-label,
 .archive-card-label,
 .compact-list span {
-  color: var(--ink);
+  color: var(--sk-red);
 }
 
 .hero-summary,
@@ -1342,8 +1346,8 @@ body {
 .archive-tab.is-active,
 .slider-tab.is-active,
 .print-button {
-  background: var(--ink);
-  border-color: var(--ink);
+  background: linear-gradient(135deg, var(--sk-red), var(--sk-orange));
+  border-color: transparent;
   color: var(--cream);
 }
 
@@ -1376,8 +1380,8 @@ body {
 }
 
 .hpi-badge {
-  background: rgba(18, 17, 15, 0.06);
-  color: rgba(18, 17, 15, 0.72);
+  background: rgba(255, 122, 0, 0.1);
+  color: var(--sk-red);
 }
 
 .hero-visual-card {
@@ -1416,12 +1420,12 @@ body {
 }
 
 .feature-status {
-  border-left-color: var(--ink);
+  border-left-color: var(--sk-orange);
 }
 
 .compact-list li::before,
 .archive-card li::before {
-  background: var(--ink);
+  background: var(--sk-orange);
 }
 
 .diagram-card,
@@ -1438,7 +1442,7 @@ body {
 .inline-link,
 .archive-img-btn,
 .yt-play-btn {
-  background: var(--ink);
+  background: linear-gradient(135deg, var(--sk-red), var(--sk-orange));
   color: var(--cream);
 }
 
