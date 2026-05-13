@@ -1376,8 +1376,37 @@ body {
 }
 
 .hpi-badge {
-  background: rgba(255, 255, 255, 0.09);
-  color: rgba(255, 255, 255, 0.82);
+  background: rgba(18, 17, 15, 0.06);
+  color: rgba(18, 17, 15, 0.72);
+}
+
+.hero-visual-card {
+  color: var(--ink);
+}
+
+.hero-visual-head span {
+  color: rgba(18, 17, 15, 0.56);
+}
+
+.hero-pipeline {
+  border-color: rgba(18, 17, 15, 0.08);
+}
+
+.hero-pipeline-item {
+  border-bottom-color: rgba(18, 17, 15, 0.08);
+}
+
+.hero-pipeline-item > strong {
+  color: var(--ink);
+}
+
+.hero-pipeline-item > p {
+  color: rgba(18, 17, 15, 0.58);
+}
+
+.hpi-tags span {
+  border-color: rgba(18, 17, 15, 0.1);
+  color: rgba(18, 17, 15, 0.56);
 }
 
 .hpi-footer,
