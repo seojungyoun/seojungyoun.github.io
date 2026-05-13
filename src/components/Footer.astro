@@ -8,12 +8,12 @@ const socialEntries = [
 ].filter((entry) => entry.href);
 ---
 
-<footer class="relative overflow-hidden border-t border-white/10 bg-black px-6 py-12 text-white">
+<footer class="relative overflow-hidden border-t border-[var(--line)] bg-[var(--cream)] px-6 py-12 text-[var(--ink)]">
 
   <div class="relative mx-auto max-w-7xl flex flex-col items-center gap-6 text-center">
 
     <div>
-      <p class="text-xl font-bold text-white">{siteConfig.name}</p>
+      <p class="text-xl font-bold text-[var(--ink)]">{siteConfig.name}</p>
     </div>
 
     <div class="flex flex-wrap justify-center gap-3">
@@ -23,7 +23,7 @@ const socialEntries = [
             href={entry.href}
             target={entry.label === "Email" ? undefined : "_blank"}
             rel={entry.label === "Email" ? undefined : "noreferrer"}
-            class="rounded-full border border-white/20 px-5 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/80 transition hover:border-white hover:text-white"
+            class="rounded-full border border-[var(--line)] bg-white/55 px-5 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--ink)]/70 transition hover:border-[var(--ink)] hover:text-[var(--ink)]"
           >
             {entry.label}
           </a>
@@ -31,7 +31,7 @@ const socialEntries = [
       }
     </div>
 
-    <p class="text-xs text-white/30 uppercase tracking-[0.22em]">
+    <p class="text-xs text-[var(--ink)]/35 uppercase tracking-[0.22em]">
       © {new Date().getFullYear()} Seo Jungyoun. Portfolio.
     </p>
 

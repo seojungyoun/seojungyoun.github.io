@@ -47,9 +47,9 @@ export const siteConfig = {
   title: "AI Workflow Designer · Creative Technologist",
   description:
     "AI 로직과 콘텐츠 제작 사이를 연결하는 기획자 서정윤의 인터랙티브 포트폴리오.",
-  accentColor: "#ffffff",
-  secondaryColor: "#111111",
-  softColor: "#050505",
+  accentColor: "#111111",
+  secondaryColor: "#6f6a5f",
+  softColor: "#f1eee8",
   social: {
     email: "bellita@naver.com",
     linkedin: "https://www.linkedin.com/in/%EC%A0%95%EC%9C%A4-%EC%84%9C-71b989274/",
@@ -57,7 +57,7 @@ export const siteConfig = {
   } satisfies SocialLinks,
   hero: {
     eyebrow: "AI-Human Collaborative Pipeline",
-    headline: "Bridging the Gap between AI Logic and Content Creation.",
+    headline: "Bridging the Gap between AI Logic and Creative Thoughts.",
     summary:
       "AI·개발·디자인을 직접 다루며 기획 감각을 쌓아왔습니다. 생성형 AI 영상 워크플로우 FILMFLOW는 변리사 검토와 특허 출원을 진행 중이며, 실시간 인터랙션 프로젝트 Dorememe와 개인화 글쓰기 플랫폼 writie까지 직접 설계하고 구현해왔습니다.",
     primaryCta: {
