@@ -1453,6 +1453,53 @@ body {
   background: var(--sk-red);
 }
 
+.button-primary,
+.button-secondary,
+.sound-toggle,
+.archive-tab,
+.slider-tab,
+.slider-arrow,
+.media-arrow,
+.archive-pg-btn,
+.print-button,
+.back-button,
+.inline-link,
+.archive-img-btn,
+.yt-play-btn,
+.hpi-badge,
+.hpi-tags span,
+.tag-row span,
+.tool-cloud span,
+.skill-cloud span {
+  border-radius: 0.15rem !important;
+}
+
+.hpi-badge,
+.hpi-footer {
+  background: var(--ink);
+  color: var(--sk-red) !important;
+}
+
+.feature-status {
+  background: rgba(244, 255, 0, 0.28);
+  color: var(--ink) !important;
+}
+
+.compact-list li::before,
+.archive-card li::before {
+  background: var(--ink);
+}
+
+.tool-cloud span,
+.skill-cloud span {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--sk-red);
+  font-size: 0.95rem;
+  min-height: 2.5rem;
+  padding: 0 1rem;
+}
+
 @media print {
   header,
   footer,
