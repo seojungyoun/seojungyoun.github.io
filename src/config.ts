@@ -77,7 +77,7 @@ export const siteConfig = {
     ] satisfies HeroStat[],
   },
   about: {
-    heading: "데이터 흐름을 설계하고, 소통하는 AI 기획자",
+    heading: "데이터 흐름을 설계하고, 소통하는 AI 서비스 기획자",
     body:
       "덕성여자대학교 IT미디어공학과에서 4.2/4.5 학점을 유지하며, 생성형 AI 워크플로우 설계, Unity 기반 실감형 콘텐츠, 웹/앱 개발과 서비스 기획을 함께 다뤄왔습니다. 다양한 기술을 활용하여 문제를 구조화하고, 더 나은 사용자 경험을 만들어 나갑니다.",
   },
@@ -155,7 +155,7 @@ export const siteConfig = {
       "프로젝트를 기획하는 데서 멈추지 않고, 운영 흐름과 협업 구조를 함께 설계해왔습니다.\nKT디지털인재장학생 활동과 인턴십을 통해 콘텐츠 발행, 협업 조율, 실행 관리 경험을 쌓았습니다.",
     metrics: [
       { label: "KT디지털인재장학생", value: "운영진 대표", detail: "KT와 협업하며 장학생 활동 기획·운영" },
-      { label: "KT디지털인재장학생 공식 SNS 콘텐츠", value: "20건 이상", detail: "콘텐츠 기획·제작과 운영 기획 및 관리" },
+      { label: "KT디지털인재장학생 공식 SNS 콘텐츠", value: "30건 이상", detail: "콘텐츠 기획·제작과 운영 기획 및 관리" },
       { label: "인턴십", value: "3회", detail: "콘텐츠 제작, 자동화, 운영 경험 축적" },
       { label: "협업 툴", value: "Slack · Notion · Figma", detail: "기획 문서 작성과 진행 리드 경험" },
     ],
