@@ -2,28 +2,28 @@
 @import "tailwindcss";
 
 :root {
-  --cream: #f1eee8;
-  --paper: #fbfaf7;
-  --ink: #12110f;
-  --sk-red: #ea002c;
-  --sk-orange: #ff7a00;
-  --muted: rgba(18, 17, 15, 0.58);
-  --line: rgba(18, 17, 15, 0.12);
-  --panel: rgba(255, 255, 255, 0.58);
-  --shadow: 0 18px 55px rgba(42, 37, 30, 0.09);
-  --pink-50: #f6f2eb;
-  --pink-100: #ebe5da;
-  --pink-200: #d8cbbb;
+  --cream: #ffffff;
+  --paper: #fbfbf7;
+  --ink: #111111;
+  --sk-red: #f4ff00;
+  --sk-orange: #c2cc00;
+  --muted: rgba(17, 17, 17, 0.62);
+  --line: rgba(17, 17, 17, 0.12);
+  --panel: rgba(255, 255, 255, 0.82);
+  --shadow: 0 18px 55px rgba(0, 0, 0, 0.08);
+  --pink-50: #fbffd6;
+  --pink-100: #f4ff00;
+  --pink-200: #c2cc00;
   --pink-400: var(--sk-orange);
   --pink-500: var(--sk-red);
-  --navy-700: #4a463e;
-  --navy-800: #27241f;
-  --navy-900: #12110f;
+  --navy-700: #3c4500;
+  --navy-800: #000000;
+  --navy-900: #111111;
 
   /* aliases used by Header/Footer Tailwind classes */
-  --navy: #212a53;
+  --navy: #000000;
   --pink-strong: var(--sk-red);
-  --pink-soft: #fff1e5;
+  --pink-soft: #fbffd6;
 }
 
 * {
@@ -1242,24 +1242,24 @@ button {
   }
 }
 
-/* Floema-inspired light editorial portfolio theme */
+/* Image-inspired white, black, and neon yellow portfolio theme */
 :root {
-  --cream: #f1eee8;
-  --paper: #fbfaf7;
-  --ink: #12110f;
-  --sk-red: #ea002c;
-  --sk-orange: #ff7a00;
-  --muted: rgba(18, 17, 15, 0.58);
-  --line: rgba(18, 17, 15, 0.12);
-  --panel: rgba(255, 255, 255, 0.58);
-  --shadow: 0 18px 55px rgba(42, 37, 30, 0.09);
-  --navy: #12110f;
-  --navy-800: #27241f;
-  --navy-900: #12110f;
+  --cream: #ffffff;
+  --paper: #fbfbf7;
+  --ink: #111111;
+  --sk-red: #f4ff00;
+  --sk-orange: #c2cc00;
+  --muted: rgba(17, 17, 17, 0.62);
+  --line: rgba(17, 17, 17, 0.12);
+  --panel: rgba(255, 255, 255, 0.82);
+  --shadow: 0 18px 55px rgba(0, 0, 0, 0.08);
+  --navy: #000000;
+  --navy-800: #000000;
+  --navy-900: #111111;
   --pink-400: var(--sk-orange);
   --pink-500: var(--sk-red);
   --pink-strong: var(--sk-red);
-  --pink-soft: #fff1e5;
+  --pink-soft: #fbffd6;
 }
 
 body {
@@ -1346,9 +1346,9 @@ body {
 .archive-tab.is-active,
 .slider-tab.is-active,
 .print-button {
-  background: linear-gradient(135deg, var(--sk-red), var(--sk-orange));
-  border-color: transparent;
-  color: var(--cream);
+  background: var(--sk-red);
+  border-color: var(--sk-red);
+  color: #000000;
 }
 
 .button-secondary,
@@ -1363,8 +1363,8 @@ body {
 .archive-pg-btn,
 .back-button {
   border-color: var(--line);
-  background: rgba(255, 255, 255, 0.55);
-  color: rgba(18, 17, 15, 0.76);
+  background: rgba(255, 255, 255, 0.72);
+  color: rgba(17, 17, 17, 0.78);
 }
 
 .button-secondary:hover,
@@ -1374,48 +1374,49 @@ body {
 .slider-arrow:hover,
 .media-arrow:hover,
 .archive-pg-btn:hover {
-  border-color: rgba(18, 17, 15, 0.32);
-  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(244, 255, 0, 0.9);
+  background: rgba(244, 255, 0, 0.24);
   color: var(--ink);
 }
 
 .hpi-badge {
-  background: rgba(255, 122, 0, 0.1);
+  background: rgba(244, 255, 0, 0.14);
   color: var(--sk-red);
 }
 
 .hero-visual-card {
   color: var(--ink);
+  background: #000000;
 }
 
 .hero-visual-head span {
-  color: rgba(18, 17, 15, 0.56);
+  color: rgba(244, 255, 0, 0.72);
 }
 
 .hero-pipeline {
-  border-color: rgba(18, 17, 15, 0.08);
+  border-color: rgba(244, 255, 0, 0.28);
 }
 
 .hero-pipeline-item {
-  border-bottom-color: rgba(18, 17, 15, 0.08);
+  border-bottom-color: rgba(244, 255, 0, 0.18);
 }
 
 .hero-pipeline-item > strong {
-  color: var(--ink);
+  color: var(--sk-red);
 }
 
 .hero-pipeline-item > p {
-  color: rgba(18, 17, 15, 0.58);
+  color: rgba(244, 255, 0, 0.68);
 }
 
 .hpi-tags span {
-  border-color: rgba(18, 17, 15, 0.1);
-  color: rgba(18, 17, 15, 0.56);
+  border-color: rgba(244, 255, 0, 0.2);
+  color: rgba(244, 255, 0, 0.64);
 }
 
 .hpi-footer,
 .feature-status {
-  background: rgba(255, 255, 255, 0.52);
+  background: rgba(244, 255, 0, 0.12);
   color: var(--ink) !important;
 }
 
@@ -1432,24 +1433,24 @@ body {
 .diagram-card img,
 .diagram-caption,
 .prompt-logo-wrap {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.86);
 }
 
 .archive-card-img[src*="duksung"] {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(244, 255, 0, 0.08);
 }
 
 .inline-link,
 .archive-img-btn,
 .yt-play-btn {
-  background: linear-gradient(135deg, var(--sk-red), var(--sk-orange));
-  color: var(--cream);
+  background: var(--sk-red);
+  color: #000000;
 }
 
 .inline-link:hover,
 .archive-img-btn:hover,
 .yt-play-btn:hover {
-  background: rgba(18, 17, 15, 0.78);
+  background: var(--sk-orange);
 }
 
 @media print {

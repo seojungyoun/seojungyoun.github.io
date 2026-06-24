@@ -47,9 +47,9 @@ export const siteConfig = {
   title: "AI Workflow Designer · Creative Technologist",
   description:
     "AI 로직과 콘텐츠 제작 사이를 연결하는 기획자 서정윤의 포트폴리오.",
-  accentColor: "#111111",
-  secondaryColor: "#6f6a5f",
-  softColor: "#f1eee8",
+  accentColor: "#f4ff00",
+  secondaryColor: "#111111",
+  softColor: "#ffffff",
   social: {
     email: "bellita@naver.com",
     linkedin: "https://www.linkedin.com/in/%EC%A0%95%EC%9C%A4-%EC%84%9C-71b989274/",
