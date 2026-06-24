@@ -1502,15 +1502,24 @@ body {
 
 .panel-label {
   display: inline-flex;
-  width: fit-content;
+  width: 17rem;
   align-items: center;
+  justify-content: center;
   min-height: 2.15rem;
-  padding: 0 0.65rem;
+  padding: 0.25rem 0.75rem;
   background: var(--ink);
   color: var(--sk-red) !important;
   font-size: 0.9rem;
   letter-spacing: 0.12em;
   border-radius: 0.15rem;
+  text-align: center;
+}
+
+.archive-pdf-link {
+  display: flex;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media print {
