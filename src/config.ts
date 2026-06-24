@@ -95,7 +95,7 @@ export const siteConfig = {
       ],
       proof: [
         "생성형 AI 영상 제작 파이프라인 설계 문서 기반 정리",
-        "FLIMFLOW 특허 출원 문서와 발명 포인트",
+        "FLIMFLOW 특허 출원 문서와 발명",
         "도1·도2 다이어그램으로 로직 레이어 시각화",
       ],
       stack: ["LangChain", "LangGraph", "Stable Diffusion", "Veo3", "Python"],
