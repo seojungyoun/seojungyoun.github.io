@@ -1505,11 +1505,13 @@ body {
   width: 17rem;
   align-items: center;
   justify-content: center;
-  min-height: 2.15rem;
-  padding: 0.25rem 0.75rem;
+  min-height: 0;
+  height: 1.55rem;
+  padding: 0 0.75rem;
   background: var(--ink);
   color: var(--sk-red) !important;
-  font-size: 0.9rem;
+  font-size: 0.84rem;
+  line-height: 1;
   letter-spacing: 0.12em;
   border-radius: 0.15rem;
   text-align: center;

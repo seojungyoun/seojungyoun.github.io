@@ -44,7 +44,7 @@ export type ArchiveTab = {
 };
 
 export const siteConfig = {
-  name: "AI 서비스 기획/개발자 | 서정윤",
+  name: "AI 서비스 기획자 | 서정윤",
   englishName: "Seo Jungyoun",
   title: "AI Workflow Designer · Creative Technologist",
   description:
@@ -77,7 +77,7 @@ export const siteConfig = {
     ] satisfies HeroStat[],
   },
   about: {
-    heading: "데이터 흐름을 설계하고, 소통하는 AI 기획/개발자",
+    heading: "데이터 흐름을 설계하고, 소통하는 AI 기획자",
     body:
       "덕성여자대학교 IT미디어공학과에서 4.2/4.5 학점을 유지하며, 생성형 AI 워크플로우 설계, Unity 기반 실감형 콘텐츠, 웹/앱 개발과 서비스 기획을 함께 다뤄왔습니다. 다양한 기술을 활용하여 문제를 구조화하고, 더 나은 사용자 경험을 만들어 나갑니다.",
   },
