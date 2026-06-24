@@ -46,7 +46,7 @@ export const siteConfig = {
   englishName: "Seo Jungyoun",
   title: "AI Workflow Designer · Creative Technologist",
   description:
-    "AI 로직과 콘텐츠 제작 사이를 연결하는 기획자 서정윤의 인터랙티브 포트폴리오.",
+    "AI 로직과 콘텐츠 제작 사이를 연결하는 기획자 서정윤의 포트폴리오.",
   accentColor: "#111111",
   secondaryColor: "#6f6a5f",
   softColor: "#f1eee8",
@@ -59,7 +59,7 @@ export const siteConfig = {
     eyebrow: "AI-Human Collaborative Pipeline",
     headline: "Bridging the Gap between AI Logic and Creative Thoughts.",
     summary:
-      "AI·개발·디자인을 직접 다루며 기획 감각을 쌓아왔습니다. 생성형 AI 영상 워크플로우 FILMFLOW는 변리사 검토와 특허 출원을 진행 중이며, 실시간 인터랙션 프로젝트 Dorememe와 개인화 글쓰기 플랫폼 writie까지 직접 설계하고 구현해왔습니다.",
+      "AI·개발·디자인을 직접 다루며 기획 감각을 쌓아왔습니다. 생성형 AI 영상 워크플로우 FILMFLOW는 논문 투고와 특허 출원을 완료하였으며, 실시간 인터랙션 프로젝트 Dorememe와 개인화 글쓰기 플랫폼 writie까지 직접 설계하고 구현해왔습니다.",
     primaryCta: {
       label: "핵심 프로젝트 보기",
       href: "#featured-projects",
@@ -69,7 +69,7 @@ export const siteConfig = {
       href: "#full-archive",
     },
     stats: [
-      { label: "특허 검토", value: "FLIMFLOW 진행 중" },
+      { label: "특허 출원", value: "FLIMFLOW 진행 중" },
       { label: "인턴십", value: "3회" },
       { label: "협업", value: "대기업·지자체·학교" },
     ] satisfies HeroStat[],
@@ -83,19 +83,19 @@ export const siteConfig = {
     {
       id: "flimflow",
       title: "FILMFLOW",
-      subtitle: "생성형 AI 영상 자동화 워크플로우 · 변리사 검토 및 특허 출원 진행 중",
+      subtitle: "생성형 AI 영상 자동화 워크플로우 · 논문 투고 및 특허 출원",
       summary:
         "장면 간 비일관성, 무한 재생성, 불완전한 프롬프트 입력 문제를 워크플로우 설계의 문제로 재정의한 프로젝트입니다.",
       status:
         "스토리보드 PDF 파싱, 6축 충분성 평가, 제한적 사용자 개입, 프레임 체이닝을 하나의 파이프라인으로 설계했습니다.",
       role: [
         "워크플로우 전체 기획 및 설계",
-        "발명신고서 및 특허 출원용 문서 작성",
+        "발명신고서 및 특허 출원 문서 작성",
         "스토리보드-이미지-영상 연결 구조 정의",
       ],
       proof: [
         "생성형 AI 영상 제작 파이프라인 설계 문서 기반 정리",
-        "FLIMFLOW 특허 출원용 문서와 발명 포인트 반영",
+        "FLIMFLOW 특허 출원 문서와 발명 포인트",
         "도1·도2 다이어그램으로 로직 레이어 시각화",
       ],
       stack: ["LangChain", "LangGraph", "Stable Diffusion", "Veo3", "Python"],
@@ -185,7 +185,7 @@ export const siteConfig = {
           description:
             "LangChain 및 LangGraph를 활용해 프롬프트-이미지-영상 자동화 파이프라인을 설계했고, 장면 간 일관성 문제를 워크플로우 관점에서 해결했습니다.",
           bullets: [
-            "특허 출원 검토 진행 중",
+            "논문 투고와 특허 출원",
             "스토리보드 기반 파이프라인 기획·설계",
             "발명신고서 및 설계 문서 작성",
           ],
