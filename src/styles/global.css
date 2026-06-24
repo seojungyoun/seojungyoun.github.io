@@ -1492,12 +1492,25 @@ body {
 
 .tool-cloud span,
 .skill-cloud span {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: var(--line);
+  color: var(--ink);
+  font-size: 0.78rem;
+  min-height: 2.1rem;
+  padding: 0 0.85rem;
+}
+
+.panel-label {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  min-height: 2.15rem;
+  padding: 0 0.65rem;
   background: var(--ink);
-  border-color: var(--ink);
-  color: var(--sk-red);
-  font-size: 0.95rem;
-  min-height: 2.5rem;
-  padding: 0 1rem;
+  color: var(--sk-red) !important;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  border-radius: 0.15rem;
 }
 
 @media print {

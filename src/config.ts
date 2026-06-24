@@ -31,6 +31,8 @@ export type ArchiveItem = {
   bullets?: string[];
   link?: string;
   linkLabel?: string;
+  patentHref?: string;
+  patentLabel?: string;
   image?: string;
   tags?: string[];
 };
@@ -190,6 +192,8 @@ export const siteConfig = {
             "발명신고서 및 설계 문서 작성",
           ],
           link: "https://youtu.be/d4_xoC0egl4?si=HVRcyg-W-ricGCCU",
+          patentHref: "/media/patent-filing-specification.pdf",
+          patentLabel: "특허출원명세서 보기",
           linkLabel: "영상 보기",
           tags: ["Python", "LangChain", "LangGraph", "Generative AI"],
         },

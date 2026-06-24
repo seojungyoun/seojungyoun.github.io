@@ -390,6 +390,13 @@ FLOW
                               </a>
                             )
                           }
+                          {
+                            item.patentHref && (
+                              <a href={item.patentHref} target="_blank" rel="noreferrer" class="inline-link archive-pdf-link">
+                                {item.patentLabel ?? "PDF 보기"}
+                              </a>
+                            )
+                          }
                         </article>
                       ))
                     }
