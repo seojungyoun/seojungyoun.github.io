@@ -3,27 +3,27 @@
 
 :root {
   --cream: #ffffff;
-  --paper: #fbfbf7;
+  --paper: #ffffff;
   --ink: #111111;
   --sk-red: #f4ff00;
-  --sk-orange: #c2cc00;
+  --sk-orange: #f4ff00;
   --muted: rgba(17, 17, 17, 0.62);
   --line: rgba(17, 17, 17, 0.12);
   --panel: rgba(255, 255, 255, 0.82);
   --shadow: 0 18px 55px rgba(0, 0, 0, 0.08);
-  --pink-50: #fbffd6;
+  --pink-50: #ffffff;
   --pink-100: #f4ff00;
-  --pink-200: #c2cc00;
+  --pink-200: #f4ff00;
   --pink-400: var(--sk-orange);
   --pink-500: var(--sk-red);
-  --navy-700: #3c4500;
+  --navy-700: #111111;
   --navy-800: #000000;
   --navy-900: #111111;
 
   /* aliases used by Header/Footer Tailwind classes */
   --navy: #000000;
   --pink-strong: var(--sk-red);
-  --pink-soft: #fbffd6;
+  --pink-soft: #ffffff;
 }
 
 * {
@@ -653,7 +653,7 @@ button {
   left: 50%;
   transform: translateX(-50%);
   background: var(--pink-strong, #ffffff);
-  color: #fff;
+  color: var(--ink);
   font-size: 0.8rem;
   font-weight: 700;
   padding: 0.42rem 1.1rem;
@@ -665,7 +665,7 @@ button {
 }
 
 .archive-img-btn:hover {
-  background: #e87fb0;
+  background: var(--pink-strong);
   transform: translateX(-50%) translateY(-2px);
 }
 
@@ -843,7 +843,7 @@ button {
   left: 50%;
   transform: translateX(-50%);
   background: var(--pink-strong, #ffffff);
-  color: #fff;
+  color: var(--ink);
   border-radius: 2rem;
   padding: 0.42rem 1.1rem;
   font-size: 0.8rem;
@@ -855,7 +855,7 @@ button {
 }
 
 .yt-play-btn:hover {
-  background: #e87fb0;
+  background: var(--pink-strong);
   transform: translateX(-50%) translateY(-2px);
 }
 
@@ -1010,7 +1010,7 @@ button {
 .metric-card {
   padding: 0.95rem;
   border-radius: 1rem;
-  background: linear-gradient(180deg, rgba(253, 234, 243, 0.9), rgba(255, 255, 255, 0.96));
+  background: rgba(255, 255, 255, 0.96);
   border: 1px solid var(--line);
 }
 
@@ -1089,7 +1089,7 @@ button {
   display: inline-flex;
   margin-top: 0.8rem;
   background: var(--pink-strong, #ffffff);
-  color: #fff;
+  color: var(--ink);
   border-radius: 2rem;
   padding: 0.42rem 1.1rem;
   font-size: 0.8rem;
@@ -1100,7 +1100,7 @@ button {
 }
 
 .inline-link:hover {
-  background: #e87fb0;
+  background: var(--pink-strong);
   transform: translateY(-2px);
 }
 
@@ -1245,10 +1245,10 @@ button {
 /* Image-inspired white, black, and neon yellow portfolio theme */
 :root {
   --cream: #ffffff;
-  --paper: #fbfbf7;
+  --paper: #ffffff;
   --ink: #111111;
   --sk-red: #f4ff00;
-  --sk-orange: #c2cc00;
+  --sk-orange: #f4ff00;
   --muted: rgba(17, 17, 17, 0.62);
   --line: rgba(17, 17, 17, 0.12);
   --panel: rgba(255, 255, 255, 0.82);
@@ -1259,7 +1259,7 @@ button {
   --pink-400: var(--sk-orange);
   --pink-500: var(--sk-red);
   --pink-strong: var(--sk-red);
-  --pink-soft: #fbffd6;
+  --pink-soft: #ffffff;
 }
 
 body {
@@ -1325,7 +1325,7 @@ body {
 .panel-label,
 .archive-card-label,
 .compact-list span {
-  color: var(--sk-red);
+  color: var(--ink);
 }
 
 .hero-summary,
@@ -1374,49 +1374,49 @@ body {
 .slider-arrow:hover,
 .media-arrow:hover,
 .archive-pg-btn:hover {
-  border-color: rgba(244, 255, 0, 0.9);
-  background: rgba(244, 255, 0, 0.24);
+  border-color: var(--sk-red);
+  background: var(--sk-red);
   color: var(--ink);
 }
 
 .hpi-badge {
-  background: rgba(244, 255, 0, 0.14);
-  color: var(--sk-red);
+  background: var(--sk-red);
+  color: var(--ink);
 }
 
 .hero-visual-card {
   color: var(--ink);
-  background: #000000;
+  background: var(--panel);
 }
 
 .hero-visual-head span {
-  color: rgba(244, 255, 0, 0.72);
+  color: var(--muted);
 }
 
 .hero-pipeline {
-  border-color: rgba(244, 255, 0, 0.28);
+  border-color: var(--line);
 }
 
 .hero-pipeline-item {
-  border-bottom-color: rgba(244, 255, 0, 0.18);
+  border-bottom-color: var(--line);
 }
 
 .hero-pipeline-item > strong {
-  color: var(--sk-red);
+  color: var(--ink);
 }
 
 .hero-pipeline-item > p {
-  color: rgba(244, 255, 0, 0.68);
+  color: rgba(17, 17, 17, 0.64);
 }
 
 .hpi-tags span {
-  border-color: rgba(244, 255, 0, 0.2);
-  color: rgba(244, 255, 0, 0.64);
+  border-color: rgba(17, 17, 17, 0.2);
+  color: rgba(17, 17, 17, 0.66);
 }
 
 .hpi-footer,
 .feature-status {
-  background: rgba(244, 255, 0, 0.12);
+  background: var(--sk-red);
   color: var(--ink) !important;
 }
 
@@ -1437,7 +1437,7 @@ body {
 }
 
 .archive-card-img[src*="duksung"] {
-  background: rgba(244, 255, 0, 0.08);
+  background: rgba(255, 255, 255, 0.86);
 }
 
 .inline-link,
@@ -1450,7 +1450,7 @@ body {
 .inline-link:hover,
 .archive-img-btn:hover,
 .yt-play-btn:hover {
-  background: var(--sk-orange);
+  background: var(--sk-red);
 }
 
 @media print {
