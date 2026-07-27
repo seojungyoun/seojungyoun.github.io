@@ -61,7 +61,9 @@ FLOW
 
     <main class="page-shell">
       <section id="top" class="hero-section">
+        <div class="hero-orbit" aria-hidden="true"><span></span></div>
         <div class="hero-copy">
+          <p class="eyebrow">{siteConfig.hero.eyebrow}</p>
           <h1>{siteConfig.hero.headline}</h1>
           <p class="hero-summary">{siteConfig.hero.summary}</p>
 
@@ -90,9 +92,9 @@ FLOW
 
           <div class="hero-pipeline">
             <div class="hero-pipeline-item">
-              <span class="hpi-badge">특허 출원 중</span>
-              <strong>FLIMFLOW</strong>
-              <p>생성형 AI 영상 워크플로우 설계 · 파이프라인 구조화</p>
+              <span class="hpi-badge">특허 출원 완료</span>
+              <strong>FILMFLOW</strong>
+              <p>생성형 AI 영상 워크플로우 설계 · 특허 10-2026-0101551</p>
               <div class="hpi-tags">
                 <span>LangChain</span><span>Stable Diffusion</span><span>Python</span>
               </div>
@@ -118,8 +120,21 @@ FLOW
         </div>
       </section>
 
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <div class="marquee-group">
+            <span>AI SERVICE PLANNER</span><i>✦</i><span>CREATIVE DEVELOPER</span><i>✦</i>
+            <span>AI SERVICE PLANNER</span><i>✦</i><span>CREATIVE DEVELOPER</span><i>✦</i>
+          </div>
+          <div class="marquee-group" aria-hidden="true">
+            <span>AI SERVICE PLANNER</span><i>✦</i><span>CREATIVE DEVELOPER</span><i>✦</i>
+            <span>AI SERVICE PLANNER</span><i>✦</i><span>CREATIVE DEVELOPER</span><i>✦</i>
+          </div>
+        </div>
+      </div>
+
       <section id="about" class="intro-strip">
-        <img src="/media/youn.jpg" alt={siteConfig.name} class="intro-avatar" />
+        <img src="/media/youn-profile-2026.png" alt={siteConfig.name} class="intro-avatar" />
         <div class="intro-text">
           <p class="section-kicker">About</p>
           <h2>{siteConfig.about.heading}</h2>
@@ -133,7 +148,7 @@ FLOW
             <p class="section-kicker">Featured Projects</p>
             <h2>핵심 프로젝트 3선</h2>
           </div>
-          <p>FLIMFLOW · Dorememe · writie</p>
+          <p>FILMFLOW · Dorememe · writie</p>
         </div>
 
         <!-- 슬라이더 컨트롤 -->
@@ -483,6 +498,20 @@ FLOW
           button.textContent = video.muted ? "Sound Off" : "Sound On";
         });
       });
+
+      const revealTargets = document.querySelectorAll(
+        ".intro-strip, .content-section, .feature-slide > *, .archive-card, .metric-card"
+      );
+      revealTargets.forEach((element) => element.classList.add("reveal"));
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealTargets.forEach((element) => revealObserver.observe(element));
 
     </script>
   </body>

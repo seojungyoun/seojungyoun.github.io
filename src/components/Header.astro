@@ -2,10 +2,10 @@
 import { siteConfig } from "../config";
 
 const navItems = [
-  { href: "#top", label: "Intro" },
-  { href: "#featured-projects", label: "Projects" },
-  { href: "#management-layer", label: "Management" },
-  { href: "#full-archive", label: "Archive" },
+  { href: "#top", label: "INTRO", num: "01" },
+  { href: "#featured-projects", label: "PROJECTS", num: "02" },
+  { href: "#management-layer", label: "EXPERIENCE", num: "03" },
+  { href: "#full-archive", label: "ARCHIVE", num: "04" },
 ];
 ---
 
@@ -14,8 +14,8 @@ const navItems = [
   class="fixed inset-x-0 top-0 z-50 transition-all duration-500"
 >
   <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
-    <a href="#top" class="flex items-center gap-2">
-      <strong class="text-sm uppercase tracking-[0.28em] text-[var(--ink)]">{siteConfig.englishName}</strong>
+    <a href="#top" class="brand-lockup">
+      <strong>{siteConfig.englishName}</strong>
     </a>
 
     <!-- 데스크탑 메뉴 -->
@@ -27,12 +27,13 @@ const navItems = [
               href={item.href}
               class="text-sm font-medium text-[var(--ink)]/65 transition hover:text-[var(--ink)]"
             >
-              {item.label}
+              <small>{item.num}</small>{item.label}
             </a>
           </li>
         ))
       }
     </ul>
+    <a href={`mailto:${siteConfig.social.email}`} class="header-contact hidden lg:inline-flex">LET'S TALK ↗</a>
 
     <!-- 모바일 햄버거 버튼 -->
     <button
@@ -60,7 +61,7 @@ const navItems = [
               href={item.href}
               class="mobile-nav-link block text-base font-medium text-[var(--ink)]/70 transition hover:text-[var(--ink)]"
             >
-              {item.label}
+              <small>{item.num}</small>{item.label}
             </a>
           </li>
         ))

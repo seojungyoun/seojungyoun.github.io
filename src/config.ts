@@ -49,7 +49,7 @@ export const siteConfig = {
   title: "AI Workflow Designer · Creative Technologist",
   description:
     "AI 로직과 콘텐츠 제작 사이를 연결하는 기획자 서정윤의 포트폴리오.",
-  accentColor: "#f4ff00",
+  accentColor: "#ed1c24",
   secondaryColor: "#111111",
   softColor: "#ffffff",
   social: {
@@ -71,13 +71,13 @@ export const siteConfig = {
       href: "#full-archive",
     },
     stats: [
-      { label: "특허 출원", value: "FLIMFLOW 진행 중" },
+      { label: "특허 출원", value: "10-2026-0101551" },
       { label: "인턴십", value: "3회" },
       { label: "협업", value: "대기업·지자체·학교" },
     ] satisfies HeroStat[],
   },
   about: {
-    heading: "데이터 흐름을 설계하고, 소통하는 AI 서비스 기획자",
+    heading: "데이터 흐름을 설계하고,\n소통하는 AI 서비스 기획자",
     body:
       "덕성여자대학교 IT미디어공학과에서 4.2/4.5 학점을 유지하며, 생성형 AI 워크플로우 설계, Unity 기반 실감형 콘텐츠, 웹/앱 개발과 서비스 기획을 함께 다뤄왔습니다. 다양한 기술을 활용하여 문제를 구조화하고, 더 나은 사용자 경험을 만들어 나갑니다.",
   },
@@ -85,19 +85,19 @@ export const siteConfig = {
     {
       id: "flimflow",
       title: "FILMFLOW",
-      subtitle: "생성형 AI 영상 자동화 워크플로우 · 논문 투고 및 특허 출원",
+      subtitle: "생성형 AI 영상 자동화 워크플로우 · 특허 출원 완료",
       summary:
         "장면 간 비일관성, 무한 재생성, 불완전한 프롬프트 입력 문제를 워크플로우 설계의 문제로 재정의한 프로젝트입니다.",
       status:
-        "스토리보드 PDF 파싱, 6축 충분성 평가, 제한적 사용자 개입, 프레임 체이닝을 하나의 파이프라인으로 설계했습니다.",
+        "‘제한적 사용자 개입 기반의 시각적 일관성 유지를 위한 생성형 인공지능 영상 제작 방법 및 장치’로 특허 출원(10-2026-0101551)을 완료했습니다.",
       role: [
         "워크플로우 전체 기획 및 설계",
-        "발명신고서 및 특허 출원 문서 작성",
+        "특허 명세서 및 출원 문서 작성",
         "스토리보드-이미지-영상 연결 구조 정의",
       ],
       proof: [
         "생성형 AI 영상 제작 파이프라인 설계 문서 기반 정리",
-        "FLIMFLOW 특허 출원 문서와 발명",
+        "특허 출원 완료 · 출원번호 10-2026-0101551",
         "도1·도2 다이어그램으로 로직 레이어 시각화",
       ],
       stack: ["LangChain", "LangGraph", "Stable Diffusion", "Veo3", "Python"],
@@ -115,7 +115,7 @@ export const siteConfig = {
       summary:
         "음악과 시각 요소를 실시간으로 연동하는 VR 공감각 미디어아트 프로젝트로, Unity VR 환경과 AI 사운드 파이프라인을 연결한 사례입니다. 스케치를 기반으로 AI가 음악을 생성하여 스케치와 함께 감상할 수 있는 작품입니다.",
       status:
-        "Unity 개발을 단독으로 개발하여 전시를 완수했고, 비동기 서버 아키텍처와 인터랙션 흐름을 직접 구조화했습니다.",
+        "Unity 개발을 단독으로 담당해 전시를 완수했고, 비동기 서버 아키텍처와 인터랙션 흐름을 직접 구조화했습니다.",
       role: [
         "Unity 개발 전담",
         "VR 내 3D 스케치 활용 로직 구현",
@@ -154,7 +154,7 @@ export const siteConfig = {
     summary:
       "프로젝트를 기획하는 데서 멈추지 않고, 운영 흐름과 협업 구조를 함께 설계해왔습니다.\nKT디지털인재장학생 활동과 인턴십을 통해 콘텐츠 발행, 협업 조율, 실행 관리 경험을 쌓았습니다.",
     metrics: [
-      { label: "KT디지털인재장학생", value: "운영진 대표", detail: "KT와 협업하며 장학생 활동 기획·운영" },
+      { label: "KT디지털인재장학생", value: "운영진 · 우수장학생", detail: "KT와 협업하며 장학생 활동 기획·운영" },
       { label: "KT디지털인재장학생 공식 SNS 콘텐츠", value: "30건 이상", detail: "콘텐츠 기획·제작과 운영 기획 및 관리" },
       { label: "인턴십", value: "3회", detail: "콘텐츠 제작, 자동화, 운영 경험 축적" },
       { label: "협업 툴", value: "Slack · Notion · Figma", detail: "기획 문서 작성과 진행 리드 경험" },
@@ -187,15 +187,24 @@ export const siteConfig = {
           description:
             "LangChain 및 LangGraph를 활용해 프롬프트-이미지-영상 자동화 파이프라인을 설계했고, 장면 간 일관성 문제를 워크플로우 관점에서 해결했습니다.",
           bullets: [
-            "논문 투고와 특허 출원",
+            "특허 출원 완료 · 10-2026-0101551",
             "스토리보드 기반 파이프라인 기획·설계",
-            "발명신고서 및 설계 문서 작성",
+            "특허 명세서 및 출원 문서 작성",
           ],
           link: "https://youtu.be/d4_xoC0egl4?si=HVRcyg-W-ricGCCU",
           patentHref: "/media/patent-filing-specification.pdf",
           patentLabel: "특허출원명세서 보기",
           linkLabel: "영상 보기",
           tags: ["Python", "LangChain", "LangGraph", "Generative AI"],
+        },
+        {
+          title: "2026 K-AI 공모전",
+          subtitle: "생성형 AI 영상 제작 · 2026",
+          description:
+            "생성형 AI를 활용한 영상 작품을 기획·제작하여 2026 K-AI 공모전에 참여했습니다.",
+          link: "https://youtu.be/tz3NOHHITt0?si=dEyGXD6hElddrrB1",
+          linkLabel: "영상 보기",
+          tags: ["K-AI", "Generative AI", "영상 기획", "영상 제작"],
         },
         {
           title: "Dorememe",
@@ -327,9 +336,16 @@ export const siteConfig = {
       label: "Awards",
       items: [
         {
+          title: "한국미디어아트산업협회(KMAIA) 우수논문상",
+          subtitle: "2026",
+          description:
+            "FILMFLOW 연구 논문을 투고해 사단법인 한국미디어아트산업협회(KMAIA) 우수논문상을 수상했습니다.",
+          tags: ["FILMFLOW", "우수논문상", "KMAIA"],
+        },
+        {
           title: "한국지능정보사회진흥원 원장상",
           subtitle: "2025",
-          description: "K-AI 공모전에서 AI를 활용한 쇼츠를 제작하여 그 성과를 인정받아 수상하였습니다.",
+          description: "K-AI 공모전에서 AI를 활용한 쇼츠를 제작해 그 성과를 인정받아 수상했습니다.",
           link: "https://youtube.com/shorts/MyBtsOtpXts?si=oPI_F7_O558oe8fZ",
           linkLabel: "영상 보기",
         },
@@ -358,7 +374,7 @@ export const siteConfig = {
         {
           title: "KT디지털인재장학생",
           description:
-            "디지털·AI 역량 강화 교육을 이수하고 운영팀 소속으로 SNS 콘텐츠를 기획·관리했습니다.",
+            "디지털·AI 역량 강화 교육을 이수하고 운영진으로 활동하며 SNS 콘텐츠를 기획·관리했습니다. 활동 성과를 인정받아 우수장학생으로 선정됐습니다.",
         },
         {
           title: "GDSC Duksung",
