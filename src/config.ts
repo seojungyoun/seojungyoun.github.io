@@ -58,8 +58,8 @@ export const siteConfig = {
     github: "https://github.com/seojungyoun",
   } satisfies SocialLinks,
   hero: {
-    eyebrow: "AI-Human Collaborative Pipeline",
-    headline: "Bridging the Gap between AI Logic and Creative Thoughts.",
+    eyebrow: "AI-Human Creative Collaboration",
+    headline: "Bridging the Gap between AI and Creative Thoughts.",
     summary:
       "AI·개발·디자인을 직접 다루며 기획 감각을 쌓아왔습니다. 생성형 AI 영상 워크플로우 FILMFLOW는 논문 투고와 특허 출원을 완료하였으며, 실시간 인터랙션 프로젝트 Dorememe와 개인화 글쓰기 플랫폼 writie까지 직접 설계하고 구현해왔습니다.",
     primaryCta: {
