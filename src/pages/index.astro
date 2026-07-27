@@ -30,13 +30,6 @@ function youtubeThumbnail(url: string): string {
   return id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : "";
 }
 
-const promptSnippet = `SYSTEM
-사용자의 글을 대신 완성하지 않고 사고를 확장하는 질문을 먼저 제안한다.
-
-FLOW
-1. 목적과 독자를 확인한다.
-2. 문장의 감정과 논리 밀도를 점검한다.
-3. 바로 수정안보다 선택지와 질문을 제공한다.`;
 ---
 
 <html lang="ko">
@@ -108,11 +101,11 @@ FLOW
               </div>
             </div>
             <div class="hero-pipeline-item">
-              <span class="hpi-badge">기획 · 개발 진행 중</span>
-              <strong>writie</strong>
-              <p>Claude API 기반 초개인화 글쓰기 플랫폼 서비스 기획</p>
+              <span class="hpi-badge">App Store 출시</span>
+              <strong>Phris</strong>
+              <p>언어 표현을 기록·공유·수집하는 소셜 아카이브 앱</p>
               <div class="hpi-tags">
-                <span>Claude API</span><span>Figma</span><span>Prompt Design</span>
+                <span>Expo</span><span>React Native</span><span>Supabase</span>
               </div>
             </div>
             <div class="hpi-footer">AI WORKFLOW PORTFOLIO</div>
@@ -148,7 +141,7 @@ FLOW
             <p class="section-kicker">Featured Projects</p>
             <h2>핵심 프로젝트 3선</h2>
           </div>
-          <p>FILMFLOW · Dorememe · writie</p>
+          <p>FILMFLOW · Dorememe · Phris</p>
         </div>
 
         <!-- 슬라이더 컨트롤 -->
@@ -252,7 +245,7 @@ FLOW
             </div>
           </div>
 
-          <!-- Slide 2: writie -->
+          <!-- Slide 2: Phris -->
           <div class="feature-slide" data-index="2">
             <div class="feature-copy">
               <p class="feature-label">{siteConfig.highlightProjects[2].subtitle}</p>
@@ -266,21 +259,16 @@ FLOW
               <div class="tag-row">{siteConfig.highlightProjects[2].stack.map((s) => <span>{s}</span>)}</div>
             </div>
             <div class="feature-media-column">
-              <div class="prompt-card">
-                <div class="prompt-head">
-                  <span>Prompt Structure</span>
-                  <strong>Question-led writing support</strong>
-                </div>
-                <pre><code>{promptSnippet}</code></pre>
-                <div class="prompt-logo-wrap">
-                  <img src="/media/logo_blue_rmbg.png" alt="writie 로고" class="prompt-logo" />
-                </div>
-              </div>
               {siteConfig.highlightProjects[2].image && (
                 <figure class="diagram-card">
-                  <img src={siteConfig.highlightProjects[2].image} alt="writie 프로토타입 화면" />
-                  <figcaption class="diagram-caption">writie 프로토타입 — Figma UI/UX 설계안</figcaption>
+                  <img src={siteConfig.highlightProjects[2].image} alt="Phris 앱 홍보 이미지" />
+                  <figcaption class="diagram-caption">Phris — 언어 표현을 발견하고 기록하는 소셜 아카이브</figcaption>
                 </figure>
+              )}
+              {siteConfig.highlightProjects[2].website && (
+                <a href={siteConfig.highlightProjects[2].website} target="_blank" rel="noreferrer" class="inline-link phris-site-link">
+                  phris.io 방문하기 ↗
+                </a>
               )}
             </div>
           </div>

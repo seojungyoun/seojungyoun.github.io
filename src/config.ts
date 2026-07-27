@@ -22,6 +22,7 @@ export type HighlightProject = {
   diagrams?: string[];
   diagramCaptions?: string[];
   image?: string;
+  website?: string;
 };
 
 export type ArchiveItem = {
@@ -61,7 +62,7 @@ export const siteConfig = {
     eyebrow: "AI-Human Creative Collaboration",
     headline: "Bridging the Gap between AI and Creative Thoughts.",
     summary:
-      "AI·개발·디자인을 직접 다루며 기획 감각을 쌓아왔습니다. 생성형 AI 영상 워크플로우 FILMFLOW는 논문 투고와 특허 출원을 완료하였으며, 실시간 인터랙션 프로젝트 Dorememe와 개인화 글쓰기 플랫폼 writie까지 직접 설계하고 구현해왔습니다.",
+      "AI·개발·디자인을 직접 다루며 기획 감각을 쌓아왔습니다. 생성형 AI 영상 워크플로우 FILMFLOW는 논문 투고와 특허 출원을 완료하였으며, 실시간 인터랙션 프로젝트 Dorememe와 언어 표현 소셜 아카이브 Phris까지 직접 설계하고 구현해왔습니다.",
     primaryCta: {
       label: "핵심 프로젝트 보기",
       href: "#featured-projects",
@@ -130,23 +131,26 @@ export const siteConfig = {
       video: "/media/dorememe.mp4",
     },
     {
-      id: "writie",
-      title: "writie",
-      subtitle: "AI 페르소나 학습 기반 초개인화 글쓰기 플랫폼 · 기획 및 개발 진행 중",
+      id: "phris",
+      title: "Phris",
+      subtitle: "언어 표현 소셜 아카이브 · App Store 출시",
       summary:
-        "사용자의 사고 과정을 가이드하는 AI를 목표로 설계한 프로젝트입니다. AI를 글쓰기 근력을 키워주는 조력자로 활용합니다.",
+        "언어 학습자가 일상에서 발견한 표현을 기록하고, 저장하고, 다른 사용자와 공유하며 함께 학습할 수 있도록 설계한 소셜 컬렉션 앱입니다.",
       status:
-        "Claude API 기반 Persona-LLM 엔진과 글쓰기 구조 추천 방식을 통해 사용자의 문체와 판단력을 보존하는 방향으로 기획했습니다.",
+        "Expo Router와 Supabase를 기반으로 서비스 기획부터 UI/UX, 개발, 배포까지 전 과정을 수행했으며 App Store에 정식 출시했습니다.",
       role: [
-        "서비스 전체 기획 및 BM 설계",
-        "Claude API 기반 Persona-LLM 엔진 구조 설계",
-        "Figma UI/UX 프로토타입 제작",
+        "서비스 전체 기획 및 모바일 UI/UX 설계",
+        "표현 피드·모임·채팅·보관함 기능 구현",
+        "인증·데이터베이스 구조 설계 및 App Store 배포",
       ],
       proof: [
-        "기존 PTKOREA 포트폴리오의 소개 방향 반영",
-        "질문 중심 UX 구조로 메시지 재정리",
+        "App Store 정식 출시",
+        "학습 언어 기반 피드와 월별 표현 아카이브 구현",
+        "모임·1:1 채팅을 연결한 소셜 학습 경험 설계",
       ],
-      stack: ["Claude API", "Figma", "Prompt Design", "Service Planning"],
+      stack: ["Expo", "React Native", "TypeScript", "Supabase", "App Store"],
+      image: "/media/phris-promo.png",
+      website: "https://phris.io/?demo=1",
     },
   ] satisfies HighlightProject[],
   management: {
@@ -221,17 +225,19 @@ export const siteConfig = {
           linkLabel: "깃허브 보기",
         },
         {
-          title: "writie",
-          subtitle: "AI 페르소나 학습 기반 초개인화 글쓰기 플랫폼",
-          image: "/media/writie.png",
+          title: "Phris",
+          subtitle: "언어 표현 소셜 아카이브 · App Store 출시",
+          image: "/media/phris-promo.png",
           description:
-            "사용자의 문체와 사고를 돕는 방향의 AI 글쓰기 플랫폼으로 서비스 기획과 개발을 진행 중입니다.",
+            "언어 학습자가 일상에서 발견한 표현을 기록하고 저장하며, 모임과 채팅을 통해 다른 사용자와 함께 학습할 수 있는 소셜 컬렉션 앱입니다.",
           bullets: [
-            "B2C/B2B/B2G BM 설계",
-            "Persona-LLM 엔진 구조 설계",
-            "Figma UI/UX 프로토타입 제작",
+            "서비스 기획부터 UI/UX, 개발, 배포까지 전 과정 수행",
+            "표현 피드·모임·채팅·월별 보관함 기능 구현",
+            "App Store 정식 출시",
           ],
-          tags: ["Claude API", "Figma", "Service Planning"],
+          link: "https://phris.io/?demo=1",
+          linkLabel: "체험하기",
+          tags: ["Expo", "React Native", "TypeScript", "Supabase"],
         },
         {
           title: "독일 University of Marburg XAI 개인 연구",

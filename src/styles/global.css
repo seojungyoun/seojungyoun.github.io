@@ -2001,6 +2001,21 @@ body {
   text-align: center;
 }
 
+.phris-site-link {
+  width: 100%;
+  min-height: 3rem;
+  margin-top: 0;
+  border-radius: 999px !important;
+  background: var(--kt-red);
+  color: white;
+  box-shadow: none;
+}
+
+.phris-site-link:hover {
+  background: var(--black);
+  color: white !important;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(36px);
