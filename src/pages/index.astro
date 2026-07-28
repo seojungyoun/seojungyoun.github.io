@@ -400,6 +400,20 @@ function youtubeThumbnail(url: string): string {
                               </a>
                             )
                           }
+                          {
+                            item.video && (
+                              <div class="archive-video-wrap">
+                                <span>Dorememe 시연 영상</span>
+                                <video
+                                  class="archive-video"
+                                  src={item.video}
+                                  controls
+                                  playsinline
+                                  preload="metadata"
+                                ></video>
+                              </div>
+                            )
+                          }
                         </article>
                       ))
                     }

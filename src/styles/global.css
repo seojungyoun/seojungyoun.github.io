@@ -1982,6 +1982,31 @@ body {
   align-self: flex-start;
 }
 
+.archive-video-wrap {
+  width: 100%;
+  margin-top: 1rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: var(--black);
+}
+
+.archive-video-wrap > span {
+  display: block;
+  padding: 0.7rem 0.9rem 0;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.archive-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-top: 0.55rem;
+  background: var(--black);
+  object-fit: cover;
+}
+
 .tool-cloud span,
 .skill-cloud span {
   border-color: var(--black);

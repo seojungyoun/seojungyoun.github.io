@@ -35,6 +35,7 @@ export type ArchiveItem = {
   patentHref?: string;
   patentLabel?: string;
   image?: string;
+  video?: string;
   tags?: string[];
 };
 
@@ -224,6 +225,7 @@ export const siteConfig = {
           tags: ["Unity", "PyTorch", "Flask", "Celery", "VR"],
           link: "https://github.com/seojungyoun/25_Dorememe.git",
           linkLabel: "깃허브 보기",
+          video: "/media/dorememe.mp4",
         },
         {
           title: "Phris",
