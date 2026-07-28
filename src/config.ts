@@ -62,7 +62,7 @@ export const siteConfig = {
     eyebrow: "AI-Human Creative Collaboration",
     headline: "Bridging the Gap between AI and Creative Thoughts.",
     summary:
-      "AI·개발·디자인을 직접 다루며 기획 감각을 쌓아왔습니다. 생성형 AI 영상 워크플로우 FILMFLOW는 논문 투고와 특허 출원을 완료하였으며, 실시간 인터랙션 프로젝트 Dorememe와 언어 표현 소셜 아카이브 Phris까지 직접 설계하고 구현해왔습니다.",
+      "AI·개발·디자인을 직접 다루며 기획 감각을 쌓아왔습니다. 생성형 AI 영상 워크플로우 FILMFLOW는 논문 투고와 특허 출원을 완료했으며, KT 2025 ESG 보고서 홍보 영상과 언어 표현 소셜 아카이브 Phris까지 직접 기획하고 구현해왔습니다.",
     primaryCta: {
       label: "핵심 프로젝트 보기",
       href: "#featured-projects",
@@ -110,25 +110,26 @@ export const siteConfig = {
       ],
     },
     {
-      id: "dorememe",
-      title: "Dorememe",
-      subtitle: "VR 기반 실시간 공감각 미디어아트 · 졸업작품 · 전시 출품",
+      id: "kt-esg-2025",
+      title: "KT 2025 ESG 보고서",
+      subtitle: "KT디지털인재장학생 콘텐츠 · 생성형 AI 기반 ESG 홍보 영상",
       summary:
-        "음악과 시각 요소를 실시간으로 연동하는 VR 공감각 미디어아트 프로젝트로, Unity VR 환경과 AI 사운드 파이프라인을 연결한 사례입니다. 스케치를 기반으로 AI가 음악을 생성하여 스케치와 함께 감상할 수 있는 작품입니다.",
+        "KT 2025 ESG 보고서의 핵심 메시지를 시청자가 쉽고 빠르게 이해할 수 있도록, 생성형 AI를 활용해 영상 콘텐츠로 재구성한 프로젝트입니다.",
       status:
-        "Unity 개발을 단독으로 담당해 전시를 완수했고, 비동기 서버 아키텍처와 인터랙션 흐름을 직접 구조화했습니다.",
+        "보고서 내용을 분석해 전달 구조를 기획하고, 생성형 AI를 활용한 영상 제작부터 스크립트 작성·편집·후반 작업까지 전 과정을 수행했습니다.",
       role: [
-        "Unity 개발 전담",
-        "VR 내 3D 스케치 활용 로직 구현",
-        "PyTorch 출력과 Unity 인터랙션 연결 설계",
+        "ESG 보고서 핵심 내용 분석 및 메시지 구조화",
+        "생성형 AI 기반 홍보 영상 콘셉트 기획 및 제작",
+        "스크립트 작성 및 시각 자료 구성",
+        "영상 편집·모션그래픽·후반 작업",
       ],
       proof: [
-        "실제 시연 영상 반복 재생",
-        "Flask/Celery 기반 비동기 구조 반영",
-        "전시형 인터랙션 프로젝트 경험",
+        "KT 2025 ESG 보고서 기반 홍보 영상 완성",
+        "정보성 콘텐츠를 시청 흐름에 맞게 재구성",
+        "기획부터 후반 작업까지 전 과정 수행",
       ],
-      stack: ["Unity", "PyTorch", "Flask", "Celery", "VR"],
-      video: "/media/dorememe.mp4",
+      stack: ["KT", "ESG", "Generative AI", "Premiere Pro", "After Effects"],
+      video: "https://youtu.be/QAWND9Cv4kY?si=FpT3pksDKnzhM8YC",
     },
     {
       id: "phris",
@@ -240,6 +241,18 @@ export const siteConfig = {
           tags: ["Expo", "React Native", "TypeScript", "Supabase"],
         },
         {
+          title: "특추리",
+          subtitle: "국내 기업 특허출원 도우미",
+          description:
+            "기업의 발명 아이디어를 구조화하고 KIPRIS 공개특허와 비교해, 출원 전 보완 사항과 준비도를 검토서로 제공하는 멀티에이전트 서비스입니다.",
+          bullets: [
+            "서비스 기획 및 프론트엔드 담당",
+            "발명 설명 구조화·누락 정보 탐지 흐름 설계",
+            "유사특허 Top-K 비교 및 출원 준비도 검토서 구현",
+          ],
+          tags: ["Python", "LLM", "Multi-Agent", "KIPRIS", "RAG"],
+        },
+        {
           title: "독일 University of Marburg XAI 개인 연구",
           subtitle: "설명 가능한 AI 연구",
           description:
@@ -275,12 +288,12 @@ export const siteConfig = {
         },
         {
           title: "KT 2025 ESG 보고서 홍보 영상 제작",
-          subtitle: "KT디지털인재장학생 콘텐츠",
+          subtitle: "KT디지털인재장학생 · 생성형 AI 콘텐츠",
           description:
-            "KT 2025 ESG 보고서 홍보 영상을 기획하고 제작했습니다. 스크립트 작성부터 편집·후반 작업까지 전 과정을 담당했습니다.",
+            "KT 2025 ESG 보고서의 핵심 내용을 분석하고 생성형 AI를 활용해 홍보 영상으로 제작했습니다. 콘셉트 기획과 스크립트 작성부터 편집·후반 작업까지 전 과정을 담당했습니다.",
           link: "https://youtu.be/QAWND9Cv4kY?si=FpT3pksDKnzhM8YC",
           linkLabel: "영상 보기",
-          tags: ["영상 기획", "편집", "KT", "ESG"],
+          tags: ["생성형 AI", "영상 기획", "편집", "KT", "ESG"],
         },
         {
           title: "성동 1+1 프로젝트",

@@ -93,11 +93,11 @@ function youtubeThumbnail(url: string): string {
               </div>
             </div>
             <div class="hero-pipeline-item">
-              <span class="hpi-badge">졸업 작품 · 전시 출품</span>
-              <strong>Dorememe</strong>
-              <p>VR + AI 실시간 공감각 미디어아트 · Unity 단독 개발</p>
+              <span class="hpi-badge">KT ESG 콘텐츠</span>
+              <strong>KT 2025 ESG 보고서</strong>
+              <p>생성형 AI로 보고서 핵심 메시지를 영상화</p>
               <div class="hpi-tags">
-                <span>Unity</span><span>PyTorch</span><span>Flask</span>
+                <span>생성형 AI</span><span>영상 기획</span><span>After Effects</span>
               </div>
             </div>
             <div class="hero-pipeline-item">
@@ -141,7 +141,7 @@ function youtubeThumbnail(url: string): string {
             <p class="section-kicker">Featured Projects</p>
             <h2>핵심 프로젝트 3선</h2>
           </div>
-          <p>FILMFLOW · Dorememe · Phris</p>
+          <p>FILMFLOW · KT 2025 ESG 보고서 · Phris</p>
         </div>
 
         <!-- 슬라이더 컨트롤 -->
@@ -221,7 +221,7 @@ function youtubeThumbnail(url: string): string {
             </div>
           </div>
 
-          <!-- Slide 1: Dorememe -->
+          <!-- Slide 1: KT 2025 ESG 보고서 -->
           <div class="feature-slide" data-index="1">
             <div class="feature-copy">
               <p class="feature-label">{siteConfig.highlightProjects[1].subtitle}</p>
@@ -237,10 +237,10 @@ function youtubeThumbnail(url: string): string {
             <div class="feature-media-column">
               <div class="video-card">
                 <div class="video-head">
-                  <span>Dorememe 시연 영상</span>
-                  <button type="button" class="sound-toggle" data-video-target="dorememe-video">Sound Off</button>
+                  <span>KT 2025 ESG 보고서 홍보 영상</span>
+                  <a href={siteConfig.highlightProjects[1].video} target="_blank" rel="noreferrer" class="yt-link">YouTube에서 보기 ↗</a>
                 </div>
-                <video id="dorememe-video" class="portfolio-video" src={siteConfig.highlightProjects[1].video} autoplay muted loop playsinline controls></video>
+                <iframe class="portfolio-video" src={projectEmbeds[1] ?? ""} title="KT 2025 ESG 보고서 홍보 영상" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
               </div>
             </div>
           </div>
