@@ -205,12 +205,16 @@ export const siteConfig = {
         },
         {
           title: "2026 K-AI 공모전",
-          subtitle: "생성형 AI 영상 제작 · 2026",
+          subtitle: "콘텐츠 영상 대상 · 한국방송통신전파진흥원 원장상",
           description:
-            "생성형 AI를 활용한 영상 작품을 기획·제작하여 2026 K-AI 공모전에 참여했습니다.",
+            "생성형 AI를 활용한 영상 작품을 기획·제작해 2026 K-AI 공모전 콘텐츠 영상 대상을 수상했습니다.",
+          bullets: [
+            "콘텐츠 영상 대상",
+            "한국방송통신전파진흥원 원장상",
+          ],
           link: "https://youtu.be/tz3NOHHITt0?si=dEyGXD6hElddrrB1",
           linkLabel: "영상 보기",
-          tags: ["K-AI", "Generative AI", "영상 기획", "영상 제작"],
+          tags: ["K-AI", "대상", "Generative AI", "영상 기획", "영상 제작"],
         },
         {
           title: "Dorememe",
@@ -357,6 +361,15 @@ export const siteConfig = {
       label: "Awards",
       items: [
         {
+          title: "2026 K-AI 콘텐츠 영상 대상",
+          subtitle: "한국방송통신전파진흥원 원장상 · 2026",
+          description:
+            "생성형 AI 기반 영상 작품을 기획·제작해 2026 K-AI 공모전 콘텐츠 영상 대상을 수상했습니다.",
+          link: "https://youtu.be/tz3NOHHITt0?si=dEyGXD6hElddrrB1",
+          linkLabel: "수상작 보기",
+          tags: ["K-AI", "콘텐츠 영상 대상", "한국방송통신전파진흥원"],
+        },
+        {
           title: "한국미디어아트산업협회(KMAIA) 우수논문상",
           subtitle: "2026",
           description:
@@ -364,11 +377,13 @@ export const siteConfig = {
           tags: ["FILMFLOW", "우수논문상", "KMAIA"],
         },
         {
-          title: "한국지능정보사회진흥원 원장상",
-          subtitle: "2025",
-          description: "K-AI 공모전에서 AI를 활용한 쇼츠를 제작해 그 성과를 인정받아 수상했습니다.",
+          title: "2025 K-AI 공모전 최우수상",
+          subtitle: "한국지능정보사회진흥원 원장상 · 2025",
+          description:
+            "AI를 활용한 쇼츠 영상을 기획·제작해 2025 K-AI 공모전 최우수상을 수상했습니다.",
           link: "https://youtube.com/shorts/MyBtsOtpXts?si=oPI_F7_O558oe8fZ",
-          linkLabel: "영상 보기",
+          linkLabel: "수상작 보기",
+          tags: ["K-AI", "최우수상", "한국지능정보사회진흥원"],
         },
         {
           title: "경기콘텐츠진흥원장상",
