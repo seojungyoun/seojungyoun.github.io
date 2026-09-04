@@ -46,14 +46,15 @@ export type ArchiveTab = {
 };
 
 export const siteConfig = {
-  name: "AI 서비스 기획자 | 서정윤",
+  name: "서비스 기획자 | 서정윤",
+  profileImage: "/media/youn-profile-neutral.png",
   englishName: "Seo Jungyoun",
   title: "AI Workflow Designer · Creative Technologist",
   description:
     "AI 로직과 콘텐츠 제작 사이를 연결하는 기획자 서정윤의 포트폴리오.",
-  accentColor: "#ed1c24",
-  secondaryColor: "#111111",
-  softColor: "#ffffff",
+  accentColor: "#f37321",
+  secondaryColor: "#0b0b0b",
+  softColor: "#f7f7f5",
   social: {
     email: "bellita@naver.com",
     linkedin: "https://www.linkedin.com/in/%EC%A0%95%EC%9C%A4-%EC%84%9C-71b989274/",
@@ -61,7 +62,7 @@ export const siteConfig = {
   } satisfies SocialLinks,
   hero: {
     eyebrow: "AI-Human Creative Collaboration",
-    headline: "Bridging the Gap between AI and Creative Thoughts.",
+    headline: "Bridging AI, Technology,\nand Creative Ideas.",
     summary:
       "AI·개발·디자인을 직접 다루며 기획 감각을 쌓아왔습니다. 생성형 AI 영상 워크플로우 FILMFLOW는 논문 투고와 특허 출원을 완료했으며, KT 2025 ESG 보고서 홍보 영상과 언어 표현 소셜 아카이브 Phris까지 직접 기획하고 구현해왔습니다.",
     primaryCta: {
@@ -79,7 +80,7 @@ export const siteConfig = {
     ] satisfies HeroStat[],
   },
   about: {
-    heading: "데이터 흐름을 설계하고,\n소통하는 AI 서비스 기획자",
+    heading: "데이터 흐름을 설계하고,\n소통하는 서비스 기획자",
     body:
       "덕성여자대학교 IT미디어공학과에서 4.2/4.5 학점을 유지하며, 생성형 AI 워크플로우 설계, Unity 기반 실감형 콘텐츠, 웹/앱 개발과 서비스 기획을 함께 다뤄왔습니다. 다양한 기술을 활용하여 문제를 구조화하고, 더 나은 사용자 경험을 만들어 나갑니다.",
   },

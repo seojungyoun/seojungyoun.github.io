@@ -5,15 +5,15 @@
   --cream: #ffffff;
   --paper: #ffffff;
   --ink: #111111;
-  --sk-red: #ed1c24;
-  --sk-orange: #ed1c24;
+  --sk-red: var(--accent, #f37321);
+  --sk-orange: var(--accent, #f37321);
   --muted: rgba(17, 17, 17, 0.62);
   --line: rgba(17, 17, 17, 0.12);
   --panel: rgba(255, 255, 255, 0.82);
   --shadow: 0 18px 55px rgba(0, 0, 0, 0.08);
   --pink-50: #ffffff;
-  --pink-100: #fff0f0;
-  --pink-200: #ffd7d9;
+  --pink-100: #f1f3f5;
+  --pink-200: #dce1e6;
   --pink-400: var(--sk-orange);
   --pink-500: var(--sk-red);
   --navy-700: #111111;
@@ -1244,13 +1244,13 @@ button {
   }
 }
 
-/* Image-inspired white, black, and neon yellow portfolio theme */
+/* Portfolio layout foundations */
 :root {
   --cream: #ffffff;
   --paper: #ffffff;
   --ink: #111111;
-  --sk-red: #ed1c24;
-  --sk-orange: #ed1c24;
+  --sk-red: var(--accent, #f37321);
+  --sk-orange: var(--accent, #f37321);
   --muted: rgba(17, 17, 17, 0.62);
   --line: rgba(17, 17, 17, 0.12);
   --panel: rgba(255, 255, 255, 0.82);
@@ -1502,19 +1502,19 @@ body {
   padding: 0 0.85rem;
 }
 
-/* KT red editorial redesign */
+/* Black, white, and lime theme */
 :root {
-  --kt-red: #ed1c24;
-  --kt-red-dark: #c81018;
-  --black: #080808;
-  --off-white: #f7f7f5;
+  --accent-color: var(--accent, #f37321);
+  --accent-dark: #c65312;
+  --black: var(--charcoal, #20252b);
+  --off-white: var(--surface, #f6f7f8);
   --cream: var(--off-white);
   --paper: #ffffff;
   --ink: var(--black);
-  --sk-red: var(--kt-red);
-  --sk-orange: var(--kt-red);
-  --pink-500: var(--kt-red);
-  --pink-strong: var(--kt-red);
+  --sk-red: var(--accent-color);
+  --sk-orange: var(--accent-color);
+  --pink-500: var(--accent-color);
+  --pink-strong: var(--accent-color);
   --line: rgba(8, 8, 8, 0.14);
   --panel: #ffffff;
   --shadow: 0 24px 70px rgba(0, 0, 0, 0.08);
@@ -1522,7 +1522,7 @@ body {
 
 body {
   background:
-    radial-gradient(circle at 85% 5%, rgba(237, 28, 36, 0.08), transparent 22rem),
+    radial-gradient(circle at 85% 5%, rgba(243, 115, 33, 0.08), transparent 22rem),
     var(--off-white);
   font-weight: 500;
 }
@@ -1555,7 +1555,7 @@ body {
   height: 2.25rem;
   place-items: center;
   border-radius: 50%;
-  background: var(--kt-red);
+  background: var(--accent-color);
   color: white;
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.72rem;
@@ -1574,7 +1574,7 @@ body {
 }
 
 #header nav ul a small {
-  color: var(--kt-red);
+  color: var(--accent-color);
   font-size: 0.55rem;
 }
 
@@ -1594,7 +1594,7 @@ body {
 
 .header-contact:hover {
   transform: translateY(-2px);
-  background: var(--kt-red);
+  background: var(--accent-color);
 }
 
 .hero-section {
@@ -1614,7 +1614,7 @@ body {
   right: -9rem;
   width: clamp(20rem, 42vw, 42rem);
   aspect-ratio: 1;
-  border: 1px solid rgba(237, 28, 36, 0.24);
+  border: 1px solid rgba(243, 115, 33, 0.24);
   border-radius: 50%;
   animation: orbitPulse 6s ease-in-out infinite;
 }
@@ -1629,13 +1629,13 @@ body {
 
 .hero-orbit::before {
   inset: 12%;
-  border: 1px solid rgba(237, 28, 36, 0.36);
+  border: 1px solid rgba(243, 115, 33, 0.36);
 }
 
 .hero-orbit::after {
   inset: 29%;
-  background: var(--kt-red);
-  box-shadow: 0 30px 90px rgba(237, 28, 36, 0.34);
+  background: var(--accent-color);
+  box-shadow: 0 30px 90px rgba(243, 115, 33, 0.34);
 }
 
 .hero-orbit span {
@@ -1669,7 +1669,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  color: var(--kt-red);
+  color: var(--accent-color);
 }
 
 .eyebrow::before {
@@ -1681,6 +1681,7 @@ body {
 
 .hero-copy h1 {
   max-width: 13ch;
+  white-space: pre-line;
   font-size: clamp(3rem, 6.5vw, 6.7rem);
   line-height: 0.92;
   letter-spacing: -0.065em;
@@ -1702,8 +1703,8 @@ body {
 }
 
 .button-primary {
-  background: var(--kt-red);
-  border-color: var(--kt-red);
+  background: var(--accent-color);
+  border-color: var(--accent-color);
   color: white;
 }
 
@@ -1724,8 +1725,8 @@ body {
 .inline-link:hover,
 .archive-img-btn:hover,
 .yt-play-btn:hover {
-  background: var(--kt-red);
-  border-color: var(--kt-red);
+  background: var(--accent-color);
+  border-color: var(--accent-color);
   color: white !important;
 }
 
@@ -1770,7 +1771,7 @@ body {
 
 .hero-pipeline-item:hover {
   padding-left: 1.55rem;
-  background: var(--kt-red);
+  background: var(--accent-color);
 }
 
 .hero-pipeline-item > p,
@@ -1784,7 +1785,7 @@ body {
 }
 
 .hpi-badge {
-  background: var(--kt-red);
+  background: var(--accent-color);
   color: white !important;
 }
 
@@ -1796,7 +1797,7 @@ body {
 .marquee {
   overflow: hidden;
   padding: 1rem 0;
-  background: var(--kt-red);
+  background: var(--accent-color);
   color: white;
   transform: rotate(-1.2deg) scale(1.02);
 }
@@ -1840,10 +1841,12 @@ body {
 }
 
 .intro-avatar {
-  min-height: 440px;
-  border-radius: 50% 50% 1.5rem 1.5rem;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  min-height: 0;
+  border-radius: 1.5rem;
   filter: none;
-  box-shadow: 20px 20px 0 var(--kt-red);
+  box-shadow: 20px 20px 0 var(--accent-color);
 }
 
 .intro-strip h2,
@@ -1861,7 +1864,7 @@ body {
 .feature-label,
 .archive-card-label,
 .panel-label {
-  color: var(--kt-red);
+  color: var(--accent-color);
 }
 
 .section-header {
@@ -1894,7 +1897,7 @@ body {
 
 .feature-status {
   border: 0;
-  border-left: 4px solid var(--kt-red);
+  border-left: 4px solid var(--accent-color);
   border-radius: 0;
   background: #f5f5f3;
 }
@@ -1924,7 +1927,7 @@ body {
 }
 
 .metric-card strong {
-  color: var(--kt-red);
+  color: var(--accent-color);
   font-size: clamp(1.5rem, 2.4vw, 2.3rem);
 }
 
@@ -1973,7 +1976,7 @@ body {
 .archive-card .archive-img-btn,
 .archive-card .yt-play-btn {
   border-radius: 999px !important;
-  background: var(--kt-red);
+  background: var(--accent-color);
   color: white;
   text-align: center;
 }
@@ -2023,7 +2026,7 @@ body {
   align-items: center;
   justify-content: center;
   border-radius: 0.3rem;
-  background: var(--kt-red);
+  background: var(--accent-color);
   color: white !important;
   text-align: center;
 }
@@ -2033,7 +2036,7 @@ body {
   min-height: 3rem;
   margin-top: 0;
   border-radius: 999px !important;
-  background: var(--kt-red);
+  background: var(--accent-color);
   color: white;
   box-shadow: none;
 }
@@ -2071,8 +2074,8 @@ footer a {
 }
 
 footer a:hover {
-  border-color: var(--kt-red) !important;
-  background: var(--kt-red) !important;
+  border-color: var(--accent-color) !important;
+  background: var(--accent-color) !important;
 }
 
 @keyframes marqueeMove {
@@ -2121,7 +2124,7 @@ footer a:hover {
 
   .intro-avatar {
     min-height: 360px;
-    box-shadow: 10px 10px 0 var(--kt-red);
+    box-shadow: 10px 10px 0 var(--accent-color);
   }
 
   .section-header {

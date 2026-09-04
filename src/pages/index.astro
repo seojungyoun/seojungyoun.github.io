@@ -45,7 +45,7 @@ function youtubeThumbnail(url: string): string {
     <title>{siteConfig.name} - {siteConfig.title}</title>
   </head>
 
-  <body id="top">
+  <body id="top" style={`--accent: ${siteConfig.accentColor}; --charcoal: ${siteConfig.secondaryColor}; --surface: ${siteConfig.softColor};`}>
     <Header />
 
     <!-- <button type="button" class="floating-reviewer-button" onclick="window.print()">
@@ -54,7 +54,7 @@ function youtubeThumbnail(url: string): string {
 
     <main class="page-shell">
       <section id="top" class="hero-section">
-        <div class="hero-orbit" aria-hidden="true"><span></span></div>
+        <div class="hero-orbit" aria-hidden="true"></div>
         <div class="hero-copy">
           <p class="eyebrow">{siteConfig.hero.eyebrow}</p>
           <h1>{siteConfig.hero.headline}</h1>
@@ -113,21 +113,8 @@ function youtubeThumbnail(url: string): string {
         </div>
       </section>
 
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee-track">
-          <div class="marquee-group">
-            <span>AI SERVICE PLANNER</span><i>✦</i><span>CREATIVE DEVELOPER</span><i>✦</i>
-            <span>AI SERVICE PLANNER</span><i>✦</i><span>CREATIVE DEVELOPER</span><i>✦</i>
-          </div>
-          <div class="marquee-group" aria-hidden="true">
-            <span>AI SERVICE PLANNER</span><i>✦</i><span>CREATIVE DEVELOPER</span><i>✦</i>
-            <span>AI SERVICE PLANNER</span><i>✦</i><span>CREATIVE DEVELOPER</span><i>✦</i>
-          </div>
-        </div>
-      </div>
-
       <section id="about" class="intro-strip">
-        <img src="/media/youn-profile-2026.png" alt={siteConfig.name} class="intro-avatar" />
+        <img src={siteConfig.profileImage} width="1664" height="2496" alt="서정윤 프로필 사진" class="intro-avatar" />
         <div class="intro-text">
           <p class="section-kicker">About</p>
           <h2>{siteConfig.about.heading}</h2>
