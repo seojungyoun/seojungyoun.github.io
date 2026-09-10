@@ -2,7 +2,7 @@
 import { siteConfig } from "../config";
 
 const socialEntries = [
-  { label: "Email", href: siteConfig.social.email ? `mailto:${siteConfig.social.email}` : undefined },
+  { label: "이메일", href: siteConfig.social.email ? `mailto:${siteConfig.social.email}` : undefined },
   { label: "LinkedIn", href: siteConfig.social.linkedin },
   { label: "GitHub", href: siteConfig.social.github },
 ].filter((entry) => entry.href);
@@ -21,8 +21,8 @@ const socialEntries = [
         socialEntries.map((entry) => (
           <a
             href={entry.href}
-            target={entry.label === "Email" ? undefined : "_blank"}
-            rel={entry.label === "Email" ? undefined : "noreferrer"}
+            target={entry.label === "이메일" ? undefined : "_blank"}
+            rel={entry.label === "이메일" ? undefined : "noreferrer"}
             class="rounded-full border border-[var(--line)] bg-white/55 px-5 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--ink)]/70 transition hover:border-[var(--ink)] hover:text-[var(--ink)]"
           >
             {entry.label}
@@ -32,7 +32,7 @@ const socialEntries = [
     </div>
 
     <p class="text-xs text-[var(--ink)]/35 uppercase tracking-[0.22em]">
-      © {new Date().getFullYear()} Seo Jungyoun. Portfolio.
+      © {new Date().getFullYear()} 서정윤
     </p>
 
   </div>

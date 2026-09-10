@@ -1,9 +1,11 @@
 ---
 import Header from "../components/Header.astro";
+import IntroExperiment from "../components/IntroExperiment.astro";
 import Footer from "../components/Footer.astro";
 import { siteConfig } from "../config";
 import type { ArchiveItem } from "../config";
 import "../styles/global.css";
+import "../styles/glass.css";
 
 function extractYoutubeId(url: string | undefined): string | null {
   if (!url) return null;
@@ -53,70 +55,12 @@ function youtubeThumbnail(url: string): string {
     </button> -->
 
     <main class="page-shell">
-      <section id="top" class="hero-section">
-        <div class="hero-orbit" aria-hidden="true"></div>
-        <div class="hero-copy">
-          <p class="eyebrow">{siteConfig.hero.eyebrow}</p>
-          <h1>{siteConfig.hero.headline}</h1>
-          <p class="hero-summary">{siteConfig.hero.summary}</p>
-
-          <div class="hero-actions">
-            <a href={siteConfig.hero.primaryCta.href} class="button-primary">{siteConfig.hero.primaryCta.label}</a>
-            <a href={siteConfig.hero.secondaryCta.href} class="button-secondary">{siteConfig.hero.secondaryCta.label}</a>
-          </div>
-
-          <div class="hero-stats">
-            {
-              siteConfig.hero.stats.map((stat) => (
-                <div class="mini-stat">
-                  <span>{stat.label}</span>
-                  <strong>{stat.value}</strong>
-                </div>
-              ))
-            }
-          </div>
-        </div>
-
-        <div class="hero-visual-card">
-          <div class="hero-visual-head">
-            <span>포트폴리오 핵심 3분야</span>
-            <strong>설계 · 구현 · 기획</strong>
-          </div>
-
-          <div class="hero-pipeline">
-            <div class="hero-pipeline-item">
-              <span class="hpi-badge">특허 출원 완료</span>
-              <strong>FILMFLOW</strong>
-              <p>생성형 AI 영상 워크플로우 설계 · 특허 10-2026-0101551</p>
-              <div class="hpi-tags">
-                <span>LangChain</span><span>Stable Diffusion</span><span>Python</span>
-              </div>
-            </div>
-            <div class="hero-pipeline-item">
-              <span class="hpi-badge">KT ESG 콘텐츠</span>
-              <strong>KT 2025 ESG 보고서</strong>
-              <p>생성형 AI로 보고서 핵심 메시지를 영상화</p>
-              <div class="hpi-tags">
-                <span>생성형 AI</span><span>영상 기획</span><span>After Effects</span>
-              </div>
-            </div>
-            <div class="hero-pipeline-item">
-              <span class="hpi-badge">App Store 출시</span>
-              <strong>Phris</strong>
-              <p>언어 표현을 기록·공유·수집하는 소셜 아카이브 앱</p>
-              <div class="hpi-tags">
-                <span>Expo</span><span>React Native</span><span>Supabase</span>
-              </div>
-            </div>
-            <div class="hpi-footer">AI WORKFLOW PORTFOLIO</div>
-          </div>
-        </div>
-      </section>
+      <IntroExperiment />
 
       <section id="about" class="intro-strip">
         <img src={siteConfig.profileImage} width="1664" height="2496" alt="서정윤 프로필 사진" class="intro-avatar" />
         <div class="intro-text">
-          <p class="section-kicker">About</p>
+
           <h2>{siteConfig.about.heading}</h2>
           <p>{siteConfig.about.body}</p>
         </div>
@@ -125,7 +69,7 @@ function youtubeThumbnail(url: string): string {
       <section id="featured-projects" class="content-section">
         <div class="section-header">
           <div>
-            <p class="section-kicker">Featured Projects</p>
+
             <h2>핵심 프로젝트 3선</h2>
           </div>
           <p>FILMFLOW · KT 2025 ESG 보고서 · Phris</p>
@@ -265,7 +209,7 @@ function youtubeThumbnail(url: string): string {
       <section id="management-layer" class="content-section">
         <div class="section-header">
           <div>
-            <p class="section-kicker">Management Layer</p>
+
             <h2>{siteConfig.management.title}</h2>
           </div>
           <p style="white-space: pre-line;">{siteConfig.management.summary}</p>
@@ -285,12 +229,12 @@ function youtubeThumbnail(url: string): string {
           </div>
 
           <div class="management-panel">
-            <p class="panel-label">Communication Stack</p>
+            <p class="panel-label">협업 도구</p>
             <div class="tool-cloud">
               {siteConfig.management.tools.map((tool) => <span>{tool}</span>)}
             </div>
 
-            <p class="panel-label second-label">Skills</p>
+            <p class="panel-label second-label">활용 기술</p>
             <div class="skill-cloud">
               {siteConfig.skills.map((skill) => <span>{skill}</span>)}
             </div>
@@ -301,7 +245,7 @@ function youtubeThumbnail(url: string): string {
       <section id="full-archive" class="content-section">
         <div class="section-header">
           <div>
-            <p class="section-kicker">Full Archive</p>
+
             <h2>프로젝트 · 인턴십 · 활동 전체 이력</h2>
           </div>
           <p>
@@ -484,14 +428,40 @@ function youtubeThumbnail(url: string): string {
           const video = targetId ? document.getElementById(targetId) : null;
           if (!(video instanceof HTMLVideoElement)) return;
           video.muted = !video.muted;
-          button.textContent = video.muted ? "Sound Off" : "Sound On";
+          button.textContent = video.muted ? "소리 켜기" : "소리 끄기";
         });
       });
 
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const hoverPointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+      document.querySelectorAll<HTMLElement>(".feature-slider-outer, .management-panel, .archive-card").forEach((surface) => {
+        let frame = 0;
+        surface.classList.add("glass-reactive");
+        surface.addEventListener("pointermove", (event) => {
+          if (reducedMotion.matches || !hoverPointer.matches) return;
+          cancelAnimationFrame(frame);
+          frame = requestAnimationFrame(() => {
+            const bounds = surface.getBoundingClientRect();
+            surface.style.setProperty("--glow-x", `${event.clientX - bounds.left}px`);
+            surface.style.setProperty("--glow-y", `${event.clientY - bounds.top}px`);
+          });
+        });
+        const resetGlow = () => {
+          cancelAnimationFrame(frame);
+          surface.style.removeProperty("--glow-x");
+          surface.style.removeProperty("--glow-y");
+        };
+        surface.addEventListener("pointerleave", resetGlow);
+        reducedMotion.addEventListener("change", resetGlow);
+      });
+
       const revealTargets = document.querySelectorAll(
-        ".intro-strip, .content-section, .feature-slide > *, .archive-card, .metric-card"
+        ".intro-strip, .section-header, .slider-nav, .feature-slider-outer, .management-panel, .archive-card, .metric-card"
       );
-      revealTargets.forEach((element) => element.classList.add("reveal"));
+      revealTargets.forEach((element, index) => {
+        element.classList.add("reveal");
+        (element as HTMLElement).style.setProperty("--reveal-delay", `${index % 3 * 65}ms`);
+      });
       const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -499,7 +469,7 @@ function youtubeThumbnail(url: string): string {
             revealObserver.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.12 });
+      }, { threshold: 0.04 });
       revealTargets.forEach((element) => revealObserver.observe(element));
 
     </script>

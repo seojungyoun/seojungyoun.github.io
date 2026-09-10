@@ -1,0 +1,104 @@
+---
+import { siteConfig } from "../config";
+const lines = siteConfig.hero.headline.split("\n");
+---
+
+<section class="type-intro" aria-labelledby="intro-heading">
+  <h1 id="intro-heading" aria-label={siteConfig.hero.headline}>
+    {lines.map((line, lineIndex) => (
+      <span class="type-line" aria-hidden="true" style={`--line-index: ${lineIndex}`}>
+        {line.split(" ").map((word) => <span class="type-word">{Array.from(word).map((letter) => <span class="type-letter">{letter}</span>)}</span>)}
+      </span>
+    ))}
+  </h1>
+  <div class="intro-bottom">
+    <div class="intro-signature">
+      <span>{siteConfig.name}</span>
+    </div>
+    <div class="intro-detail">
+      <p>{siteConfig.hero.summary}</p>
+      <div class="intro-links flex flex-wrap items-center gap-6">
+        <a href={siteConfig.hero.primaryCta.href}>{siteConfig.hero.primaryCta.label}</a>
+        <a href={siteConfig.hero.secondaryCta.href}>{siteConfig.hero.secondaryCta.label}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+
+  .type-intro { width: min(1280px, calc(100% - 4rem)); margin: 0 auto; padding: 9.5rem 0 1.5rem; color: var(--ink); }
+  .intro-meta, .intro-foot { font-size: .65rem; letter-spacing: .09em; text-transform: uppercase; }
+  .intro-meta span, .intro-foot span, .intro-foot a { font-family: "Pretendard", sans-serif; }
+  .intro-meta > span:first-child { display: flex; align-items: center; gap: .65rem; }
+  .intro-meta i { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+  h1 { margin: 3.5rem 0 3.8rem; font-size: clamp(2.6rem, 6.3vw, 5.8rem); line-height: 1.3; letter-spacing: -.06em; font-weight: 500; }
+  .type-line { display: block; animation: type-arrive .85s both; animation-delay: calc(var(--line-index) * 130ms); }
+  .type-line:last-child { color: var(--accent); }
+  .type-word { display: inline-block; white-space: nowrap; margin-right: .25em; }
+  .type-word:last-child { margin-right: 0; }
+  .type-line, .type-word, .type-letter { font-family: "Pretendard", sans-serif; font-weight: 500; }
+  .type-letter { display: inline-block; transform: translateY(var(--lift, 0px)) rotate(var(--tilt, 0deg)); transition: transform 220ms ease-out, color 220ms; }
+  .type-letter.is-near { color: var(--accent); }
+  .type-line:last-child .type-letter.is-near { color: var(--ink); }
+  .intro-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+  .intro-signature { display: flex; align-items: flex-start; gap: 1rem; font-size: .95rem; }
+  .signature-mark { color: var(--accent); font-size: 3rem; line-height: 1; }
+  .intro-signature small { display: block; margin-top: .4rem; font-family: "Pretendard", sans-serif; font-size: .65rem; color: var(--muted); }
+  .intro-detail p { margin: 0; color: var(--muted); font-size: .85rem; line-height: 1.95; }
+  .intro-links { margin-top: 1.5rem; }
+  .intro-links a { display: inline-flex; gap: 1.5rem; align-items: center; border-bottom: 1px solid var(--ink); padding: .5rem 0; font-size: .78rem; }
+  .intro-links a span { transition: transform .2s; }
+  .intro-links a:hover span { transform: translate(3px, -3px); }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
+  .intro-foot { margin-top: 5rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .6rem; }
+  .intro-foot a span { margin-left: 1rem; }
+  @keyframes type-arrive { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  @media (min-width: 1600px) { .type-intro { padding-top: 12rem; } }
+  @media (max-width: 700px) {
+    .type-intro { width: calc(100% - 2.5rem); padding-top: 7rem; }
+    .edition { display: none; }
+    h1 { font-size: clamp(2.5rem, 10vw, 4.5rem); margin: 3rem 0; letter-spacing: -.035em; line-height: 1.35; }
+    .intro-bottom { grid-template-columns: 1fr; gap: 1.7rem; }
+    .intro-foot { margin-top: 3rem; font-size: .5rem; letter-spacing: 0; }
+    .intro-signature small { font-size: .6rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .type-line { animation: none; }
+    .type-letter, .intro-links a span { transition: none; transform: none; }
+  }
+</style>
+
+<script>
+  const heading = document.querySelector<HTMLElement>(".type-intro h1");
+  const letters = Array.from(heading?.querySelectorAll<HTMLElement>(".type-letter") ?? []);
+  const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+  let frame = 0;
+  const reset = () => {
+    cancelAnimationFrame(frame);
+    letters.forEach((letter) => {
+      letter.style.removeProperty("--lift");
+      letter.style.removeProperty("--tilt");
+      letter.classList.remove("is-near");
+    });
+  };
+  heading?.addEventListener("pointermove", (event) => {
+    if (motion.matches || !finePointer.matches) return;
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => {
+      const bounds = letters.map((letter) => letter.getBoundingClientRect());
+      letters.forEach((letter, index) => {
+        const rect = bounds[index];
+        const dx = event.clientX - rect.left - rect.width / 2;
+        const dy = event.clientY - rect.top - rect.height / 2;
+        const influence = Math.max(0, 1 - Math.hypot(dx, dy) / 120);
+        letter.style.setProperty("--lift", `${-influence * 14}px`);
+        letter.style.setProperty("--tilt", `${influence * dx / 24}deg`);
+        letter.classList.toggle("is-near", influence > .35);
+      });
+    });
+  });
+  heading?.addEventListener("pointerleave", reset);
+  motion.addEventListener("change", reset);
+</script>

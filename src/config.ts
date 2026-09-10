@@ -46,13 +46,13 @@ export type ArchiveTab = {
 };
 
 export const siteConfig = {
-  name: "서비스 기획자 | 서정윤",
+  name: "AI/AX 서비스 기획·개발 | 서정윤",
   profileImage: "/media/youn-profile-neutral.png",
   englishName: "Seo Jungyoun",
   title: "AI Workflow Designer · Creative Technologist",
   description:
     "AI 로직과 콘텐츠 제작 사이를 연결하는 기획자 서정윤의 포트폴리오.",
-  accentColor: "#f37321",
+  accentColor: "#617326",
   secondaryColor: "#0b0b0b",
   softColor: "#f7f7f5",
   social: {
@@ -80,7 +80,7 @@ export const siteConfig = {
     ] satisfies HeroStat[],
   },
   about: {
-    heading: "데이터 흐름을 설계하고,\n소통하는 서비스 기획자",
+    heading: "데이터 흐름을 설계하고,\n소통하는 AI/AX 서비스 기획·개발",
     body:
       "덕성여자대학교 IT미디어공학과에서 4.2/4.5 학점을 유지하며, 생성형 AI 워크플로우 설계, Unity 기반 실감형 콘텐츠, 웹/앱 개발과 서비스 기획을 함께 다뤄왔습니다. 다양한 기술을 활용하여 문제를 구조화하고, 더 나은 사용자 경험을 만들어 나갑니다.",
   },
@@ -186,7 +186,7 @@ export const siteConfig = {
   archiveTabs: [
     {
       id: "projects",
-      label: "Projects",
+      label: "프로젝트",
       items: [
         {
           title: "FILMFLOW",
@@ -335,7 +335,7 @@ export const siteConfig = {
     },
     {
       id: "internships",
-      label: "Internships",
+      label: "인턴십",
       items: [
         {
           title: "네이션에이 (NationA)",
@@ -359,7 +359,7 @@ export const siteConfig = {
     },
     {
       id: "awards",
-      label: "Awards",
+      label: "수상",
       items: [
         {
           title: "2026 K-AI 콘텐츠 영상 대상",
@@ -406,7 +406,7 @@ export const siteConfig = {
     },
     {
       id: "activities",
-      label: "Activities",
+      label: "활동",
       items: [
         {
           title: "KT디지털인재장학생",
@@ -448,7 +448,7 @@ export const siteConfig = {
     },
     {
       id: "education",
-      label: "Education",
+      label: "학력",
       items: [
         {
           title: "덕성여자대학교",

@@ -1,5 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Pretendard:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("/fonts/PretendardVariable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --cream: #ffffff;
@@ -38,7 +45,7 @@ body {
   margin: 0;
   background: var(--cream);
   color: var(--ink);
-  font-family: "Pretendard", "Malgun Gothic", sans-serif;
+  font-family: "Pretendard", sans-serif;
   line-height: 1.6;
   word-break: keep-all;
   overflow-wrap: break-word;
@@ -58,7 +65,7 @@ h4,
 .summary-label,
 .panel-label,
 .archive-card-label {
-  font-family: "Space Grotesk", "Pretendard", sans-serif;
+  font-family: "Pretendard", sans-serif;
 }
 
 p,
@@ -71,7 +78,7 @@ input,
 textarea,
 pre,
 code {
-  font-family: "Pretendard", "Malgun Gothic", sans-serif;
+  font-family: "Pretendard", sans-serif;
 }
 
 a {
@@ -171,7 +178,7 @@ button {
 
 .hero-profile-name {
   display: block;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Pretendard", sans-serif;
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--navy-900);
@@ -242,7 +249,7 @@ button {
 .hero-pipeline-item > strong {
   display: block;
   color: white;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Pretendard", sans-serif;
   font-size: 0.98rem;
   font-weight: 700;
   margin-bottom: 0.2rem;
@@ -1153,7 +1160,7 @@ button {
   padding: 0.78rem 1rem;
   border-radius: 999px;
   border: 1px solid var(--line);
-  font-family: "Space Grotesk", "Pretendard", sans-serif;
+  font-family: "Pretendard", sans-serif;
   font-size: 0.78rem;
   font-weight: 700;
 }
@@ -1543,7 +1550,7 @@ body {
 
 .brand-lockup strong {
   color: var(--black);
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Pretendard", sans-serif;
   font-size: 0.76rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -1557,7 +1564,7 @@ body {
   border-radius: 50%;
   background: var(--accent-color);
   color: white;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Pretendard", sans-serif;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: -0.04em;
@@ -1568,7 +1575,7 @@ body {
   align-items: baseline;
   gap: 0.4rem;
   color: var(--black);
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Pretendard", sans-serif;
   font-size: 0.78rem;
   letter-spacing: 0.04em;
 }
@@ -1585,7 +1592,7 @@ body {
   border-radius: 999px;
   background: var(--black);
   color: white;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Pretendard", sans-serif;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -1807,7 +1814,7 @@ body {
   width: max-content;
   align-items: center;
   animation: marqueeMove 24s linear infinite;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Pretendard", sans-serif;
   font-size: clamp(1.2rem, 2.4vw, 2.5rem);
   font-weight: 700;
   letter-spacing: -0.03em;
