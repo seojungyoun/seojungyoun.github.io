@@ -162,7 +162,7 @@ export const siteConfig = {
       "프로젝트를 기획하는 데서 멈추지 않고, 운영 흐름과 협업 구조를 함께 설계해왔습니다.\nKT디지털인재장학생 활동과 인턴십을 통해 콘텐츠 발행, 협업 조율, 실행 관리 경험을 쌓았습니다.",
     metrics: [
       { label: "KT디지털인재장학생", value: "운영진 · 우수장학생", detail: "KT와 협업하며 장학생 활동 기획·운영" },
-      { label: "KT디지털인재장학생 공식 SNS 콘텐츠", value: "30건 이상", detail: "콘텐츠 기획·제작과 운영 기획 및 관리" },
+      { label: "KT디지털인재장학생 공식 SNS 콘텐츠", value: "약 60건", detail: "콘텐츠 기획·제작과 운영 기획 및 관리" },
       { label: "인턴십", value: "3회", detail: "콘텐츠 제작, 자동화, 운영 경험 축적" },
       { label: "협업 툴", value: "Slack · Notion · Figma", detail: "기획 문서 작성과 진행 리드 경험" },
     ],
@@ -246,6 +246,18 @@ export const siteConfig = {
           link: "https://phris.io/?demo=1",
           linkLabel: "체험하기",
           tags: ["Expo", "React Native", "TypeScript", "Supabase"],
+        },
+        {
+          title: "장학생 통합 운영 플랫폼",
+          subtitle: "SKALA 미니 프로젝트 · 서비스 기획·설계",
+          description:
+            "이메일과 설문 도구 등에 분산된 장학생 운영 업무를 하나의 서비스로 통합하는 플랫폼을 기획했습니다. 성적 증명서의 주요 정보를 자동 추출해 입력값과 비교하고, 관리자의 자료 취합과 검토를 지원하는 MVP를 설계했습니다.",
+          bullets: [
+            "관리자·장학생 역할 정의 및 UI 흐름·주요 화면 설계",
+            "업무 생성부터 자료 제출·검토·보완·결과 확인까지 운영 흐름 설계",
+            "데이터 모델 ERD 및 API 명세 작성",
+          ],
+          tags: ["서비스 기획", "UI/UX", "OCR", "ERD", "API 설계"],
         },
         {
           title: "특추리",
@@ -347,7 +359,7 @@ export const siteConfig = {
           title: "(주)후시파트너스",
           subtitle: "IT / 마케팅 인턴",
           description:
-            "생성형 AI 활용 브랜드 홍보 영상 제작 및 SNS 콘텐츠 자동화 파이프라인 구축을 통해 팔로워 60% 증대를 달성했습니다.",
+            "생성형 AI 활용 브랜드 홍보 영상 제작 및 SNS 콘텐츠 자동화 파이프라인 구축을 통해 팔로워 30% 증대를 달성했습니다.",
         },
         {
           title: "가톨릭평화방송 (CPBC)",
@@ -452,7 +464,7 @@ export const siteConfig = {
       items: [
         {
           title: "덕성여자대학교",
-          subtitle: "IT미디어공학과 · GPA 4.2 / 4.5 · 2022 - 2026.08 졸업예정",
+          subtitle: "IT미디어공학과 · GPA 4.2 / 4.5 · 2022 - 2027.02 졸업예정",
           description:
             "AI, 미디어, 프론트엔드, 실감형 콘텐츠를 아우르는 전공 기반 위에서 기획과 구현 경험을 함께 쌓았습니다.",
         },
