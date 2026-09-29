@@ -1,0 +1,228 @@
+@font-face {
+  font-family: "Wanted Sans Variable";
+  src: url("/fonts/WantedSansVariable.woff2") format("woff2");
+  font-weight: 400 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* TVING 포인트 컬러 테마: 기존 포트폴리오 스타일 위에 색과 글씨체만 덮어씁니다. */
+body.tving {
+  --accent: #ff153c;
+  --accent-color: #ff153c;
+  --accent-dark: #db0030;
+  --line: rgba(17, 17, 17, 0.1);
+  background: #fbfbfb;
+  background-image: none;
+}
+body.tving,
+body.tving * {
+  font-family: "Wanted Sans Variable", "Pretendard", -apple-system, sans-serif !important;
+}
+body.tving #header { background: rgba(255, 255, 255, 0.55); }
+body.tving .header-contact { background: var(--accent); color: #ffffff; }
+body.tving .header-contact:hover { background: var(--accent-dark); }
+
+/* ── 배경 오브: 천천히 움직이는 은은한 색 ── */
+.tv-orbs { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.tv-orbs span { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.4; }
+.tv-orbs span:nth-child(1) { width: 46vw; height: 46vw; right: -10vw; top: -14vw; background: #ffc2cd; animation: tv-float-a 22s ease-in-out infinite alternate; }
+.tv-orbs span:nth-child(2) { width: 22vw; height: 22vw; right: 18vw; bottom: -8vw; background: #ffd9df; opacity: 0.45; animation: tv-float-a 30s ease-in-out infinite alternate-reverse; }
+@keyframes tv-float-a { to { transform: translate(-6vw, 8vh) scale(1.08); } }
+
+/* ── 히어로 ── */
+body.tving .type-line:last-child { color: var(--ink); }
+body.tving .type-line:last-child .type-word:last-child .type-letter:last-child { color: var(--accent); animation: tv-dot 1.2s 0.9s both; display: inline-block; }
+body.tving .type-intro h1 .type-line:last-child .type-letter.is-near { color: var(--accent); }
+@keyframes tv-dot { 0% { opacity: 0; transform: scale(0.2); } 60% { opacity: 1; transform: scale(1.5); } 100% { transform: scale(1); } }
+
+body.tving .intro-detail p { display: grid; gap: 0.55rem; }
+body.tving .summary-line {
+  display: flex; align-items: flex-start; gap: 0.7rem;
+  color: var(--ink); font-size: 0.9rem; line-height: 1.6; font-weight: 500;
+  animation: tv-line-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(0.5s + var(--i) * 0.12s);
+}
+body.tving .summary-line::before { content: ""; flex: none; margin-top: 0.6em; width: 6px; height: 6px; border-radius: 1px; background: var(--accent); }
+@keyframes tv-line-in { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: none; } }
+body.tving .intro-links a { transition: color 0.2s, border-color 0.2s; }
+body.tving .intro-links a:hover { color: var(--accent); border-color: var(--accent); }
+
+/* ── 소개 ── */
+body.tving .intro-strip { align-items: center; }
+body.tving .intro-strip h2 {
+  font-size: clamp(1.7rem, 3.3vw, 3rem);
+  line-height: 1.3;
+  letter-spacing: -0.035em;
+}
+body.tving .intro-strip p { margin-top: 1rem; color: var(--muted); font-size: 0.95rem; line-height: 1.8; }
+
+/* 스크롤 등장 */
+body.tving .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1); }
+body.tving .reveal.is-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tv-orbs span, body.tving .summary-line,
+  body.tving .type-line:last-child .type-word:last-child .type-letter:last-child { animation: none; }
+  body.tving .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+body.tving .type-intro h1 { letter-spacing: -0.045em; font-weight: 600; }
+body.tving .type-intro h1 .type-letter,
+body.tving .type-intro h1 .type-word,
+body.tving .type-intro h1 .type-line { font-weight: 600; }
+
+/* ── 줄바꿈: 문장 단위로 끊고, 단어 중간에서 끊기지 않게 ── */
+body.tving p, body.tving h2, body.tving h3, body.tving li, body.tving span { word-break: keep-all; overflow-wrap: break-word; text-wrap: pretty; }
+body.tving .tv-lines { white-space: pre-line; }
+
+/* ── 섹션 제목 앞 빨간 막대 ── */
+body.tving .tv-bar { display: flex; align-items: flex-start; gap: 0.8rem; }
+body.tving .tv-bar::before { content: ""; flex: none; width: 4px; height: 0.9em; margin-top: 0.24em; border-radius: 2px; background: var(--accent); }
+
+/* ── 기존 글라스 요소의 초록 톤을 중립·레드 톤으로 ── */
+body.tving .feature-status { background: rgba(255, 21, 60, 0.07); color: var(--ink); }
+body.tving .tool-cloud span, body.tving .skill-cloud span, body.tving .tag-row span {
+  background: rgba(255, 255, 255, 0.6); color: #333333; border: 1px solid rgba(17, 17, 17, 0.08);
+}
+body.tving .archive-tab-row { background: rgba(255, 255, 255, 0.6); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04); }
+body.tving .slider-tab.is-active, body.tving .archive-tab.is-active { background: var(--accent); color: #ffffff; box-shadow: 0 6px 18px rgba(255, 21, 60, 0.22); }
+body.tving .slider-tab-num { font-variant-numeric: tabular-nums; }
+body.tving .feature-slider-outer, body.tving .management-panel, body.tving .archive-card, body.tving .compact-list, body.tving .metric-card {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 12px 40px rgba(40, 20, 25, 0.05);
+}
+body.tving .archive-card:hover { box-shadow: 0 18px 45px rgba(40, 20, 25, 0.08); }
+body.tving .compact-list span, body.tving .panel-label { color: var(--ink); }
+body.tving .compact-list li::marker { color: var(--accent); }
+body.tving .metric-card strong { color: var(--ink); }
+body.tving .metric-card > p { color: var(--accent); }
+body.tving .metric-card span { color: var(--muted); line-height: 1.7; }
+body.tving .tv-note { font-style: normal; color: var(--muted); }
+body.tving .tv-inline-link { margin-top: 1rem; display: inline-flex; }
+body.tving .inline-link:hover, body.tving .yt-link:hover { color: var(--accent); border-color: var(--accent); }
+body.tving .yt-play-btn { background: var(--accent); color: #ffffff; }
+
+/* ── 푸터 ── */
+.tv-footer {
+  margin-top: 3rem; padding: 3rem 1.5rem 3.5rem; text-align: center;
+  border-top: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.55) !important;
+  backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+}
+.tv-footer-name { margin: 0; font-size: 1.15rem; font-weight: 700; }
+.tv-footer-sub { margin: 0.4rem 0 1.4rem; color: var(--muted) !important; font-size: 0.85rem; }
+.tv-footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
+.tv-footer-links a {
+  padding: 0.55rem 1.2rem; border-radius: 999px; border: 1px solid var(--line) !important;
+  background: rgba(255, 255, 255, 0.6); font-size: 0.8rem; font-weight: 600;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.tv-footer-links a:hover { background: var(--accent); border-color: var(--accent) !important; color: #ffffff !important; }
+
+@media (max-width: 767px) {
+  body.tving .tv-lines { white-space: normal; }
+  body.tving .intro-text .tv-lines, body.tving .feature-copy .tv-lines, body.tving .feature-copy h3.tv-lines { white-space: pre-line; }
+}
+
+/* ── 박스 줄이기: 카드 안의 카드는 선으로만 구분 ── */
+body.tving .feature-copy h3 { font-size: clamp(2rem, 3.4vw, 3rem); line-height: 1.2; letter-spacing: -0.04em; }
+body.tving .compact-list {
+  background: none; border: 0; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;
+  border-radius: 0; padding: 0.9rem 0 0; border-top: 1px solid var(--line);
+}
+body.tving .evidence-grid { gap: 1.5rem; }
+body.tving .management-panel { align-content: start; }
+body.tving .management-panel .metric-card {
+  background: none; border: 0; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;
+  border-radius: 0; padding: 1.3rem 0; border-bottom: 1px solid var(--line);
+}
+body.tving .management-panel .metric-card:last-child { border-bottom: 0; }
+body.tving .management-panel .metric-card strong { font-size: clamp(1.4rem, 2.2vw, 1.8rem); margin: 0.2rem 0 0.4rem; }
+body.tving .tool-cloud, body.tving .skill-cloud { display: flex; flex-wrap: wrap; gap: 0.5rem; align-content: flex-start; margin-bottom: 1.6rem; }
+body.tving .panel-label { margin-bottom: 0.8rem; }
+
+/* ── 히어로 제목 hover: 커서 주변 글자만 레드로 ── */
+body.tving .type-letter { transition: transform 220ms ease-out, color 260ms ease; }
+
+/* ── 링크 버튼 색 (기존 초록 → 레드) ── */
+body.tving .inline-link, body.tving .archive-img-btn, body.tving .yt-play-btn {
+  background: var(--accent); color: #ffffff; box-shadow: 0 6px 16px rgba(255, 21, 60, 0.2);
+}
+body.tving .inline-link:hover, body.tving .archive-img-btn:hover, body.tving .yt-play-btn:hover {
+  background: var(--accent-dark); color: #ffffff;
+}
+
+
+/* 섹션 제목 오른쪽 문구를 없앴으니 제목만 왼쪽 정렬 */
+body.tving .section-header { grid-template-columns: 1fr; }
+
+/* 카드 라벨: 대문자 변환·넓은 자간 해제 (NationA가 NATIONA로 바뀌는 문제) */
+body.tving .archive-card-label, body.tving .feature-label { text-transform: none; letter-spacing: 0; }
+
+/* ── 기타 작업 카드 미디어: 모두 같은 16:9 사각형 ── */
+.tv-card-media {
+  position: relative; display: block; width: 100%; aspect-ratio: 16 / 9;
+  margin: 0.9rem 0 0.2rem; overflow: hidden; border-radius: 1.1rem; background: #0b0b0b;
+}
+.tv-card-media img, .tv-card-media video, .tv-card-media iframe {
+  position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: cover; display: block;
+}
+.tv-card-media video { object-fit: contain; background: #000; }
+.tv-card-thumb img { transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.tv-card-thumb:hover img { transform: scale(1.04); }
+.tv-play {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  padding: 0.5rem 1.1rem; border-radius: 999px; background: var(--accent); color: #fff;
+  font-size: 0.8rem; font-weight: 700; box-shadow: 0 6px 16px rgba(255, 21, 60, 0.25);
+}
+
+/* ── 워크플로우 도식: 작게 보여주고 클릭하면 크게 ── */
+body.tving .tv-zoomable { position: relative; cursor: zoom-in; margin: 0; background: #ffffff; }
+body.tving .tv-zoomable img { width: 100%; height: clamp(260px, 30vw, 380px); object-fit: contain; background: #ffffff; padding: 0.8rem; }
+.tv-zoom-hint {
+  position: absolute; right: 0.8rem; top: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 999px;
+  background: rgba(17, 17, 17, 0.72); color: #fff; font-size: 0.72rem; font-weight: 600;
+  opacity: 0; transition: opacity 0.25s;
+}
+.tv-zoomable:hover .tv-zoom-hint, .tv-zoomable:focus-visible .tv-zoom-hint { opacity: 1; }
+
+.tv-lightbox {
+  position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; padding: 3rem 1.5rem;
+  background: rgba(10, 10, 10, 0.82); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  cursor: zoom-out; animation: tv-fade 0.25s ease both;
+}
+.tv-lightbox[hidden] { display: none; }
+.tv-lightbox figure { margin: 0; max-width: min(1100px, 100%); max-height: 100%; display: flex; flex-direction: column; gap: 0.8rem; }
+.tv-lightbox img { max-width: 100%; max-height: calc(100vh - 9rem); object-fit: contain; border-radius: 1rem; background: #fff; padding: 1rem; }
+.tv-lightbox figcaption { color: #fff; font-size: 0.88rem; text-align: center; }
+.tv-lightbox-close {
+  position: absolute; top: 1.2rem; right: 1.2rem; padding: 0.5rem 1.1rem; border-radius: 999px; border: 0;
+  background: rgba(255, 255, 255, 0.92); color: #111; font-size: 0.8rem; font-weight: 700; cursor: pointer;
+}
+@keyframes tv-fade { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .tv-lightbox { animation: none; } }
+
+/* ── 히어로 이름·학력 ── */
+body.tving .intro-signature .signature-name { display: block; font-size: 1.2rem; font-weight: 700; letter-spacing: -0.01em; }
+body.tving .intro-signature .signature-detail { margin: 0.6rem 0 0; color: var(--muted); font-size: 0.86rem; line-height: 1.75; white-space: pre-line; }
+
+/* ── 슬라이드 속 Drive 영상: 썸네일 + 버튼 (잘림 방지) ── */
+.tv-slide-thumb { position: relative; display: block; aspect-ratio: 16 / 9; background: #0b0b0b; overflow: hidden; }
+.tv-slide-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.tv-slide-thumb:hover img { transform: scale(1.03); }
+
+/* 푸터 교육 줄: 학력 줄 바로 아래 */
+.tv-footer .tv-footer-sub:has(+ .tv-footer-edu) { margin-bottom: 0.2rem; }
+.tv-footer .tv-footer-edu { margin-top: 0; }
+
+/* 직접 올린 영상 파일: 16:9 안에 잘림 없이 */
+.tv-slide-video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: contain; background: #000; }
+
+/* ── Drive 영상 박스 크기 ──────────────────────────────────────────
+   Drive 플레이어는 위쪽에 빈 영역을 두고 영상을 그려서, 16:9 박스에서는 아래가 잘립니다.
+   박스를 세로로 조금 더 길게 잡아 영상 전체가 보이게 합니다.
+   아직 잘리면 아래 --drive-ratio 값의 두 번째 숫자를 키우고(예: 16 / 11),
+   위아래 검은 여백이 너무 크면 줄이세요(예: 16 / 9.5). */
+:root { --drive-ratio: 16 / 11.5; }
+.tv-card-media.is-drive { aspect-ratio: var(--drive-ratio) !important; }
+body.tving .portfolio-video.is-drive { aspect-ratio: var(--drive-ratio) !important; height: auto !important; }

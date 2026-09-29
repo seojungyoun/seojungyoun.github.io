@@ -1,10 +1,18 @@
 ---
 import { siteConfig } from "../config";
-const lines = siteConfig.hero.headline.split("\n");
+const {
+  headline = siteConfig.hero.headline,
+  signature = siteConfig.name,
+  summary = siteConfig.hero.summary,
+  primaryCta = siteConfig.hero.primaryCta,
+  secondaryCta = siteConfig.hero.secondaryCta,
+  signatureDetail = undefined,
+} = Astro.props;
+const lines = headline.split("\n");
 ---
 
 <section class="type-intro" aria-labelledby="intro-heading">
-  <h1 id="intro-heading" aria-label={siteConfig.hero.headline}>
+  <h1 id="intro-heading" aria-label={headline}>
     {lines.map((line, lineIndex) => (
       <span class="type-line" aria-hidden="true" style={`--line-index: ${lineIndex}`}>
         {line.split(" ").map((word) => <span class="type-word">{Array.from(word).map((letter) => <span class="type-letter">{letter}</span>)}</span>)}
@@ -13,13 +21,16 @@ const lines = siteConfig.hero.headline.split("\n");
   </h1>
   <div class="intro-bottom">
     <div class="intro-signature">
-      <span>{siteConfig.name}</span>
+      <div>
+        <span class="signature-name">{signature}</span>
+        {signatureDetail && <p class="signature-detail">{signatureDetail}</p>}
+      </div>
     </div>
     <div class="intro-detail">
-      <p>{siteConfig.hero.summary}</p>
+      <p>{summary.split("\n").map((line, i) => <span class="summary-line" style={`--i: ${i}`}>{line}</span>)}</p>
       <div class="intro-links flex flex-wrap items-center gap-6">
-        <a href={siteConfig.hero.primaryCta.href}>{siteConfig.hero.primaryCta.label}</a>
-        <a href={siteConfig.hero.secondaryCta.href}>{siteConfig.hero.secondaryCta.label}</a>
+        <a href={primaryCta.href}>{primaryCta.label}</a>
+        {secondaryCta && <a href={secondaryCta.href}>{secondaryCta.label}</a>}
       </div>
     </div>
   </div>
