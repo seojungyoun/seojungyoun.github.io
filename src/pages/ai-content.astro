@@ -24,7 +24,7 @@ const navItems = [
 const heroSummary =
   "생성형 AI 영상 제작 워크플로우 특허 출원 · KMAIA 우수논문상\n" +
   "K-AI 콘텐츠 공모전 2년 연속 수상 · 2026 대상, 2025 최우수상\n" +
-  "KT AI 아나운서 '아이린' 영상 시리즈 제작 · 2025–2026";
+  "KT AI 아나운서 '아이린' 영상 시리즈 제작 · 2025-2026";
 
 const aboutHeading = "AI 콘텐츠 제작부터 파이프라인 개발까지,\nTVING이 찾는 인재";
 const aboutBody =
@@ -61,18 +61,18 @@ const works: Work[] = [
       "생성형 AI 영상 제작 과정에서 생기는 장면 간 비일관성, 반복적인 재생성, 프롬프트 정보 부족 문제를 줄이기 위해 새로운 제작 워크플로우를 만들었습니다.\n" +
       "스토리보드의 정보 충분성을 평가하고, 필요한 지점에만 사용자가 개입하도록 제작 흐름을 구성했습니다.",
     status: "워크플로우 기획·설계 담당\n평균 제작 시간 29% 단축 · 특허 출원 · 한국미디어아트산업협회 우수논문상",
-    role: ["워크플로우 전체 기획 및 설계", "스토리보드–이미지–영상 연결 구조 정의", "사용자 개입 지점 및 제작 흐름 설계", "특허 명세서 및 출원 문서 작성"],
+    role: ["워크플로우 전체 기획 및 설계", "스토리보드-이미지-영상 연결 구조 정의", "사용자 개입 지점 및 제작 흐름 설계", "특허 명세서 및 출원 문서 작성"],
     result: ["평균 제작 시간 29% 단축", "특허 출원 · 10-2026-0101551", "한국미디어아트산업협회 우수논문상"],
     tags: ["LangChain", "LangGraph", "Stable Diffusion", "Veo3", "Python"],
     media: [
-      { kind: "image", src: "/media/flimflow-diagram-1.png", caption: "도1 — 장면 일관성 평가 흐름도" },
-      { kind: "image", src: "/media/flimflow-diagram-2.png", caption: "도2 — 전체 제작 파이프라인" },
+      { kind: "image", src: "/media/flimflow-diagram-1.png", caption: "도1 - 장면 일관성 평가 흐름도" },
+      { kind: "image", src: "/media/flimflow-diagram-2.png", caption: "도2 - 전체 제작 파이프라인" },
       { kind: "yt", id: "d4_xoC0egl4", title: "결과 영상 - <별을 깁는 재단사>" },
     ],
   },
   {
     tab: "K-AI 공모전",
-    label: "K-AI 콘텐츠 공모전 · 2025–2026",
+    label: "K-AI 콘텐츠 공모전 · 2025-2026",
     title: "K-AI 콘텐츠 공모전\n2년 연속 수상",
     summary:
       "생성형 AI를 활용한 영상 작품으로 2025년 최우수상, 2026년 대상을 받았습니다.\n" +
@@ -88,7 +88,7 @@ const works: Work[] = [
   },
   {
     tab: "KT AI 아나운서",
-    label: "KT AI 아나운서 '아이린' 영상 시리즈 · 2025–2026",
+    label: "KT AI 아나운서 '아이린' 영상 시리즈 · 2025-2026",
     title: "KT AI 아나운서 '아이린'",
     summary:
       "2025 ESG 보고서 영상을 시작으로 성과공유회, 커넥팅데이, ICT챌린지 등 KT의 여러 행사를 AI 아나운서 '아이린'이 전달하는 영상으로 만들었습니다.\n" +
@@ -173,7 +173,7 @@ const moreTabs: { id: string; label: string; items: Card[] }[] = [
       {
         label: "VR 기반 공감각 미디어아트",
         title: "Dorememe",
-        body: "사용자의 움직임을 음악으로 바꾸는 VR 인터랙티브 콘텐츠입니다. 결과 대기 시간을 1분 이상에서 10~20초로 줄였습니다.",
+        body: "VR 공간에 3D 그림을 그리면 AI가 위치, 색상 등의 정보로 음악을 생성하는 인터랙티브 콘텐츠입니다. 결과 대기 시간을 약 1분에서 10초로 줄였습니다.",
         tags: ["Unity", "PyTorch"],
         video: "/media/dorememe.mp4",
       },
