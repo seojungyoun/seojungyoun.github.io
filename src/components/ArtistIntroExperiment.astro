@@ -1,18 +1,16 @@
 ---
-import { siteConfig } from "../config";
-const {
-  headline = siteConfig.hero.headline,
-  signature = siteConfig.name,
-  summary = siteConfig.hero.summary,
-  primaryCta = siteConfig.hero.primaryCta,
-  secondaryCta = siteConfig.hero.secondaryCta,
-  signatureDetail = undefined,
-} = Astro.props;
-const lines = headline.split("\n");
+import { siteConfig as defaultConfig } from "../config";
+
+interface Props {
+  config?: typeof defaultConfig;
+  showProfile?: boolean;
+}
+const { config: siteConfig = defaultConfig, showProfile = false } = Astro.props;
+const lines = siteConfig.hero.headline.split("\n");
 ---
 
 <section class="type-intro" aria-labelledby="intro-heading">
-  <h1 id="intro-heading" aria-label={headline}>
+  <h1 id="intro-heading" aria-label={siteConfig.hero.headline}>
     {lines.map((line, lineIndex) => (
       <span class="type-line" aria-hidden="true" style={`--line-index: ${lineIndex}`}>
         {line.split(" ").map((word) => <span class="type-word">{Array.from(word).map((letter) => <span class="type-letter">{letter}</span>)}</span>)}
@@ -20,17 +18,15 @@ const lines = headline.split("\n");
     ))}
   </h1>
   <div class="intro-bottom">
-    <div class="intro-signature">
-      <div>
-        <span class="signature-name">{signature}</span>
-        {signatureDetail && <p class="signature-detail">{signatureDetail}</p>}
-      </div>
+    <div class:list={["intro-signature", { "with-profile": showProfile }]}>
+      <span>{siteConfig.name}</span>
+      {showProfile && <img src={siteConfig.profileImage} width="1664" height="2496" alt="서정윤 프로필 사진" class="signature-profile" />}
     </div>
     <div class="intro-detail">
-      <p>{summary.split("\n").map((line, i) => <span class="summary-line" style={`--i: ${i}`}>{line}</span>)}</p>
+      <p>{siteConfig.hero.summary}</p>
       <div class="intro-links flex flex-wrap items-center gap-6">
-        <a href={primaryCta.href}>{primaryCta.label}</a>
-        {secondaryCta && <a href={secondaryCta.href}>{secondaryCta.label}</a>}
+        <a href={siteConfig.hero.primaryCta.href}>{siteConfig.hero.primaryCta.label}</a>
+        <a href={siteConfig.hero.secondaryCta.href}>{siteConfig.hero.secondaryCta.label}</a>
       </div>
     </div>
   </div>
@@ -54,6 +50,8 @@ const lines = headline.split("\n");
   .type-line:last-child .type-letter.is-near { color: var(--ink); }
   .intro-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; padding-top: 2rem; border-top: 1px solid var(--line); }
   .intro-signature { display: flex; align-items: flex-start; gap: 1rem; font-size: .95rem; }
+  .intro-signature.with-profile { flex-direction: column; gap: 1.5rem; }
+  .signature-profile { width: 150px; height: 190px; object-fit: cover; object-position: center 22%; border-radius: 40%; box-shadow: 0 12px 35px rgba(40, 100, 140, .09); }
   .signature-mark { color: var(--accent); font-size: 3rem; line-height: 1; }
   .intro-signature small { display: block; margin-top: .4rem; font-family: "Pretendard", sans-serif; font-size: .65rem; color: var(--muted); }
   .intro-detail p { margin: 0; color: var(--muted); font-size: .85rem; line-height: 1.95; }

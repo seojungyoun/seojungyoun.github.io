@@ -1,14 +1,21 @@
 ---
 import { siteConfig } from "../config";
 
-const defaultNavItems = [
+interface Props {
+  resume?: boolean;
+}
+const { resume = false } = Astro.props;
+const navItems = resume ? [
+  { href: "#top", label: "소개", num: "01" },
+  { href: "#full-archive", label: "경력·수상", num: "02" },
+  { href: "#featured-projects", label: "대표 작업", num: "03" },
+  { href: "#management-layer", label: "활용 기술", num: "04" },
+] : [
   { href: "#top", label: "소개", num: "01" },
   { href: "#featured-projects", label: "프로젝트", num: "02" },
   { href: "#management-layer", label: "경험", num: "03" },
   { href: "#full-archive", label: "전체 이력", num: "04" },
 ];
-const { items = defaultNavItems, brand } = Astro.props;
-const navItems = items;
 ---
 
 <header
@@ -17,7 +24,7 @@ const navItems = items;
 >
   <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
     <a href="#top" class="brand-lockup">
-      <strong>{brand ?? siteConfig.name.split(" | ").at(-1)}</strong>
+      <strong>{siteConfig.name.split(" | ").at(-1)}</strong>
     </a>
 
     <!-- 데스크탑 메뉴 -->

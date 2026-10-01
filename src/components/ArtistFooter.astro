@@ -1,5 +1,10 @@
 ---
-import { siteConfig } from "../config";
+import { siteConfig as defaultConfig } from "../config";
+
+interface Props {
+  config?: typeof defaultConfig;
+}
+const { config: siteConfig = defaultConfig } = Astro.props;
 
 const socialEntries = [
   { label: "이메일", href: siteConfig.social.email ? `mailto:${siteConfig.social.email}` : undefined },
