@@ -1,7 +1,16 @@
 ---
 import { siteConfig } from "../config";
 
-const navItems = [
+interface Props {
+  resume?: boolean;
+}
+const { resume = false } = Astro.props;
+const navItems = resume ? [
+  { href: "#top", label: "소개", num: "01" },
+  { href: "#full-archive", label: "경력·수상", num: "02" },
+  { href: "#featured-projects", label: "대표 작업", num: "03" },
+  { href: "#management-layer", label: "활용 기술", num: "04" },
+] : [
   { href: "#top", label: "소개", num: "01" },
   { href: "#featured-projects", label: "프로젝트", num: "02" },
   { href: "#management-layer", label: "경험", num: "03" },

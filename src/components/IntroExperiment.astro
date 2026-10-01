@@ -1,5 +1,11 @@
 ---
-import { siteConfig } from "../config";
+import { siteConfig as defaultConfig } from "../config";
+
+interface Props {
+  config?: typeof defaultConfig;
+  showProfile?: boolean;
+}
+const { config: siteConfig = defaultConfig, showProfile = false } = Astro.props;
 const lines = siteConfig.hero.headline.split("\n");
 ---
 
@@ -12,8 +18,9 @@ const lines = siteConfig.hero.headline.split("\n");
     ))}
   </h1>
   <div class="intro-bottom">
-    <div class="intro-signature">
+    <div class:list={["intro-signature", { "with-profile": showProfile }]}>
       <span>{siteConfig.name}</span>
+      {showProfile && <img src={siteConfig.profileImage} width="1664" height="2496" alt="서정윤 프로필 사진" class="signature-profile" />}
     </div>
     <div class="intro-detail">
       <p>{siteConfig.hero.summary}</p>
@@ -43,6 +50,8 @@ const lines = siteConfig.hero.headline.split("\n");
   .type-line:last-child .type-letter.is-near { color: var(--ink); }
   .intro-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; padding-top: 2rem; border-top: 1px solid var(--line); }
   .intro-signature { display: flex; align-items: flex-start; gap: 1rem; font-size: .95rem; }
+  .intro-signature.with-profile { flex-direction: column; gap: 1.5rem; }
+  .signature-profile { width: 150px; height: 190px; object-fit: cover; object-position: center 22%; border-radius: 40%; box-shadow: 0 12px 35px rgba(40, 100, 140, .09); }
   .signature-mark { color: var(--accent); font-size: 3rem; line-height: 1; }
   .intro-signature small { display: block; margin-top: .4rem; font-family: "Pretendard", sans-serif; font-size: .65rem; color: var(--muted); }
   .intro-detail p { margin: 0; color: var(--muted); font-size: .85rem; line-height: 1.95; }

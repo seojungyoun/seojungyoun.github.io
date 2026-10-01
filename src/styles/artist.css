@@ -1,0 +1,24 @@
+/* Only the dedicated AI Artist resume receives the sky-blue palette. */
+body.artist-resume {
+  --accent-color: #009be6;
+  --accent-dark: #0078b5;
+  --line: rgba(50, 115, 150, .14);
+  --cream: #ffffff;
+  background-color: #ffffff;
+  background-image: radial-gradient(ellipse at 95% 8%, rgba(0, 155, 230, .08) 0, transparent 30%), radial-gradient(ellipse at 0% 75%, rgba(0, 155, 230, .035) 0, transparent 25%);
+}
+.artist-resume #header { background: rgba(255, 255, 255, .92); }
+.artist-resume .feature-status { background: rgba(0, 155, 230, .055); }
+.artist-resume .tool-cloud span,
+.artist-resume .skill-cloud span,
+.artist-resume .tag-row span { color: #286681; border-color: rgba(50, 115, 150, .15); }
+.artist-resume .archive-tab-row { background: rgba(255, 255, 255, .92); }
+.artist-resume footer { background: #ffffff !important; }
+
+.artist-resume .intro-detail p { color: #111111; }
+
+.artist-resume .artist-tools { margin-top: 1.5rem; font-size: .8rem; line-height: 1.8; color: #374151; }
+
+.artist-resume .archive-embedded-video { margin-top: 1.25rem; }
+.artist-resume .archive-embedded-video iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 1rem; }
+.artist-resume .archive-embedded-video .inline-link { margin-top: .75rem; }
