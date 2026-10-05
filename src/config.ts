@@ -245,7 +245,6 @@ export const siteConfig = {
           ],
           link: "https://phris.io/?demo=1",
           linkLabel: "체험하기",
-          tags: ["Expo", "React Native", "TypeScript", "Supabase"],
         },
         {
           title: "장학생 통합 운영 플랫폼",
