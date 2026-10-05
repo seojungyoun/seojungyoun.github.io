@@ -246,7 +246,6 @@ export const siteConfig = {
           link: "https://phris.io/?demo=1",
           linkLabel: "체험하기",
         },
-        {
           title: "장학생 통합 운영 플랫폼",
           subtitle: "SKALA 미니 프로젝트 · 서비스 기획·설계",
           description:
