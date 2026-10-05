@@ -151,7 +151,6 @@ export const siteConfig = {
         "학습 언어 기반 피드와 월별 표현 아카이브 구현",
         "모임·1:1 채팅을 연결한 소셜 학습 경험 설계",
       ],
-      stack: ["Expo", "React Native", "TypeScript", "Supabase", "App Store"],
       image: "/media/phris-promo.png",
       website: "https://phris.io/?demo=1",
     },
