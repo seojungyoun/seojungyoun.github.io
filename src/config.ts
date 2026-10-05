@@ -134,26 +134,27 @@ export const siteConfig = {
       video: "https://youtu.be/QAWND9Cv4kY?si=FpT3pksDKnzhM8YC",
     },
     {
-      id: "phris",
-      title: "Phris",
-      subtitle: "언어 표현 소셜 아카이브 · App Store 출시",
-      summary:
-        "언어 학습자가 일상에서 발견한 표현을 기록하고, 저장하고, 다른 사용자와 공유하며 함께 학습할 수 있도록 설계한 소셜 컬렉션 앱입니다.",
-      status:
-        "Expo Router와 Supabase를 기반으로 서비스 기획부터 UI/UX, 개발, 배포까지 전 과정을 수행했으며 App Store에 정식 출시했습니다.",
-      role: [
-        "서비스 전체 기획 및 모바일 UI/UX 설계",
-        "표현 피드·모임·채팅·보관함 기능 구현",
-        "인증·데이터베이스 구조 설계 및 App Store 배포",
-      ],
-      proof: [
-        "App Store 정식 출시",
-        "학습 언어 기반 피드와 월별 표현 아카이브 구현",
-        "모임·1:1 채팅을 연결한 소셜 학습 경험 설계",
-      ],
-      image: "/media/phris-promo.png",
-      website: "https://phris.io/?demo=1",
-    },
+    id: "phris",
+    title: "Phris",
+    subtitle: "언어 표현 소셜 아카이브 · App Store 출시",
+    summary:
+      "언어 학습자가 일상에서 발견한 표현을 기록하고, 저장하고, 다른 사용자와 공유하며 함께 학습할 수 있도록 설계한 소셜 컬렉션 앱입니다.",
+    status:
+      "Expo Router와 Supabase를 기반으로 서비스 기획부터 UI/UX, 개발, 배포까지 전 과정을 수행했으며 App Store에 정식 출시했습니다.",
+    role: [
+      "서비스 전체 기획 및 모바일 UI/UX 설계",
+      "표현 피드·모임·채팅·보관함 기능 구현",
+      "인증·데이터베이스 구조 설계 및 App Store 배포",
+    ],
+    proof: [
+      "App Store 정식 출시",
+      "학습 언어 기반 피드와 월별 표현 아카이브 구현",
+      "모임·1:1 채팅을 연결한 소셜 학습 경험 설계",
+    ],
+    stack: [],
+    image: "/media/phris-promo.png",
+    website: "https://phris.io/?demo=1",
+  },
   ] satisfies HighlightProject[],
   management: {
     title: "기획부터 실행까지 설계하는 인재",
