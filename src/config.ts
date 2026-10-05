@@ -57,9 +57,11 @@ export const siteConfig = {
   softColor: "#f7f7f5",
   social: {
     email: "bellita@naver.com",
-    linkedin: "https://www.linkedin.com/in/%EC%A0%95%EC%9C%A4-%EC%84%9C-71b989274/",
+    linkedin:
+      "https://www.linkedin.com/in/%EC%A0%95%EC%9C%A4-%EC%84%9C-71b989274/",
     github: "https://github.com/seojungyoun",
   } satisfies SocialLinks,
+
   hero: {
     eyebrow: "AI-Human Creative Collaboration",
     headline: "Bridging AI, Technology,\nand Creative Ideas.",
@@ -79,11 +81,13 @@ export const siteConfig = {
       { label: "협업", value: "대기업·지자체·학교" },
     ] satisfies HeroStat[],
   },
+
   about: {
     heading: "데이터 흐름을 설계하고,\n소통하는 AI/AX 서비스 기획·개발",
     body:
       "덕성여자대학교 IT미디어공학과에서 4.2/4.5 학점을 유지하며, 생성형 AI 워크플로우 설계, Unity 기반 실감형 콘텐츠, 웹/앱 개발과 서비스 기획을 함께 다뤄왔습니다. 다양한 기술을 활용하여 문제를 구조화하고, 더 나은 사용자 경험을 만들어 나갑니다.",
   },
+
   highlightProjects: [
     {
       id: "flimflow",
@@ -105,7 +109,10 @@ export const siteConfig = {
       ],
       stack: ["LangChain", "LangGraph", "Stable Diffusion", "Veo3", "Python"],
       video: "https://youtu.be/d4_xoC0egl4?si=HVRcyg-W-ricGCCU",
-      diagrams: ["/media/flimflow-diagram-1.png", "/media/flimflow-diagram-2.png"],
+      diagrams: [
+        "/media/flimflow-diagram-1.png",
+        "/media/flimflow-diagram-2.png",
+      ],
       diagramCaptions: [
         "도1 — 장면 일관성 평가 흐름도: 스토리보드 파싱 → 6축 충분성 평가 → 재생성/승인 분기",
         "도2 — 전체 파이프라인 아키텍처: PDF 입력 → 프롬프트 생성 → 이미지·영상 출력까지의 시스템 흐름",
@@ -134,40 +141,58 @@ export const siteConfig = {
       video: "https://youtu.be/QAWND9Cv4kY?si=FpT3pksDKnzhM8YC",
     },
     {
-    id: "phris",
-    title: "Phris",
-    subtitle: "언어 표현 소셜 아카이브 · App Store 출시",
-    summary:
-      "언어 학습자가 일상에서 발견한 표현을 기록하고, 저장하고, 다른 사용자와 공유하며 함께 학습할 수 있도록 설계한 소셜 컬렉션 앱입니다.",
-    status:
-      "Expo Router와 Supabase를 기반으로 서비스 기획부터 UI/UX, 개발, 배포까지 전 과정을 수행했으며 App Store에 정식 출시했습니다.",
-    role: [
-      "서비스 전체 기획 및 모바일 UI/UX 설계",
-      "표현 피드·모임·채팅·보관함 기능 구현",
-      "인증·데이터베이스 구조 설계 및 App Store 배포",
-    ],
-    proof: [
-      "App Store 정식 출시",
-      "학습 언어 기반 피드와 월별 표현 아카이브 구현",
-      "모임·1:1 채팅을 연결한 소셜 학습 경험 설계",
-    ],
-    stack: [],
-    image: "/media/phris-promo.png",
-    website: "https://phris.io/?demo=1",
-  },
+      id: "phris",
+      title: "Phris",
+      subtitle: "언어 표현 소셜 아카이브 · 출시",
+      summary:
+        "언어 학습자가 일상에서 발견한 표현을 기록하고, 저장하고, 다른 사용자와 공유하며 함께 학습할 수 있도록 설계한 소셜 컬렉션 앱입니다.",
+      status:
+        "Expo Router와 Supabase를 기반으로 서비스 기획부터 UI/UX, 개발, 배포까지 전 과정을 수행했으며 정식 출시했습니다.",
+      role: [
+        "서비스 전체 기획 및 모바일 UI/UX 설계",
+        "표현 피드·모임·채팅·보관함 기능 구현",
+        "인증·데이터베이스 구조 설계 및 앱 배포",
+      ],
+      proof: [
+        "정식 출시",
+        "학습 언어 기반 피드와 월별 표현 아카이브 구현",
+        "모임·1:1 채팅을 연결한 소셜 학습 경험 설계",
+      ],
+      stack: [],
+      image: "/media/phris-promo.png",
+      website: "https://phris.io/?demo=1",
+    },
   ] satisfies HighlightProject[],
+
   management: {
     title: "기획부터 실행까지 설계하는 인재",
     summary:
       "프로젝트를 기획하는 데서 멈추지 않고, 운영 흐름과 협업 구조를 함께 설계해왔습니다.\nKT디지털인재장학생 활동과 인턴십을 통해 콘텐츠 발행, 협업 조율, 실행 관리 경험을 쌓았습니다.",
     metrics: [
-      { label: "KT디지털인재장학생", value: "운영진 · 우수장학생", detail: "KT와 협업하며 장학생 활동 기획·운영" },
-      { label: "KT디지털인재장학생 공식 SNS 콘텐츠", value: "약 60건", detail: "콘텐츠 기획·제작과 운영 기획 및 관리" },
-      { label: "인턴십", value: "3회", detail: "콘텐츠 제작, 자동화, 운영 경험 축적" },
-      { label: "협업 툴", value: "Slack · Notion · Figma", detail: "기획 문서 작성과 진행 리드 경험" },
+      {
+        label: "KT디지털인재장학생",
+        value: "운영진 · 우수장학생",
+        detail: "KT와 협업하며 장학생 활동 기획·운영",
+      },
+      {
+        label: "KT디지털인재장학생 공식 SNS 콘텐츠",
+        value: "약 60건",
+        detail: "콘텐츠 기획·제작과 운영 기획 및 관리",
+      },
+      {
+        label: "인턴십",
+        value: "3회",
+        detail: "콘텐츠 제작, 자동화, 운영 경험 축적",
+      },
+      {
+        label: "협업 툴",
+        value: "Slack · Notion · Figma",
+        detail: "기획 문서 작성과 진행 리드 경험",
+      },
     ],
     tools: ["Slack", "Notion", "Figma", "Excel", "Google Sheets"],
   },
+
   skills: [
     "Python",
     "Unity (C#)",
@@ -183,6 +208,7 @@ export const siteConfig = {
     "Linux",
     "Unreal (C++)",
   ],
+
   archiveTabs: [
     {
       id: "projects",
@@ -234,18 +260,19 @@ export const siteConfig = {
         },
         {
           title: "Phris",
-          subtitle: "언어 표현 소셜 아카이브 · App Store 출시",
+          subtitle: "언어 표현 소셜 아카이브 · 출시",
           image: "/media/phris-promo.png",
           description:
             "언어 학습자가 일상에서 발견한 표현을 기록하고 저장하며, 모임과 채팅을 통해 다른 사용자와 함께 학습할 수 있는 소셜 컬렉션 앱입니다.",
           bullets: [
             "서비스 기획부터 UI/UX, 개발, 배포까지 전 과정 수행",
             "표현 피드·모임·채팅·월별 보관함 기능 구현",
-            "App Store 정식 출시",
+            "정식 출시",
           ],
           link: "https://phris.io/?demo=1",
           linkLabel: "체험하기",
         },
+        {
           title: "장학생 통합 운영 플랫폼",
           subtitle: "SKALA 미니 프로젝트 · 서비스 기획·설계",
           description:
@@ -343,6 +370,7 @@ export const siteConfig = {
         },
       ],
     },
+
     {
       id: "internships",
       label: "인턴십",
@@ -367,6 +395,7 @@ export const siteConfig = {
         },
       ],
     },
+
     {
       id: "awards",
       label: "수상",
@@ -378,7 +407,11 @@ export const siteConfig = {
             "생성형 AI 기반 영상 작품을 기획·제작해 2026 K-AI 공모전 콘텐츠 영상 대상을 수상했습니다.",
           link: "https://youtu.be/tz3NOHHITt0?si=dEyGXD6hElddrrB1",
           linkLabel: "수상작 보기",
-          tags: ["K-AI", "콘텐츠 영상 대상", "한국방송통신전파진흥원"],
+          tags: [
+            "K-AI",
+            "콘텐츠 영상 대상",
+            "한국방송통신전파진흥원",
+          ],
         },
         {
           title: "한국미디어아트산업협회(KMAIA) 우수논문상",
@@ -399,21 +432,25 @@ export const siteConfig = {
         {
           title: "경기콘텐츠진흥원장상",
           subtitle: "2024",
-          description: "실버 세대 여행 지원 VR/MR 메타버스 콘텐츠 개발 성과로 수상했습니다.",
+          description:
+            "실버 세대 여행 지원 VR/MR 메타버스 콘텐츠 개발 성과로 수상했습니다.",
         },
         {
           title: "덕성여자대학교 연합해커톤 수상",
           subtitle: "2023",
-          description: "졸업 정보 아카이빙 웹 서비스 '졸업을 도와조' 프론트엔드 개발로 수상했습니다.",
+          description:
+            "졸업 정보 아카이빙 웹 서비스 '졸업을 도와조' 프론트엔드 개발로 수상했습니다.",
           image: "/media/duksung.png",
         },
         {
           title: "Microsoft Office Specialist : Excel 2016 Expert",
           subtitle: "자격증",
-          description: "데이터 정리와 운영 문서 제작 역량을 보여주는 자격 취득입니다.",
+          description:
+            "데이터 정리와 운영 문서 제작 역량을 보여주는 자격 취득입니다.",
         },
       ],
     },
+
     {
       id: "activities",
       label: "활동",
@@ -456,13 +493,15 @@ export const siteConfig = {
         },
       ],
     },
+
     {
       id: "education",
       label: "학력",
       items: [
         {
           title: "덕성여자대학교",
-          subtitle: "IT미디어공학과 · GPA 4.2 / 4.5 · 2022 - 2027.02 졸업예정",
+          subtitle:
+            "IT미디어공학과 · GPA 4.2 / 4.5 · 2022 - 2027.02 졸업예정",
           description:
             "AI, 미디어, 프론트엔드, 실감형 콘텐츠를 아우르는 전공 기반 위에서 기획과 구현 경험을 함께 쌓았습니다.",
         },
@@ -475,6 +514,7 @@ export const siteConfig = {
       ],
     },
   ] satisfies ArchiveTab[],
+
   archive: {
     reviewerSummaryHref: "",
   },
